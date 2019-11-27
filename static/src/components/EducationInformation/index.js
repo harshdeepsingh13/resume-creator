@@ -6,7 +6,9 @@ import {InputDate, InputFields, InputNumber, InputSelect, InputSubmit, InputText
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
-import {updateEducationInformation} from "../../services/axios.service";
+import {getEducationInformation, updateEducationInformation} from "../../services/axios.service";
+import SuccessAlert from "../SuccessAlert";
+import Loader from "../Loader";
 
 library.add(faTimes);
 
@@ -24,7 +26,6 @@ const EducationInformation = props => {
 		                      }
 	                      },
 	                      index) => {
-		console.log('handleChangeFromProps', name, value, typeof value);
 		setEducationInformation({
 			...educationInformation,
 			educations: [
@@ -73,51 +74,68 @@ const EducationInformation = props => {
 
 	const saveEducationInformation = async () => {
 		setUpdateEducationInformationStatus(STATUS.STARTED);
-		console.log('mapn', educationInformation.educations.map(educationDetails => (
-			{
-				...educationDetails,
-				isPresent: educationDetails.isPresent === "true",
-				isPercentage: educationDetails.isPercentage === 'true',
-				isCGPA: educationDetails.isCGPA === 'true'
-			}
-		)));
 		try {
-			const response = await updateEducationInformation(
+			await updateEducationInformation(
 				educationInformation.educations.map(educationDetails => (
 					{
 						...educationDetails,
 						isPresent: educationDetails.isPresent === "true",
-						isPercentage: educationDetails.isPercentage !== 'true',
+						isPercentage: educationDetails.isPercentage === 'true',
 						isCGPA: educationDetails.isCGPA === 'true'
 					}
 				))
 			);
-			console.log('education save API response', response);
 			setUpdateEducationInformationStatus(STATUS.SUCCESS);
 		} catch (e) {
-			console.log('education save API error', e);
 		}
 	};
 
 	useEffect(
-		() => {
+		async () => {
+			setEducationInformation({
+				...educationInformation,
+				status: STATUS.STARTED
+			});
+			const {
+				data: {
+					data: {
+						educationInformation: {
+							educationInformation: {
+								educations
+							}
+						}
+					}
+				}
+			} = await getEducationInformation();
 			setEducationInformation(
 				{
 					...educationInformation,
-					educations: [
-						{
-							type: "default",
-							instituteName: undefined,
-							university: undefined,
-							startDate: undefined,
-							endDate: undefined,
-							isPresent: "false",
-							course: undefined,
-							score: undefined,
-							isPercentage: "true",
-							isCGPA: "false"
-						}
-					]
+					status: STATUS.SUCCESS,
+					educations: educations.length ?
+						[
+							...educations.map(education => ({
+								...education,
+								startDate: new Date(education.startDate).toISOString().slice(0, 7),
+								endDate: education.endDate ? new Date(education.endDate).toISOString().slice(0, 7) : undefined,
+								isPresent: education.isPresent.toString(),
+								isPercentage: education.isPercentage.toString(),
+								isCGPA: education.isCGPA.toString()
+							}))
+						] :
+						[
+							{
+								type: "default",
+								instituteName: undefined,
+								university: undefined,
+								startDate: undefined,
+								endDate: undefined,
+								isPresent: "false",
+								course: undefined,
+								score: undefined,
+								isPercentage: "true",
+								isCGPA: "false"
+							}
+						]
 				}
 			)
 		},
@@ -126,34 +144,49 @@ const EducationInformation = props => {
 	return (
 		<div className="educationInformation-container">
 			<h2>Education Details</h2>
-			<InputFields>
-				{
-					educationInformation.educations.map((education, index) => (
-						<EducationInstance
-							key={index}
-							education={education}
-							index={index}
-							handleChange={handleChange}
-							handleClose={removeEducationInstance}
-						/>
-					))
-				}
-				<InputSubmit
-					theme={'secondary-button'}
-					text={"+ Add"}
-					styles={
-						{
-							width: "10%",
-							alignItems: 'right'
-						}
+			{
+				updateEducationInformationStatus === STATUS.SUCCESS &&
+				<SuccessAlert
+					title={"Your updates are successfully saved!"}
+					onSuccess={() => setUpdateEducationInformationStatus(STATUS.DEFAULT)}
+				/>
+
+			}
+			{
+				educationInformation.status === STATUS.STARTED &&
+				<Loader/>
+			}
+			{
+				educationInformation.status === STATUS.SUCCESS &&
+				<InputFields>
+					{
+						educationInformation.educations.map((education, index) => (
+							<EducationInstance
+								key={index}
+								education={education}
+								index={index}
+								handleChange={handleChange}
+								handleClose={removeEducationInstance}
+							/>
+						))
 					}
-					handleClick={addEducationInstance}
-				/>
-				<InputSubmit
-					text={"Save"}
-					handleClick={saveEducationInformation}
-				/>
-			</InputFields>
+					<InputSubmit
+						theme={'secondary-button'}
+						text={"+ Add"}
+						styles={
+							{
+								width: "10%",
+								alignItems: 'right'
+							}
+						}
+						handleClick={addEducationInstance}
+					/>
+					<InputSubmit
+						text={"Save"}
+						handleClick={saveEducationInformation}
+					/>
+				</InputFields>
+			}
 		</div>
 	)
 };
