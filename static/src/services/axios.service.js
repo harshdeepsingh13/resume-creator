@@ -62,3 +62,10 @@ export const updateEducationInformation = educationInformation =>
 		}
 	);
 
+export const getEducationInformation = () =>
+	axiosInstance()(
+		{
+			method: "GET",
+			url: '/api/v1/user/educationInformation'
+		}
+	)
