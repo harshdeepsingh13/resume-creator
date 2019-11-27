@@ -1,0 +1,9 @@
+@import "../../App";
+
+.signup-container {
+  @extend %formFields-container;
+  .name-container{
+    display: flex;
+    justify-content: space-between;
+  }
+}

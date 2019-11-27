@@ -1,0 +1,10 @@
+@import "../../App";
+
+.basicInformation-container {
+  .currentLocation-container {
+    .currentLocation {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

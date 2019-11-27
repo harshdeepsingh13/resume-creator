@@ -1,0 +1,28 @@
+@import "../../App";
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  line-height: 20px;
+  border: thin solid;
+
+  .navbar {
+    border: thin solid red;
+    display: flex;
+    flex-basis: 40%;
+    justify-content: space-around;
+
+    .inputFields-container {
+      flex-direction: row;
+      flex-basis: 30%;
+
+      .field-container {
+        width: 100%
+      }
+
+      border: thin solid magenta;
+    }
+  }
+}

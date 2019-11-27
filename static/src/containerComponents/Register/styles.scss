@@ -1,0 +1,25 @@
+@import "../../App";
+
+.register-container {
+  .register-tabs-container {
+    width: 35%;
+    margin: 15px auto;
+
+    .register-tabs-header-container {
+      display: flex;
+      justify-content: space-around;
+
+      .register-tabs-header {
+        line-height: 40px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: $border-radius;
+        transition: $transition-time;
+      }
+
+      .register-tabs-header:hover {
+        background-color: $primary-teal-greyed-out;
+      }
+    }
+  }
+}
