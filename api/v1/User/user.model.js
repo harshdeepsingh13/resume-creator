@@ -190,3 +190,13 @@ const updated = [];
 	}
 	return updated;
 };
+
+exports.getEducationInformation = email =>
+	User.findOne(
+		{
+			email
+		},
+		{
+			...educationInformationProjection
+		}
+	);
