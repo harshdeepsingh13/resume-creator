@@ -165,7 +165,31 @@ const updated = [];
 	const toPush = educationInformation.filter(education => !education._id);
 
 	for (let educationDetail of toUpdate) {
-
+		const updatedRecord = await  User.findOneAndUpdate(
+			{
+				email,
+				'educationInformation.educations._id': educationDetail._id
+			},
+			{
+				$set: {
+					'educationInformation.educations.$.isPercentage': educationDetail.isPercentage,
+					'educationInformation.educations.$.isPresent': educationDetail.isPresent,
+					'educationInformation.educations.$.isCGPA': educationDetail.isCGPA,
+					'educationInformation.educations.$.type': educationDetail.type,
+					'educationInformation.educations.$.instituteName': educationDetail.instituteName,
+					'educationInformation.educations.$.university': educationDetail.university,
+					'educationInformation.educations.$.startDate': educationDetail.startDate,
+					'educationInformation.educations.$.endDate': educationDetail.endDate,
+					'educationInformation.educations.$.score': educationDetail.score
+				}
+			},
+			{
+				new:true,
+				fields: {...educationInformationProjection},
+				useFindAndModify: false
+			}
+		);
+		updated.push(updatedRecord);
 	}
 	for (let educationDetail of toPush) {
 		const updatedRecord = await User.findOneAndUpdate(
