@@ -6,7 +6,7 @@ import EducationInformation from "../../components/EducationInformation";
 const AllDetails = props => {
 	return (
 		<div className="allDetails-container">
-			<BasicInformation/>
+			{/*<BasicInformation/>*/}
 			<EducationInformation/>
 		</div>
 	)
