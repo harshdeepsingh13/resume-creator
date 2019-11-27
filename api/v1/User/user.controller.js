@@ -137,21 +137,18 @@ exports.updateBasicInformationController = async (req, res, next) => {
 };
 
 exports.updateEducationInformationController = async (req, res, next) => {
-	console.log('updateEducationInformationController ', req.body, req.user);
 	try{
 		const {
-			educationInformation,
-			educationInformation: {
-				isPercentage,
-				isCGPA
-			}
+			educationInformation
 		} = req.body;
-		if ((isPercentage && isCGPA) || (!isPercentage && !isCGPA)) {
-			req.error = {
-				status: 400,
-				message: 'Out of percentage and CGPA only and at most one has to be true.'
+		for( let {isPercentage, isCGPA} of educationInformation) {
+			if ((isPercentage && isCGPA) || (!isPercentage && !isCGPA)) {
+				req.error = {
+					status: 400,
+					message: 'Out of percentage and CGPA only and at most one has to be true.'
+				};
+				next(new Error());
 			}
-			next(new Error());
 		}
 		let updated = await updateEducationInformation(req.user.email, educationInformation);
 		res.status(200).json(
