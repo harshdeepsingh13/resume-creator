@@ -1,6 +1,6 @@
 const {getPayload, getToken} = require("../../../services/jwt.service");
 const {comparePassword, encryptPassword} = require("../../../services/password.service");
-const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation} = require("./user.model");
+const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation, getEducationInformation} = require("./user.model");
 const {logger} = require('../../../config/config');
 const {getAvatarLink} = require('../../../services/cloudinary.service');
 const checkWebsiteLink = require('../../../services/checkWebsiteLink.service');
@@ -165,6 +165,23 @@ exports.updateEducationInformationController = async (req, res, next) => {
 		)
 	}
 	catch (e) {
+		next(e);
+	}
+};
+
+exports.getEducationInformationController = async (req, res, next) => {
+	try {
+		const educationInformation = await getEducationInformation(req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "education information successfully retrieved.",
+				data: {
+					educationInformation
+				}
+			}
+		);
+	} catch (e) {
 		next(e);
 	}
 };
