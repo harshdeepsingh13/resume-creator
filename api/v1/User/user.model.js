@@ -29,6 +29,11 @@ const educationInformationProjection = {
 	educationInformation: 1
 };
 
+const skillInformationProjection = {
+	_id: 0,
+	skills: 1
+};
+
 const UserSchema = new mongoose.Schema(
 	{
 		name: {
@@ -74,6 +79,9 @@ const UserSchema = new mongoose.Schema(
 			educations: {
 				type: [EducationsSchema]
 			}
+		},
+		skills: {
+			type: Array
 		}
 	},
 	{
@@ -160,12 +168,12 @@ exports.updateEducationInformation = async (email, educationInformation) => {
 			educations:[...educationInformation]
 		}
 	}*/
-const updated = [];
+	const updated = [];
 	const toUpdate = educationInformation.filter(education => education._id);
 	const toPush = educationInformation.filter(education => !education._id);
 
 	for (let educationDetail of toUpdate) {
-		const updatedRecord = await  User.findOneAndUpdate(
+		const updatedRecord = await User.findOneAndUpdate(
 			{
 				email,
 				'educationInformation.educations._id': educationDetail._id
@@ -184,7 +192,7 @@ const updated = [];
 				}
 			},
 			{
-				new:true,
+				new: true,
 				fields: {...educationInformationProjection},
 				useFindAndModify: false
 			}
@@ -222,5 +230,30 @@ exports.getEducationInformation = email =>
 		},
 		{
 			...educationInformationProjection
+		}
+	);
+
+exports.updateSkillInformation = (skills, email) =>
+	User.findOneAndUpdate(
+		{
+			email
+		},
+		{
+			skills
+		},
+		{
+			new: true,
+			useFindAndModify: false,
+			fields: {...skillInformationProjection}
+		}
+	);
+
+exports.getSkillInformation = email =>
+	User.findOne(
+		{
+			email
+		},
+		{
+			...skillInformationProjection
 		}
 	);
