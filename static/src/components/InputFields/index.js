@@ -1604,7 +1604,7 @@ InputSubmit.propTypes = {
 	styles: PropTypes.object,
 	isDisabled: PropTypes.bool,
 	loader: PropTypes.bool,
-	theme: PropTypes.string
+	theme: PropTypes.oneOf(['main-button', 'secondary-button'])
 };
 InputSubmit.defaultProps = {
 	text: 'Input Type Submit',
