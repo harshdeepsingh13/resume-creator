@@ -68,4 +68,23 @@ export const getEducationInformation = () =>
 			method: "GET",
 			url: '/api/v1/user/educationInformation'
 		}
-	)
+	);
+
+export const updateSkillInformation = (skills) =>
+	axiosInstance()(
+		{
+			method: 'POST',
+			url: '/api/v1/user/skillInformation',
+			data: {
+				skills
+			}
+		}
+	);
+
+export const getSkillInformation = () =>
+	axiosInstance()(
+		{
+			method: "GET",
+			url: "/api/v1/user/skillInformation"
+		}
+	);
