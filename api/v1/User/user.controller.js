@@ -1,6 +1,6 @@
 const {getPayload, getToken} = require("../../../services/jwt.service");
 const {comparePassword, encryptPassword} = require("../../../services/password.service");
-const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation, getEducationInformation} = require("./user.model");
+const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation, getEducationInformation, updateSkillInformation, getSkillInformation} = require("./user.model");
 const {logger} = require('../../../config/config');
 const {getAvatarLink} = require('../../../services/cloudinary.service');
 const checkWebsiteLink = require('../../../services/checkWebsiteLink.service');
@@ -137,11 +137,11 @@ exports.updateBasicInformationController = async (req, res, next) => {
 };
 
 exports.updateEducationInformationController = async (req, res, next) => {
-	try{
+	try {
 		const {
 			educationInformation
 		} = req.body;
-		for( let {isPercentage, isCGPA} of educationInformation) {
+		for (let {isPercentage, isCGPA} of educationInformation) {
 			if ((isPercentage && isCGPA) || (!isPercentage && !isCGPA)) {
 				req.error = {
 					status: 400,
@@ -160,8 +160,7 @@ exports.updateEducationInformationController = async (req, res, next) => {
 				]
 			}
 		)
-	}
-	catch (e) {
+	} catch (e) {
 		next(e);
 	}
 };
@@ -178,6 +177,44 @@ exports.getEducationInformationController = async (req, res, next) => {
 				}
 			}
 		);
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.updateSkillInformationController = async (req, res, next) => {
+	try {
+		const {
+			skills
+		} = req.body;
+
+		const updated = await updateSkillInformation(skills, req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "Skills updated successfully",
+				data: {
+					...updated
+				}
+			}
+		)
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.getSkillInformationController = async (req, res, next) => {
+	try {
+		const {skills} = await getSkillInformation(req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "data successfully retrieved",
+				data: {
+					skills
+				}
+			}
+		)
 	} catch (e) {
 		next(e);
 	}
