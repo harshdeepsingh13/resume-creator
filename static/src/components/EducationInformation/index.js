@@ -184,6 +184,8 @@ const EducationInformation = props => {
 					<InputSubmit
 						text={"Save"}
 						handleClick={saveEducationInformation}
+						isDisabled={updateEducationInformationStatus === STATUS.STARTED}
+						loader={updateEducationInformationStatus === STATUS.STARTED}
 					/>
 				</InputFields>
 			}
