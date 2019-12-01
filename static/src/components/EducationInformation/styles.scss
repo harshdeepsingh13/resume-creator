@@ -1,10 +1,15 @@
 @import '../../App';
 
 .educationInformation-container {
+  @extend %formFields-container;
+
   .education-container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    border-bottom: thin solid $grey-dark-bb;
+    padding-bottom: 10px;
+
     .educationFields-container {
       flex-basis: 100%;
     }

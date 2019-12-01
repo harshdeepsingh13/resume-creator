@@ -1,6 +1,8 @@
 @import "../../App";
 
 .basicInformation-container {
+  @extend %formFields-container;
+
   .currentLocation-container {
     .currentLocation {
       display: flex;
