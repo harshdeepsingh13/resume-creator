@@ -3,6 +3,7 @@
 .universalTabs-container {
   width: 35%;
   margin: 15px auto;
+
   .tabs {
 
     .tabsHeader-container {
@@ -15,6 +16,10 @@
         width: 100%;
         border-radius: $border-radius;
         transition: $transition-time;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
 
       .tabHeader:hover {
