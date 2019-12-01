@@ -91,59 +91,62 @@ const EducationInformation = props => {
 	};
 
 	useEffect(
-		async () => {
-			setEducationInformation({
-				...educationInformation,
-				status: STATUS.STARTED
-			});
-			const {
-				data: {
+		() => {
+
+			(async () => {
+				setEducationInformation({
+					...educationInformation,
+					status: STATUS.STARTED
+				});
+				const {
 					data: {
-						educationInformation: {
+						data: {
 							educationInformation: {
-								educations
+								educationInformation: {
+									educations
+								}
 							}
 						}
 					}
-				}
-			} = await getEducationInformation();
-			setEducationInformation(
-				{
-					...educationInformation,
-					status: STATUS.SUCCESS,
-					educations: educations.length ?
-						[
-							...educations.map(education => ({
-								...education,
-								startDate: new Date(education.startDate).toISOString().slice(0, 7),
-								endDate: education.endDate ? new Date(education.endDate).toISOString().slice(0, 7) : undefined,
-								isPresent: education.isPresent.toString(),
-								isPercentage: education.isPercentage.toString(),
-								isCGPA: education.isCGPA.toString()
-							}))
-						] :
-						[
-							{
-								type: "default",
-								instituteName: undefined,
-								university: undefined,
-								startDate: undefined,
-								endDate: undefined,
-								isPresent: "false",
-								course: undefined,
-								score: undefined,
-								isPercentage: "true",
-								isCGPA: "false"
-							}
-						]
-				}
-			)
+				} = await getEducationInformation();
+				setEducationInformation(
+					{
+						...educationInformation,
+						status: STATUS.SUCCESS,
+						educations: educations.length ?
+							[
+								...educations.map(education => ({
+									...education,
+									startDate: new Date(education.startDate).toISOString().slice(0, 7),
+									endDate: education.endDate ? new Date(education.endDate).toISOString().slice(0, 7) : undefined,
+									isPresent: education.isPresent.toString(),
+									isPercentage: education.isPercentage.toString(),
+									isCGPA: education.isCGPA.toString()
+								}))
+							] :
+							[
+								{
+									type: "default",
+									instituteName: undefined,
+									university: undefined,
+									startDate: undefined,
+									endDate: undefined,
+									isPresent: "false",
+									course: undefined,
+									score: undefined,
+									isPercentage: "true",
+									isCGPA: "false"
+								}
+							]
+					}
+				)
+			})();
 		},
 		[]
 	);
 	return (
 		<div className="educationInformation-container">
-			<h2>Education Details</h2>
+			{/*<h2>Education Details</h2>*/}
 			{
 				updateEducationInformationStatus === STATUS.SUCCESS &&
 				<SuccessAlert
@@ -175,7 +178,7 @@ const EducationInformation = props => {
 						text={"+ Add"}
 						styles={
 							{
-								width: "10%",
+								width: "20%",
 								alignItems: 'right'
 							}
 						}

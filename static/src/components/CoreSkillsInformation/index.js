@@ -39,28 +39,30 @@ const CoreSkillsInformation = props => {
 	};
 
 	useEffect(
-		async () => {
-			setSkillsInformation(
-				{
-					...skillsInformation,
-					status: STATUS.STARTED
-				}
-			);
-			const {data: {data: {skills}}} = await getSkillInformation();
-			setSkillsInformation(
-				{
-					...skillsInformation,
-					status: STATUS.SUCCESS,
-					skills
-				}
-			);
+		() => {
+			(async () => {
+				setSkillsInformation(
+					{
+						...skillsInformation,
+						status: STATUS.STARTED
+					}
+				);
+				const {data: {data: {skills}}} = await getSkillInformation();
+				setSkillsInformation(
+					{
+						...skillsInformation,
+						status: STATUS.SUCCESS,
+						skills
+					}
+				);
+			})();
 		},
 		[]
 	)
 
 	return (
 		<div className="coreSkillsInformation-container">
-			<h2>Skills Information</h2>
+			{/*<h2>Skills Information</h2>*/}
 			{
 				updateSkillInformationStatus === STATUS.SUCCESS &&
 				<SuccessAlert

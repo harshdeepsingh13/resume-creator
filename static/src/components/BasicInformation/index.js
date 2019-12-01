@@ -5,7 +5,8 @@ import {
 	InputEmail,
 	InputFields,
 	InputNumber,
-	InputSelect, InputSubmit,
+	InputSelect,
+	InputSubmit,
 	InputTags,
 	InputText,
 	InputTextArea
@@ -28,60 +29,63 @@ const BasicInformation = props => {
 	const [updateBasicInformationStatus, setUpdateBasicInformationStatus] = useState(STATUS.DEFAULT);
 
 	useEffect(
-		async () => {
+		() => {
 			//setdetails from db
-			setBasicInformation(
-				{
-					...basicInformation,
-					status: STATUS.STARTED
-				}
-			);
-			const {
-				data: {
+
+			(async () => {
+				setBasicInformation(
+					{
+						...basicInformation,
+						status: STATUS.STARTED
+					}
+				);
+				const {
 					data: {
-						basicInformation: {
-							name,
-							tags,
-							objective,
-							avatar: {
-								uploadId
-							},
-							email,
-							contactNumber,
-							currentLocation: {
-								state,
-								country
-							},
-							dob,
-							website,
-							socialMediaLinks
+						data: {
+							basicInformation: {
+								name,
+								tags,
+								objective,
+								avatar: {
+									uploadId
+								},
+								email,
+								contactNumber,
+								currentLocation: {
+									state,
+									country
+								},
+								dob,
+								website,
+								socialMediaLinks
+							}
 						}
 					}
+				} = await getBasicInformation();
+				delete (socialMediaLinks._id);
+				for (let [socialMediaKey, socialMediaValue] of Object.entries(socialMediaLinks)) {
+					socialMediaLinks[socialMediaKey] = {
+						value: socialMediaValue
+					}
 				}
-			} = await getBasicInformation();
-			delete (socialMediaLinks._id);
-			for (let [socialMediaKey, socialMediaValue] of Object.entries(socialMediaLinks)) {
-				socialMediaLinks[socialMediaKey] = {
-					value: socialMediaValue
-				}
-			}
-			setBasicInformation({
-				...basicInformation,
-				status: STATUS.SUCCESS,
-				name,
-				tags,
-				objective,
-				email,
-				contactNumber,
-				state,
-				country,
-				dob: new Date(dob).toISOString().slice(0, 10),
-				website,
-				avatar: {
-					uploadId
-				},
-				socialMediaLinks
-			});
+				setBasicInformation({
+					...basicInformation,
+					status: STATUS.SUCCESS,
+					name,
+					tags,
+					objective,
+					email,
+					contactNumber,
+					state,
+					country,
+					dob: new Date(dob).toISOString().slice(0, 10),
+					website,
+					avatar: {
+						uploadId
+					},
+					socialMediaLinks
+				});
+			})();
 		},
 		[]
 	);
@@ -141,13 +145,13 @@ const BasicInformation = props => {
 
 	return (
 		<div className="basicInformation-container">
-			<h2>Basic Information</h2>
+			{/*<h2>Basic Information</h2>*/}
 			{
 				updateBasicInformationStatus === STATUS.SUCCESS &&
-					<SuccessAlert
-						title={"Your updates are successfully saved!"}
-						onSuccess={() => setUpdateBasicInformationStatus(STATUS.DEFAULT)}
-					/>
+				<SuccessAlert
+					title={"Your updates are successfully saved!"}
+					onSuccess={() => setUpdateBasicInformationStatus(STATUS.DEFAULT)}
+				/>
 
 			}
 			{
