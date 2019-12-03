@@ -42,48 +42,36 @@ const BasicInformation = props => {
 				const {
 					data: {
 						data: {
-							basicInformation: {
-								name,
-								tags,
-								objective,
-								avatar: {
-									uploadId
-								},
-								email,
-								contactNumber,
-								currentLocation: {
-									state,
-									country
-								},
-								dob,
-								website,
-								socialMediaLinks
-							}
+							basicInformation: basicInformationFromDB
 						}
 					}
 				} = await getBasicInformation();
-				delete (socialMediaLinks._id);
-				for (let [socialMediaKey, socialMediaValue] of Object.entries(socialMediaLinks)) {
-					socialMediaLinks[socialMediaKey] = {
-						value: socialMediaValue
+				if (basicInformationFromDB.socialMediaLinks) {
+					delete (basicInformationFromDB.socialMediaLinks._id);
+					delete (basicInformationFromDB.socialMediaLinks.createdAt);
+					delete (basicInformationFromDB.socialMediaLinks.updatedAt);
+					for (let [socialMediaKey, socialMediaValue] of Object.entries(basicInformationFromDB.socialMediaLinks)) {
+						basicInformationFromDB.socialMediaLinks[socialMediaKey] = {
+							value: socialMediaValue
+						}
 					}
 				}
 				setBasicInformation({
 					...basicInformation,
 					status: STATUS.SUCCESS,
-					name,
-					tags,
-					objective,
-					email,
-					contactNumber,
-					state,
-					country,
-					dob: new Date(dob).toISOString().slice(0, 10),
-					website,
+					name: basicInformationFromDB.name,
+					tags: basicInformationFromDB.tags,
+					objective: basicInformationFromDB.objective,
+					email: basicInformationFromDB.email,
+					contactNumber: basicInformationFromDB.contactNumber,
+					state: (basicInformationFromDB.currentLocation && basicInformationFromDB.currentLocation.state) ? basicInformationFromDB.currentLocation.state : '',
+					country: (basicInformationFromDB.currentLocation && basicInformationFromDB.currentLocation.country) ? basicInformationFromDB.currentLocation.country : '',
+					dob: basicInformationFromDB.dob ? new Date(basicInformationFromDB.dob).toISOString().slice(0, 10) : '',
+					website: basicInformationFromDB.website,
 					avatar: {
-						uploadId
+						uploadId: basicInformationFromDB.avatar.uploadId
 					},
-					socialMediaLinks
+					socialMediaLinks: basicInformationFromDB.socialMediaLinks ? basicInformationFromDB.socialMediaLinks : {}
 				});
 			})();
 		},
