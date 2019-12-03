@@ -26,8 +26,9 @@ import {
 	faUniversity, faVial
 } from "@fortawesome/free-solid-svg-icons";
 import {fab} from "@fortawesome/free-brands-svg-icons";
+import {faBuilding} from "@fortawesome/free-regular-svg-icons";
 
-library.add(faICursor, faAt, faTags, faSignature, faMapMarkerAlt, faKey, faGlobe, fab, faHeart, faPhoneAlt, faCalendarDay, faBullseye, faBookOpen, faUniversity, faSchool, faBook, faStarHalfAlt, faVial);
+library.add(faICursor, faAt, faTags, faSignature, faMapMarkerAlt, faKey, faGlobe, fab, faHeart, faPhoneAlt, faCalendarDay, faBullseye, faBookOpen, faUniversity, faSchool, faBook, faStarHalfAlt, faVial, faBuilding);
 
 //Input type Text
 export const InputText = React.forwardRef((props, ref) => {
@@ -512,7 +513,10 @@ InputNumber.propTypes = {
 	styles: PropTypes.object,
 	checkValue: PropTypes.func,
 	isEmpty: PropTypes.bool,
-	iconName: PropTypes.string,
+	iconName: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array
+	]),
 	disabled: PropTypes.bool,
 	minCap: PropTypes.number,
 	maxCap: PropTypes.number
@@ -681,7 +685,10 @@ InputTextArea.propTypes = {
 	rows: PropTypes.number,
 	cols: PropTypes.number,
 	isEmpty: PropTypes.bool,
-	iconName: PropTypes.string,
+	iconName: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array
+	]),
 	disabled: PropTypes.bool,
 	characterLimit: PropTypes.number
 };
@@ -875,7 +882,10 @@ InputEmail.propTypes = {
 	checkValue: PropTypes.func,
 	isEmpty: PropTypes.bool,
 	disabled: PropTypes.bool,
-	iconName: PropTypes.string
+	iconName: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array
+	])
 };
 InputEmail.defaultProps = {
 	name: 'inputEmail',
@@ -1024,7 +1034,10 @@ InputPassword.propTypes = {
 	styles: PropTypes.object,
 	isEmpty: PropTypes.bool,
 	checkValue: PropTypes.func,
-	iconName: PropTypes.string,
+	iconName: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array
+	]),
 	disabled: PropTypes.bool
 };
 InputPassword.defaultProps = {
@@ -1195,7 +1208,10 @@ InputSelect.propTypes = {
 	required: PropTypes.bool,
 	handleError: PropTypes.func,
 	styles: PropTypes.object,
-	iconName: PropTypes.string,
+	iconName: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array
+	]),
 	disabled: PropTypes.bool
 };
 InputSelect.defaultProps = {
@@ -1395,7 +1411,10 @@ InputTags.propTypes = {
 	styles: PropTypes.object,
 	checkValue: PropTypes.func,
 	isEmpty: PropTypes.bool,
-	iconName: PropTypes.string,
+	iconName: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array
+	]),
 	disabled: PropTypes.bool
 };
 InputTags.defaultProps = {
@@ -1531,7 +1550,10 @@ InputToggle.propTypes = {
 	styles: PropTypes.object,
 	checkValue: PropTypes.func,
 	isEmpty: PropTypes.bool,
-	iconName: PropTypes.string,
+	iconName: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array
+	]),
 	disabled: PropTypes.bool
 };
 InputToggle.defaultProps = {
