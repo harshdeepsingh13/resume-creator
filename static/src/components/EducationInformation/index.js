@@ -178,8 +178,7 @@ const EducationInformation = props => {
 						text={"+ Add"}
 						styles={
 							{
-								width: "20%",
-								alignItems: 'right'
+								width: "20%"
 							}
 						}
 						handleClick={addEducationInstance}
