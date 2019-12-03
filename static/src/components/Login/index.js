@@ -11,12 +11,12 @@ import {setItem} from "../../services/localStorage.service";
 const Login = props => {
 
 	const [email, setEmail] = useState({
-		value: 'harshdeepsingh13@gmail.com',
+		value: '',
 		isError: false,
 		isEmpty: false
 	});
 	const [password, setPassword] = useState({
-		value: 'har2972ar',
+		value: '',
 		isError: false,
 		isEmpty: false
 	});

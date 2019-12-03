@@ -7,30 +7,30 @@ import {register} from "../../services/axios.service";
 
 const Signup = props => {
 	const [firstName, setFirstName] = useState({
-		value: 'Harshdeep',
+		value: '',
 		isError: false,
 		isEmpty: false
 	});
 	const [lastName, setLastName] = useState({
-		value: 'Singh',
+		value: '',
 		isError: false,
 		isEmpty: false
 	});
 	const [email, setEmail] = useState({
-		value: 'hdsingh2015@gmail.com',
+		value: '',
 		isError: false,
 		isEmpty: false
 	});
 	const [password, setPassword] = useState({
-		value: 'har2972ar',
+		value: '',
 		isError: false,
 		isEmpty: false
 	});
 	const [rePassword, setRePassword] = useState({
-		value: 'har2972ar',
+		value: '',
 		isError: false,
 		isEmpty: false
-	})
+	});
 
 	const handleChange = ({
 		                      target: {
