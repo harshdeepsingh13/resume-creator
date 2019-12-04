@@ -88,3 +88,22 @@ export const getSkillInformation = () =>
 			url: "/api/v1/user/skillInformation"
 		}
 	);
+
+export const updateWorkExperiences = workExperiences =>
+	axiosInstance()(
+		{
+			method: "POST",
+			url: '/api/v1/user/workExperienceInformation',
+			data: {
+				workExperiences
+			}
+		}
+	);
+
+export const getWorkExperiences = () =>
+	axiosInstance()(
+		{
+			method: 'GET',
+			url: '/api/v1/user/workExperienceInformation'
+		}
+	);
