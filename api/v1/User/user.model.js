@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const ImageSchema = require('../../../schemas/image.schema');
 const LocationSchema = require('../../../schemas/location.schema');
 const SocialMediaLinksSchema = require('../../../schemas/socialMediaLinks.schema');
-const EducationsSchema = require('../../../schemas/educations.schema')
+const EducationsSchema = require('../../../schemas/educations.schema');
+const WorkExperienceSchema = require('../../../schemas/workExperience.schema');
 
 const basicInformationProjection = {
 	_id: 0,
@@ -28,11 +29,14 @@ const educationInformationProjection = {
 	_id: 0,
 	educationInformation: 1
 };
-
 const skillInformationProjection = {
 	_id: 0,
 	skills: 1
 };
+const workExperienceProjection = {
+	_id: 0,
+	workExperienceInformation: 1
+}
 
 const UserSchema = new mongoose.Schema(
 	{
@@ -82,6 +86,11 @@ const UserSchema = new mongoose.Schema(
 		},
 		skills: {
 			type: Array
+		},
+		workExperienceInformation: {
+			workExperiences: {
+				type: [WorkExperienceSchema]
+			}
 		}
 	},
 	{
@@ -255,5 +264,69 @@ exports.getSkillInformation = email =>
 		},
 		{
 			...skillInformationProjection
+		}
+	);
+
+exports.updateWorkExperiences = async (workExperiences, email) => {
+	const toUpdate = workExperiences.filter(workExperience => workExperience._id);
+	const toPush = workExperiences.filter(workExperience => !workExperience._id);
+	const updated = [];
+
+	for (let workExperience of toUpdate) {
+		const updatedRecord = await User.findOneAndUpdate(
+			{
+				email,
+				'workExperienceInformation.workExperiences._id': workExperience._id
+			},
+			{
+				$set: {
+					'workExperienceInformation.workExperiences.$.company': workExperience.company,
+					'workExperienceInformation.workExperiences.$.position': workExperience.position,
+					'workExperienceInformation.workExperiences.$.startDate': workExperience.startDate,
+					'workExperienceInformation.workExperiences.$.endDate': workExperience.endDate,
+					'workExperienceInformation.workExperiences.$.isPresent': workExperience.isPresent,
+					'workExperienceInformation.workExperiences.$.responsibilities': workExperience.responsibilities,
+					'workExperienceInformation.workExperiences.$.location': workExperience.location
+				}
+			},
+			{
+				new: true,
+				fields: {...educationInformationProjection},
+				useFindAndModify: false
+			}
+		);
+		updated.push(updatedRecord);
+	}
+	for (let workExperience of toPush) {
+		const updatedRecord = await User.findOneAndUpdate(
+			{
+				email
+			},
+			{
+				$push: {
+					'workExperienceInformation.workExperiences': {
+						...workExperience
+					}
+				}
+			},
+			{
+				new: true,
+				useFindAndModify: false,
+				fields: {...workExperienceProjection},
+				runValidators: true
+			}
+		);
+		updated.push(updatedRecord);
+	}
+	return updated;
+};
+
+exports.getWorkExperiences = email =>
+	User.findOne(
+		{
+			email
+		},
+		{
+			...workExperienceProjection
 		}
 	);

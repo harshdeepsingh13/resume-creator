@@ -1,6 +1,6 @@
 const {getPayload, getToken} = require("../../../services/jwt.service");
 const {comparePassword, encryptPassword} = require("../../../services/password.service");
-const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation, getEducationInformation, updateSkillInformation, getSkillInformation} = require("./user.model");
+const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation, getEducationInformation, updateSkillInformation, getSkillInformation, updateWorkExperiences, getWorkExperiences} = require("./user.model");
 const {logger} = require('../../../config/config');
 const {getAvatarLink} = require('../../../services/cloudinary.service');
 const checkWebsiteLink = require('../../../services/checkWebsiteLink.service');
@@ -212,6 +212,41 @@ exports.getSkillInformationController = async (req, res, next) => {
 				message: "data successfully retrieved",
 				data: {
 					skills
+				}
+			}
+		)
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.updateWorkExperiencesController = async (req, res, next) => {
+	try {
+		const {workExperiences} = req.body;
+		const updated = await updateWorkExperiences(workExperiences, req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "Work experiences successfully updated",
+				data: [
+					...updated
+				]
+			}
+		)
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.getWorkExperiencesController = async (req, res, next) => {
+	try {
+		const {workExperienceInformation} = await getWorkExperiences(req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "data successfully retrieved",
+				data: {
+					workExperiences: workExperienceInformation.workExperiences
 				}
 			}
 		)
