@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {loginController, registerController, getBasicInformationController, updateBasicInformationController, updateEducationInformationController, getEducationInformationController, updateSkillInformationController, getSkillInformationController} = require('./user.controller');
+const {loginController, registerController, getBasicInformationController, updateBasicInformationController, updateEducationInformationController, getEducationInformationController, updateSkillInformationController, getSkillInformationController, updateWorkExperiencesController, getWorkExperiencesController} = require('./user.controller');
 const authenticationMiddleware = require('../../../middlewares/authenticationMiddleware');
 
 const app = express.Router();
@@ -20,5 +20,9 @@ app.post('/educationInformation', authenticationMiddleware, updateEducationInfor
 app.get('/skillInformation', authenticationMiddleware, getSkillInformationController);
 
 app.post('/skillInformation', authenticationMiddleware, updateSkillInformationController);
+
+app.get('/workExperienceInformation', authenticationMiddleware, getWorkExperiencesController);
+
+app.post('/workExperienceInformation', authenticationMiddleware, updateWorkExperiencesController);
 
 module.exports = app;
