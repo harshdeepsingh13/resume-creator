@@ -13,6 +13,7 @@ import {
 	faBookOpen,
 	faBullseye,
 	faCalendarDay,
+	faCrosshairs,
 	faGlobe,
 	faHeart,
 	faICursor,
@@ -23,12 +24,13 @@ import {
 	faSignature,
 	faStarHalfAlt,
 	faTags,
-	faUniversity, faVial
+	faUniversity,
+	faVial
 } from "@fortawesome/free-solid-svg-icons";
 import {fab} from "@fortawesome/free-brands-svg-icons";
 import {faBuilding} from "@fortawesome/free-regular-svg-icons";
 
-library.add(faICursor, faAt, faTags, faSignature, faMapMarkerAlt, faKey, faGlobe, fab, faHeart, faPhoneAlt, faCalendarDay, faBullseye, faBookOpen, faUniversity, faSchool, faBook, faStarHalfAlt, faVial, faBuilding);
+library.add(faICursor, faAt, faTags, faSignature, faMapMarkerAlt, faKey, faGlobe, fab, faHeart, faPhoneAlt, faCalendarDay, faBullseye, faBookOpen, faUniversity, faSchool, faBook, faStarHalfAlt, faVial, faBuilding, faCrosshairs);
 
 //Input type Text
 export const InputText = React.forwardRef((props, ref) => {
