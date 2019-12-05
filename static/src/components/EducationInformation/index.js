@@ -232,8 +232,8 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 
 
 	return (
-		<div className="education-container">
-			<div className="educationFields-container">
+		<div className="education-container multiple-instances">
+			<div className="educationFields-container multiple-instances-fields">
 				<InputSelect
 					id={'type'}
 					name={'type'}
@@ -353,7 +353,7 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 					placeholder={"CGPA"}
 				/>
 			</div>
-			<div className="close-container">
+			<div className="multiple-instances-close-container">
 				<FontAwesomeIcon
 					icon={"times"}
 					color={STYLE_CONSTANTS.BASIC_COLORS.BLUEY_GREY}

@@ -62,5 +62,22 @@ $border-radius: 3px;
 }
 
 
+.multiple-instances {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: thin solid $grey-dark-bb;
+  padding-bottom: 10px;
+
+  &-fields {
+    flex-basis: 100%;
+  }
+
+  &-close-container {
+    flex-basis: 5%;
+    //width: 100%;
+    text-align: center;
+  }
+}
 
 

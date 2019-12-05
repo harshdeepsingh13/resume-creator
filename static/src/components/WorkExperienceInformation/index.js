@@ -189,8 +189,8 @@ WorkExperienceInformation.propTypes = {};
 
 const WorkExperienceInstance = ({workExperience, index, handleClose, handleChange}) => {
 	return (
-		<div className="workExperience">
-			<div className="workExperienceFields-container">
+		<div className="workExperience multiple-instances">
+			<div className="workExperienceFields-container multiple-instances-fields">
 				<InputText
 					id={'company'}
 					name={'company'}
@@ -249,7 +249,7 @@ const WorkExperienceInstance = ({workExperience, index, handleClose, handleChang
 					iconName={"map-marker-alt"}
 				/>
 			</div>
-			<div className="close-container">
+			<div className="close-container multiple-instances-close-container">
 				<FontAwesomeIcon
 					icon={"times"}
 					color={STYLE_CONSTANTS.BASIC_COLORS.BLUEY_GREY}
