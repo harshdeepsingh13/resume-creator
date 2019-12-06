@@ -263,10 +263,10 @@ const WorkExperienceInstance = ({workExperience, index, handleClose, handleChang
 };
 
 WorkExperienceInstance.propTypes = {
-	workExperience: PropTypes.object,
-	handleClose: PropTypes.func,
-	handleChange: PropTypes.func,
-	index: PropTypes.number
+	workExperience: PropTypes.object.isRequired,
+	handleClose: PropTypes.func.isRequired,
+	handleChange: PropTypes.func.isRequired,
+	index: PropTypes.number.isRequired
 };
 
 export default WorkExperienceInformation
