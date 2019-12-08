@@ -41,7 +41,7 @@ const ProjectsInformation = props => {
 	};
 	const removeProject = (index) => {
 		projectsInformation.projects[index]._id && deleteProject(projectsInformation.projects[index]._id);
-		if (projectsInformation.projects.filter(project => !project.isDeleted).length !== 1) {
+		if (projectsInformation.projects.length !== 1) {
 			setProjectsInformation(
 				{
 					...projectsInformation,
@@ -109,8 +109,14 @@ const ProjectsInformation = props => {
 					...projectsInformation,
 					status: STATUS.SUCCESS,
 					projects: [
-						...projectsInformation.projects,
-						...projects
+						...projects.map(project => (
+							{
+								...project,
+								isPresent: project.isPresent.toString(),
+								startDate: new Date(project.startDate).toISOString().slice(0, 7),
+								endDate: project.endDate ? new Date(project.endDate).toISOString().slice(0, 7) : undefined
+							}
+						))
 					]
 				}
 			);
