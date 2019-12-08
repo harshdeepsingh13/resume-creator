@@ -107,3 +107,33 @@ export const getWorkExperiences = () =>
 			url: '/api/v1/user/workExperienceInformation'
 		}
 	);
+
+export const getProjectsInformation = () =>
+	axiosInstance()(
+		{
+			method: "GET",
+			url: '/api/v1/user/projectInformation'
+		}
+	);
+
+export const updatedProjectInformation = projects =>
+	axiosInstance()(
+		{
+			method: "POST",
+			url: '/api/v1/user/projectInformation',
+			data: {
+				projects
+			}
+		}
+	);
+
+export const deleteProject = projectId =>
+	axiosInstance()(
+		{
+			method: 'DELETE',
+			url: '/api/v1/user/projectInformation',
+			data: {
+				projectId
+			}
+		}
+	);
