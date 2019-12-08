@@ -1,6 +1,22 @@
 const express = require('express');
 
-const {loginController, registerController, getBasicInformationController, updateBasicInformationController, updateEducationInformationController, getEducationInformationController, updateSkillInformationController, getSkillInformationController, updateWorkExperiencesController, getWorkExperiencesController, getProjectInformationController, updatedProjectInformationController, deleteProjectInformationController} = require('./user.controller');
+const {
+	loginController,
+	registerController,
+	getBasicInformationController,
+	updateBasicInformationController,
+	updateEducationInformationController,
+	getEducationInformationController,
+	updateSkillInformationController,
+	getSkillInformationController,
+	updateWorkExperiencesController,
+	getWorkExperiencesController,
+	getProjectInformationController,
+	updatedProjectInformationController,
+	deleteProjectInformationController,
+	deleteWorkExperienceController,
+	deleteEducationInformationController
+} = require('./user.controller');
 const authenticationMiddleware = require('../../../middlewares/authenticationMiddleware');
 
 const app = express.Router();
@@ -17,6 +33,8 @@ app.get('/educationInformation', authenticationMiddleware, getEducationInformati
 
 app.post('/educationInformation', authenticationMiddleware, updateEducationInformationController);
 
+app.delete ('/educationInformation', authenticationMiddleware, deleteEducationInformationController);
+
 app.get('/skillInformation', authenticationMiddleware, getSkillInformationController);
 
 app.post('/skillInformation', authenticationMiddleware, updateSkillInformationController);
@@ -24,6 +42,8 @@ app.post('/skillInformation', authenticationMiddleware, updateSkillInformationCo
 app.get('/workExperienceInformation', authenticationMiddleware, getWorkExperiencesController);
 
 app.post('/workExperienceInformation', authenticationMiddleware, updateWorkExperiencesController);
+
+app.delete('/workExperienceInformation', authenticationMiddleware, deleteWorkExperienceController);
 
 app.get('/projectInformation', authenticationMiddleware, getProjectInformationController);
 
