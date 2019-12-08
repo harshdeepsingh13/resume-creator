@@ -1,6 +1,22 @@
 const {getPayload, getToken} = require("../../../services/jwt.service");
 const {comparePassword, encryptPassword} = require("../../../services/password.service");
-const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation, getEducationInformation, updateSkillInformation, getSkillInformation, updateWorkExperiences, getWorkExperiences, getProjectInformation, updateProjectInformation, deleteProject} = require("./user.model");
+const {
+	getUser,
+	registerUser,
+	getBasicInformation,
+	updateBasicInformation,
+	updateEducationInformation,
+	getEducationInformation,
+	updateSkillInformation,
+	getSkillInformation,
+	updateWorkExperiences,
+	getWorkExperiences,
+	getProjectInformation,
+	updateProjectInformation,
+	deleteProject,
+	deleteWorkExperience,
+	deleteEducationInformation
+} = require("./user.model");
 const {logger} = require('../../../config/config');
 const {getAvatarLink} = require('../../../services/cloudinary.service');
 const checkWebsiteLink = require('../../../services/checkWebsiteLink.service');
@@ -310,6 +326,57 @@ exports.deleteProjectInformationController = async (req, res, next) => {
 				]
 			}
 		);
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.deleteWorkExperienceController = async (req, res, next) => {
+	try {
+		const {workExperienceId} = req.body;
+		if (!workExperienceId) {
+			res.error = {
+				status: 400,
+				message: "work experience Id is required in the request body."
+			};
+			next(new Error());
+		}
+		const {workExperienceInformation} = await deleteWorkExperience(workExperienceId, req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "delete successful",
+				data: [
+					...workExperienceInformation.workExperiences
+				]
+			}
+		)
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.deleteEducationInformationController = async (req, res, next) => {
+	try {
+		const {educationId} = req.body;
+		if (!educationId) {
+			req.error = {
+				status: 400,
+				message: "Education ID is required in request body."
+			};
+			next(new Error());
+		}
+		const {educationInformation} = await deleteEducationInformation(educationId, req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: 'delete successful',
+				data: [
+					...educationInformation.educations
+				]
+
+			}
+		)
 	} catch (e) {
 		next(e);
 	}
