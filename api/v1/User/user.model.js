@@ -187,7 +187,7 @@ exports.updateEducationInformation = async (email, educationInformation) => {
 			educations:[...educationInformation]
 		}
 	}*/
-	const updated = [];
+	const updated = {};
 	const toUpdate = educationInformation.filter(education => education._id);
 	const toPush = educationInformation.filter(education => !education._id);
 
@@ -216,7 +216,7 @@ exports.updateEducationInformation = async (email, educationInformation) => {
 				useFindAndModify: false
 			}
 		);
-		updated.push(updatedRecord);
+		updatedRecord && updatedRecord.educationInformation.educations.forEach(record => updated[record._id] = record);
 	}
 	for (let educationDetail of toPush) {
 		const updatedRecord = await User.findOneAndUpdate(
@@ -237,9 +237,9 @@ exports.updateEducationInformation = async (email, educationInformation) => {
 				useFindAndModify: false
 			}
 		);
-		updated.push(updatedRecord);
+		updatedRecord && updatedRecord.educationInformation.educations.forEach(record => updated[record._id] = record);
 	}
-	return updated;
+	return Object.entries(updated).map(([, value]) => value);
 };
 
 exports.getEducationInformation = email =>
@@ -280,7 +280,7 @@ exports.getSkillInformation = email =>
 exports.updateWorkExperiences = async (workExperiences, email) => {
 	const toUpdate = workExperiences.filter(workExperience => workExperience._id);
 	const toPush = workExperiences.filter(workExperience => !workExperience._id);
-	const updated = [];
+	const updated = {};
 
 	for (let workExperience of toUpdate) {
 		const updatedRecord = await User.findOneAndUpdate(
@@ -301,11 +301,11 @@ exports.updateWorkExperiences = async (workExperiences, email) => {
 			},
 			{
 				new: true,
-				fields: {...educationInformationProjection},
+				fields: {...workExperienceProjection},
 				useFindAndModify: false
 			}
 		);
-		updated.push(updatedRecord);
+		updatedRecord && updatedRecord.workExperienceInformation.workExperiences.forEach(record => updated[record._id] = record);
 	}
 	for (let workExperience of toPush) {
 		const updatedRecord = await User.findOneAndUpdate(
@@ -326,9 +326,9 @@ exports.updateWorkExperiences = async (workExperiences, email) => {
 				runValidators: true
 			}
 		);
-		updated.push(updatedRecord);
+		updatedRecord && updatedRecord.workExperienceInformation.workExperiences.forEach(record => updated[record._id] = record);
 	}
-	return updated;
+	return Object.entries(updated).map(([, value]) => value);
 };
 
 exports.getWorkExperiences = email =>
@@ -353,7 +353,7 @@ exports.getProjectInformation = email =>
 	);
 
 exports.updateProjectInformation = async (projects, email) => {
-	const updated = [];
+	const updated = {};
 	const toPush = projects.filter(project => !project._id);
 	const toUpdate = projects.filter(project => project._id);
 
@@ -376,14 +376,13 @@ exports.updateProjectInformation = async (projects, email) => {
 				fields: {...projectsProjection}
 			}
 		);
-		console.log('updatedRecord', updatedRecord);
-		updatedRecord && updated.push(...updatedRecord.projectsInformation.projects);
+		updatedRecord && updatedRecord.projectsInformation.projects.forEach(record => updated[record._id] = record)
 	}
 	for (let project of toUpdate) {
 		const updatedRecord = await User.findOneAndUpdate(
 			{
 				email,
-				'projectsInformation._id': project._id
+				'projectsInformation.projects._id': project._id
 			},
 			{
 				$set: {
@@ -403,9 +402,9 @@ exports.updateProjectInformation = async (projects, email) => {
 				}
 			}
 		);
-		updatedRecord && updated.push(...updatedRecord.projectsInformation.projects);
+		updatedRecord && updatedRecord.projectsInformation.projects.forEach(record => updated[record._id] = record)
 	}
-	return updated;
+	return Object.entries(updated).map(([, value]) => value);
 };
 
 exports.deleteProject = (projectId, email) =>
@@ -424,5 +423,43 @@ exports.deleteProject = (projectId, email) =>
 			new: true,
 			useFindAndModify: false,
 			fields: {...projectsProjection}
+		}
+	);
+
+exports.deleteWorkExperience = (workExperienceId, email) =>
+	User.findOneAndUpdate(
+		{
+			email
+		},
+		{
+			$pull: {
+				'workExperienceInformation.workExperiences': {
+					_id: workExperienceId
+				}
+			}
+		},
+		{
+			new: true,
+			useFindAndModify: false,
+			fields: {...workExperienceProjection}
+		}
+	);
+
+exports.deleteEducationInformation = (educationId, email) =>
+	User.findOneAndUpdate(
+		{
+			email
+		},
+		{
+			$pull: {
+				'educationInformation.educations': {
+					_id: educationId
+				}
+			}
+		},
+		{
+			new: true,
+			useFindAndModify: false,
+			fields: {...educationInformationProjection}
 		}
 	);
