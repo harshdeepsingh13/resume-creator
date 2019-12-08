@@ -108,6 +108,17 @@ export const getWorkExperiences = () =>
 		}
 	);
 
+export const deleteWorkExperience = workExperienceId =>
+	axiosInstance()(
+		{
+			method: 'DELETE',
+			url: '/api/v1/user/workExperienceInformation',
+			data: {
+				workExperienceId
+			}
+		}
+	);
+
 export const getProjectsInformation = () =>
 	axiosInstance()(
 		{
@@ -137,3 +148,14 @@ export const deleteProject = projectId =>
 			}
 		}
 	);
+
+export const deleteEducation = educationId =>
+	axiosInstance()(
+		{
+			method: "DELETE",
+			url: '/api/v1/user/educationInformation',
+			data: {
+				educationId
+			}
+		}
+	)
