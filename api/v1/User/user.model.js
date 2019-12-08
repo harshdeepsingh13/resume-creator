@@ -5,6 +5,7 @@ const LocationSchema = require('../../../schemas/location.schema');
 const SocialMediaLinksSchema = require('../../../schemas/socialMediaLinks.schema');
 const EducationsSchema = require('../../../schemas/educations.schema');
 const WorkExperienceSchema = require('../../../schemas/workExperience.schema');
+const ProjectSchema = require('../../../schemas/project.schema');
 
 const basicInformationProjection = {
 	_id: 0,
@@ -36,7 +37,11 @@ const skillInformationProjection = {
 const workExperienceProjection = {
 	_id: 0,
 	workExperienceInformation: 1
-}
+};
+const projectsProjection = {
+	_id: 0,
+	projectsInformation: 1
+};
 
 const UserSchema = new mongoose.Schema(
 	{
@@ -90,6 +95,11 @@ const UserSchema = new mongoose.Schema(
 		workExperienceInformation: {
 			workExperiences: {
 				type: [WorkExperienceSchema]
+			}
+		},
+		projectsInformation: {
+			projects: {
+				type: [ProjectSchema]
 			}
 		}
 	},
@@ -328,5 +338,91 @@ exports.getWorkExperiences = email =>
 		},
 		{
 			...workExperienceProjection
+		}
+	);
+
+
+exports.getProjectInformation = email =>
+	User.findOne(
+		{
+			email
+		},
+		{
+			...projectsProjection
+		}
+	);
+
+exports.updateProjectInformation = async (projects, email) => {
+	const updated = [];
+	const toPush = projects.filter(project => !project._id);
+	const toUpdate = projects.filter(project => project._id);
+
+	for (let project of toPush) {
+		const updatedRecord = await User.findOneAndUpdate(
+			{
+				email
+			},
+			{
+				$push: {
+					'projectsInformation.projects': {
+						...project
+					}
+				}
+			},
+			{
+				new: true,
+				useFindAndModify: false,
+				runValidators: true,
+				fields: {...projectsProjection}
+			}
+		);
+		console.log('updatedRecord', updatedRecord);
+		updatedRecord && updated.push(...updatedRecord.projectsInformation.projects);
+	}
+	for (let project of toUpdate) {
+		const updatedRecord = await User.findOneAndUpdate(
+			{
+				email,
+				'projectsInformation._id': project._id
+			},
+			{
+				$set: {
+					'projectsInformation.projects.$.name': project.name,
+					'projectsInformation.projects.$.startDate': project.startDate,
+					'projectsInformation.projects.$.endDate': project.endDate,
+					'projectsInformation.projects.$.isPresent': project.isPresent,
+					'projectsInformation.projects.$.summary': project.summary,
+					'projectsInformation.projects.$.link': project.link
+				}
+			},
+			{
+				new: true,
+				useFindAndModify: false,
+				fields: {
+					...projectsProjection
+				}
+			}
+		);
+		updatedRecord && updated.push(...updatedRecord.projectsInformation.projects);
+	}
+	return updated;
+};
+
+exports.deleteProject = (projectId, email) =>
+	User.findOneAndUpdate(
+		{
+			email
+		},
+		{
+			$pull: {
+				'projectsInformation.projects': {
+					_id: projectId
+				}
+			}
+		},
+		{
+			new: true,
+			useFindAndModify: false,
+			fields: {...projectsProjection}
 		}
 	);

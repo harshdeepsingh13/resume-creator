@@ -1,6 +1,6 @@
 const {getPayload, getToken} = require("../../../services/jwt.service");
 const {comparePassword, encryptPassword} = require("../../../services/password.service");
-const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation, getEducationInformation, updateSkillInformation, getSkillInformation, updateWorkExperiences, getWorkExperiences} = require("./user.model");
+const {getUser, registerUser, getBasicInformation, updateBasicInformation, updateEducationInformation, getEducationInformation, updateSkillInformation, getSkillInformation, updateWorkExperiences, getWorkExperiences, getProjectInformation, updateProjectInformation, deleteProject} = require("./user.model");
 const {logger} = require('../../../config/config');
 const {getAvatarLink} = require('../../../services/cloudinary.service');
 const checkWebsiteLink = require('../../../services/checkWebsiteLink.service');
@@ -250,6 +250,66 @@ exports.getWorkExperiencesController = async (req, res, next) => {
 				}
 			}
 		)
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.getProjectInformationController = async (req, res, next) => {
+	try {
+		const {projectsInformation} = await getProjectInformation(req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "data successfully retrieved",
+				data: {
+					projects: projectsInformation ? projectsInformation.projects : [] // correct this before commenting.
+				}
+			}
+		)
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.updatedProjectInformationController = async (req, res, next) => {
+	try {
+		const {projects} = req.body;
+		const updated = await updateProjectInformation(projects, req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "projects information successfully updated.",
+				data: [
+					...updated
+				]
+			}
+		);
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.deleteProjectInformationController = async (req, res, next) => {
+	try {
+		const {projectId} = req.body;
+		if (!projectId) {
+			req.error = {
+				status: 400,
+				message: 'Project Id is missing from the body.'
+			};
+			next(new Error());
+		}
+		const {projectsInformation} = await deleteProject(projectId, req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "delete successful",
+				data: [
+					...projectsInformation.projects
+				]
+			}
+		);
 	} catch (e) {
 		next(e);
 	}
