@@ -6,7 +6,7 @@ import {InputDate, InputFields, InputNumber, InputSelect, InputSubmit, InputText
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
-import {getEducationInformation, updateEducationInformation} from "../../services/axios.service";
+import {deleteEducation, getEducationInformation, updateEducationInformation} from "../../services/axios.service";
 import SuccessAlert from "../SuccessAlert";
 import Loader from "../Loader";
 
@@ -38,7 +38,6 @@ const EducationInformation = props => {
 			]
 		})
 	};
-
 	const addEducationInstance = () => {
 		setEducationInformation({
 			...educationInformation,
@@ -59,8 +58,8 @@ const EducationInformation = props => {
 			]
 		})
 	};
-
 	const removeEducationInstance = index => {
+		educationInformation.educations[index]._id && deleteEducation(educationInformation.educations[index]._id);
 		if (educationInformation.educations.length !== 1) {
 			setEducationInformation({
 				...educationInformation,
@@ -69,13 +68,38 @@ const EducationInformation = props => {
 					...educationInformation.educations.slice(index + 1)
 				]
 			})
+		} else {
+			setEducationInformation(
+				{
+					...educationInformation,
+					educations: [
+						{
+							type: "default",
+							instituteName: undefined,
+							university: undefined,
+							startDate: undefined,
+							endDate: undefined,
+							isPresent: "false",
+							course: undefined,
+							score: undefined,
+							isPercentage: "true",
+							isCGPA: "false"
+						}
+					]
+				}
+			)
 		}
 	};
-
 	const saveEducationInformation = async () => {
 		setUpdateEducationInformationStatus(STATUS.STARTED);
+		setEducationInformation(
+			{
+				...educationInformation,
+				status: STATUS.STARTED
+			}
+		);
 		try {
-			await updateEducationInformation(
+			const {data: {data: educations}} = await updateEducationInformation(
 				educationInformation.educations.map(educationDetails => (
 					{
 						...educationDetails,
@@ -85,8 +109,27 @@ const EducationInformation = props => {
 					}
 				))
 			);
+			setEducationInformation(
+				{
+					...educationInformation,
+					status: STATUS.SUCCESS,
+					educations: [
+						...educations.map(education => (
+							{
+								...education,
+								startDate: new Date(education.startDate).toISOString().slice(0, 7),
+								endDate: education.endDate ? new Date(education.endDate).toISOString().slice(0, 7) : undefined,
+								isPresent: education.isPresent.toString(),
+								isPercentage: education.isPercentage.toString(),
+								isCGPA: education.isCGPA.toString()
+							}
+						))
+					]
+				}
+			)
 			setUpdateEducationInformationStatus(STATUS.SUCCESS);
 		} catch (e) {
+			console.log('error in fetching education information');
 		}
 	};
 

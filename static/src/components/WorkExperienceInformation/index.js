@@ -6,7 +6,7 @@ import {STATUS, STYLE_CONSTANTS} from '../../config/config';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
-import {getWorkExperiences, updateWorkExperiences} from "../../services/axios.service";
+import {deleteWorkExperience, getWorkExperiences, updateWorkExperiences} from "../../services/axios.service";
 import Loader from "../Loader";
 import SuccessAlert from "../SuccessAlert";
 
@@ -43,6 +43,7 @@ const WorkExperienceInformation = props => {
 		);
 	};
 	const removeWorkExperience = index => {
+		workExperience.workExperience[index]._id && deleteWorkExperience(workExperience.workExperience[index]._id);
 		if (workExperience.workExperience.length !== 1)
 			setWorkExperience(
 				{
@@ -50,6 +51,23 @@ const WorkExperienceInformation = props => {
 					workExperience: [
 						...workExperience.workExperience.slice(0, index),
 						...workExperience.workExperience.slice(index + 1)
+					]
+				}
+			);
+		else
+			setWorkExperience(
+				{
+					...workExperience,
+					workExperience: [
+						{
+							company: undefined,
+							position: undefined,
+							startDate: undefined,
+							endDate: undefined,
+							isPresent: 'false',
+							responsibilities: undefined,
+							location: undefined
+						}
 					]
 				}
 			)
@@ -76,13 +94,35 @@ const WorkExperienceInformation = props => {
 	const handleSubmit = async () => {
 		try {
 			setUpdateWorkExperienceStatus(STATUS.STARTED);
-			await updateWorkExperiences(
+			setWorkExperience(
+				{
+					...workExperience,
+					status: STATUS.STARTED
+				}
+			);
+			const {data: {data: workExperiences}} = await updateWorkExperiences(
 				workExperience.workExperience.map(workExperience => (
 					{
 						...workExperience,
 						isPresent: workExperience.isPresent === "true"
 					}
 				))
+			);
+			setWorkExperience(
+				{
+					...workExperience,
+					status: STATUS.SUCCESS,
+					workExperience: [
+						...workExperiences.map(workExperience => (
+							{
+								...workExperience,
+								isPresent: workExperience.isPresent.toString(),
+								startDate: new Date(workExperience.startDate).toISOString().slice(0, 10),
+								endDate: workExperience.endDate ? new Date(workExperience.endDate).toISOString().slice(0, 10) : undefined
+							}
+						))
+					]
+				}
 			);
 			setUpdateWorkExperienceStatus(STATUS.SUCCESS);
 		} catch (e) {
