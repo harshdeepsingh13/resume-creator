@@ -126,6 +126,7 @@ export const InputText = React.forwardRef((props, ref) => {
 							''
 					}`}
 					value={value}
+					disabled={disabled}
 					style={
 						{
 							...styles,
@@ -314,6 +315,7 @@ export const InputDate = props => {
 							''
 					}`}
 					value={value}
+					disabled={disabled}
 					style={
 						{
 							...styles,
@@ -475,6 +477,7 @@ export const InputNumber = props => {
 							''
 					}`}
 					value={value}
+					disabled={disabled}
 					style={
 						{
 							...styles,
@@ -483,6 +486,12 @@ export const InputNumber = props => {
 								'',
 							color: isError ?
 								'red' :
+								'',
+							opacity: disabled ?
+								0.4 :
+								1,
+							pointerEvents: disabled ?
+								'none' :
 								''
 						}
 					}
@@ -642,6 +651,7 @@ export const InputTextArea = (props) => {
 							''
 					}`}
 					value={value}
+					disabled={disabled}
 					style={
 						{
 							...styles,
@@ -650,6 +660,12 @@ export const InputTextArea = (props) => {
 								'',
 							color: isError ?
 								'red' :
+								'',
+							opacity: disabled ?
+								0.4 :
+								1,
+							pointerEvents: disabled ?
+								'none' :
 								''
 						}
 					}
@@ -809,6 +825,7 @@ export const InputEmail = (props) => {
 					value={value}
 					onChange={handleChange}
 					onBlur={handleBlur}
+					disabled={disabled}
 					style={
 						{
 							...styles,
@@ -997,6 +1014,7 @@ export const InputPassword = (props) => {
 							''
 					}`}
 					value={value}
+					disabled={disabled}
 					style={
 						{
 							...styles,
@@ -1005,6 +1023,12 @@ export const InputPassword = (props) => {
 								'',
 							color: isError ?
 								'red' :
+								'',
+							opacity: disabled ?
+								0.4 :
+								1,
+							pointerEvents: disabled ?
+								'none' :
 								''
 						}
 					}
@@ -1140,6 +1164,7 @@ export const InputSelect = (props) => {
 						className={"inputSelect"}
 						value={value}
 						onChange={handleChange}
+						disabled={disabled}
 						style={
 							{
 								...styles,
@@ -1148,6 +1173,12 @@ export const InputSelect = (props) => {
 									'',
 								color: isError ?
 									'red' :
+									'',
+								opacity: disabled ?
+									0.4 :
+									1,
+								pointerEvents: disabled ?
+									'none' :
 									''
 							}
 						}
@@ -1243,12 +1274,14 @@ export const InputTags = props => {
 		checkValue,
 		isEmpty,
 		iconName,
-		disabled
+		disabled: disabledFromProps,
+		numberOfTagsAllowed
 	} = props;
 
 	const [tags, setTags] = useState({
 		value: value ? value : []
 	});
+	const [disabled, setDisabled] = useState(disabledFromProps);
 	const [isError, setIsError] = useState(false);
 	const [errorMessage, setErrorMessage] = useState('');
 
@@ -1273,12 +1306,17 @@ export const InputTags = props => {
 	);
 	useEffect(
 		() => {
-			handleChange({
-				target: {
-					name,
-					value: tags.value
-				}
-			})
+			if (tags.value.length >= 2) {
+				setDisabled(true);
+			} else {
+				setDisabled(disabledFromProps || false);
+				handleChange({
+					target: {
+						name,
+						value: tags.value
+					}
+				})
+			}
 		},
 		[tags]
 	);
@@ -1368,6 +1406,7 @@ export const InputTags = props => {
 					name={name}
 					id={id}
 					onKeyPress={handleTagsInput}
+					disabled={disabled}
 					placeholder={`${placeholder}${
 						required ?
 							'*' :
@@ -1381,7 +1420,13 @@ export const InputTags = props => {
 								'',
 							color: isError ?
 								'red' :
-								''
+								'',
+							opacity: disabled ?
+								0.4 :
+								1,
+							pointerEvents: disabled ?
+								'none' :
+								'',
 						}
 					}
 					ref={tagInputRef}
@@ -1417,7 +1462,8 @@ InputTags.propTypes = {
 		PropTypes.string,
 		PropTypes.array
 	]),
-	disabled: PropTypes.bool
+	disabled: PropTypes.bool,
+	numberOfTagsAllowed: PropTypes.number
 };
 InputTags.defaultProps = {
 	name: 'inputTags',
@@ -1431,7 +1477,8 @@ InputTags.defaultProps = {
 	checkValue: () => [false, ''],
 	isEmpty: false,
 	iconName: "tags",
-	disabled: false
+	disabled: false,
+	numberOfTagsAllowed: 7
 };
 
 //Input Toggle slider
@@ -1510,6 +1557,7 @@ export const InputToggle = props => {
 						id={id}
 						onChange={handleChange}
 						value={value ? 'on' : 'off'}
+						disabled={disabled}
 						style={
 							{
 								...styles,
@@ -1518,6 +1566,12 @@ export const InputToggle = props => {
 									'',
 								color: isError ?
 									'red' :
+									'',
+								opacity: disabled ?
+									0.4 :
+									1,
+								pointerEvents: disabled ?
+									'none' :
 									''
 							}
 						}
