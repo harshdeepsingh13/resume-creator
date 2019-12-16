@@ -1306,7 +1306,7 @@ export const InputTags = props => {
 	);
 	useEffect(
 		() => {
-			if (tags.value.length >= 2) {
+			if (tags.value.length >= numberOfTagsAllowed) {
 				setDisabled(true);
 			} else {
 				setDisabled(disabledFromProps || false);
