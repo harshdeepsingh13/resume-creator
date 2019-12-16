@@ -1308,6 +1308,12 @@ export const InputTags = props => {
 		() => {
 			if (tags.value.length >= numberOfTagsAllowed) {
 				setDisabled(true);
+				handleChange({
+					target: {
+						name,
+						value: tags.value
+					}
+				})
 			} else {
 				setDisabled(disabledFromProps || false);
 				handleChange({
