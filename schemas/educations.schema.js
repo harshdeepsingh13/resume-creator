@@ -25,6 +25,9 @@ module.exports= mongoose.Schema(
 		course: {
 			type: String
 		},
+		priority: {
+			type: Number
+		},
 		score: {
 			type: Number,
 			min: 1,
