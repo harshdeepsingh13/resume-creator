@@ -15,7 +15,8 @@ const {
 	updateProjectInformation,
 	deleteProject,
 	deleteWorkExperience,
-	deleteEducationInformation
+	deleteEducationInformation,
+	getCompleteInformation
 } = require("./user.model");
 const {logger} = require('../../../config/config');
 const {getAvatarLink} = require('../../../services/cloudinary.service');
@@ -375,6 +376,23 @@ exports.deleteEducationInformationController = async (req, res, next) => {
 					...educationInformation.educations
 				]
 
+			}
+		)
+	} catch (e) {
+		next(e);
+	}
+};
+
+exports.getCompleteInformationController = async (req, res, next) => {
+	try {
+		const information = await getCompleteInformation(req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "complete information retrieval successful",
+				data: {
+					...information
+				}
 			}
 		)
 	} catch (e) {

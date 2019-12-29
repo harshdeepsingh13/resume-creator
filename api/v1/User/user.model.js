@@ -188,6 +188,14 @@ exports.updateEducationInformation = async (email, educationInformation) => {
 		}
 	}*/
 	const updated = {};
+	educationInformation = educationInformation.map(education => {
+		if (education.type === 'postGraduation') education.priority = 0;
+		if (education.type === 'graduation') education.priority = 1;
+		if (education.type === 'seniorSecondary') education.priority = 2;
+		if (education.type === 'secondary') education.priority = 3;
+		console.log('education', education);
+		return education
+	});
 	const toUpdate = educationInformation.filter(education => education._id);
 	const toPush = educationInformation.filter(education => !education._id);
 
@@ -242,8 +250,8 @@ exports.updateEducationInformation = async (email, educationInformation) => {
 	return Object.entries(updated).map(([, value]) => value);
 };
 
-exports.getEducationInformation = email =>
-	User.findOne(
+exports.getEducationInformation = async email => {
+	const educationInformation = await User.findOne(
 		{
 			email
 		},
@@ -251,6 +259,11 @@ exports.getEducationInformation = email =>
 			...educationInformationProjection
 		}
 	);
+	educationInformation.educationInformation.educations.sort((education_one, education_two) => {
+		return education_one.priority - education_two.priority
+	});
+	return educationInformation;
+};
 
 exports.updateSkillInformation = (skills, email) =>
 	User.findOneAndUpdate(
@@ -463,3 +476,11 @@ exports.deleteEducationInformation = (educationId, email) =>
 			fields: {...educationInformationProjection}
 		}
 	);
+
+exports.getCompleteInformation = async email => ({
+	basicInformation: await this.getBasicInformation(email),
+	educationInformation: await this.getEducationInformation(email),
+	skillsInformation: await this.getSkillInformation(email),
+	workExperienceInformation: await this.getWorkExperiences(email),
+	projects: await this.getProjectInformation(email)
+});
