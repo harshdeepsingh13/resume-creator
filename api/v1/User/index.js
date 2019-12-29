@@ -15,7 +15,8 @@ const {
 	updatedProjectInformationController,
 	deleteProjectInformationController,
 	deleteWorkExperienceController,
-	deleteEducationInformationController
+	deleteEducationInformationController,
+	getCompleteInformationController
 } = require('./user.controller');
 const authenticationMiddleware = require('../../../middlewares/authenticationMiddleware');
 
@@ -33,7 +34,7 @@ app.get('/educationInformation', authenticationMiddleware, getEducationInformati
 
 app.post('/educationInformation', authenticationMiddleware, updateEducationInformationController);
 
-app.delete ('/educationInformation', authenticationMiddleware, deleteEducationInformationController);
+app.delete('/educationInformation', authenticationMiddleware, deleteEducationInformationController);
 
 app.get('/skillInformation', authenticationMiddleware, getSkillInformationController);
 
@@ -50,5 +51,7 @@ app.get('/projectInformation', authenticationMiddleware, getProjectInformationCo
 app.post('/projectInformation', authenticationMiddleware, updatedProjectInformationController);
 
 app.delete('/projectInformation', authenticationMiddleware, deleteProjectInformationController);
+
+app.get('/completeInformation', authenticationMiddleware, getCompleteInformationController);
 
 module.exports = app;
