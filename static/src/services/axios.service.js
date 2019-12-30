@@ -158,4 +158,12 @@ export const deleteEducation = educationId =>
 				educationId
 			}
 		}
-	)
+	);
+
+export const getCompleteResumeInformation = () =>
+	axiosInstance()(
+		{
+			method: 'GET',
+			url: "/api/v1/user/completeInformation"
+		}
+	);
