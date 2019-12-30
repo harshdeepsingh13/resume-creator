@@ -80,4 +80,14 @@ $border-radius: 3px;
   }
 }
 
+.tags-container {
+  display: flex;
+  width: 100%;
+  //justify-content: space-around;
+  flex-wrap: wrap;
+
+  .tag-container {
+    //max-width: 25%;
+  }
+}
 
