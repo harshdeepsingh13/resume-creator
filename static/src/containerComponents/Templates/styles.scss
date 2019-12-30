@@ -1,0 +1,46 @@
+@import "../../App";
+
+.resumeTemplates-container {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+
+  table{
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .template-container {
+    .template-table {
+      width: 612px;
+      margin: 15px auto;
+      //border: thin solid red;
+
+      tr {
+        width: 100%;
+        //border: thin solid red;
+      }
+
+      td, th {
+        vertical-align: top;
+        width: 100%;
+        //border: thin solid red;
+        tr{
+          width: 100%;
+        }
+      }
+
+      div{
+        //display: inline-block;
+      }
+
+      .section-header {
+        color: black;
+        font-size: 2em;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
