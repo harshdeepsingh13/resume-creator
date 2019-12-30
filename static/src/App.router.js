@@ -4,10 +4,26 @@ import {Redirect, Route} from "react-router-dom";
 import {getToken, removeItem} from './services/localStorage.service';
 import Register from "./containerComponents/Register";
 import AllDetails from "./containerComponents/AllDetails";
+import Home from "./containerComponents/Home";
+import Templates from "./containerComponents/Templates";
 
 const AppRouter = props => {
 	return (
 		<>
+			<CustomRoute
+				path={'/'}
+				condition={() => getToken()}
+				privateComponent={Home}
+				fallbackRoute={'/register'}
+				exact
+			/>
+			<CustomRoute
+				path={'/resume'}
+				condition={() => getToken()}
+				privateComponent={Templates}
+				fallbackRoute={'/register'}
+				exact
+			/>
 			<CustomRoute
 				path={'/register'}
 				condition={() => !getToken()}
@@ -26,7 +42,7 @@ const AppRouter = props => {
 				condition={() => getToken()}
 				privateComponent={(props) => {
 					removeItem();
-					window.location.href= '/';
+					window.location.href = '/';
 					return <></>
 				}}
 				fallbackRoute={'/'}
