@@ -123,8 +123,42 @@ const BasicInformation = props => {
 			return smLinks
 		}, {});
 		try {
+			setBasicInformation(
+				{
+					...basicInformation,
+					status: STATUS.STARTED
+				}
+			);
 			setUpdateBasicInformationStatus(STATUS.STARTED);
-			await updateBasicInformation(information);
+			const {data: {data: {updatedInformation: basicInformationFromDB}}} = await updateBasicInformation(information);
+			console.log('repsonse', basicInformationFromDB);
+			if (basicInformationFromDB.socialMediaLinks) {
+				delete (basicInformationFromDB.socialMediaLinks._id);
+				delete (basicInformationFromDB.socialMediaLinks.createdAt);
+				delete (basicInformationFromDB.socialMediaLinks.updatedAt);
+				for (let [socialMediaKey, socialMediaValue] of Object.entries(basicInformationFromDB.socialMediaLinks)) {
+					basicInformationFromDB.socialMediaLinks[socialMediaKey] = {
+						value: socialMediaValue
+					}
+				}
+			}
+			setBasicInformation({
+				...basicInformation,
+				status: STATUS.SUCCESS,
+				name: basicInformationFromDB.name,
+				tags: basicInformationFromDB.tags,
+				objective: basicInformationFromDB.objective,
+				email: basicInformationFromDB.email,
+				contactNumber: basicInformationFromDB.contactNumber,
+				state: (basicInformationFromDB.currentLocation && basicInformationFromDB.currentLocation.state) ? basicInformationFromDB.currentLocation.state : '',
+				country: (basicInformationFromDB.currentLocation && basicInformationFromDB.currentLocation.country) ? basicInformationFromDB.currentLocation.country : '',
+				dob: basicInformationFromDB.dob ? new Date(basicInformationFromDB.dob).toISOString().slice(0, 10) : '',
+				website: basicInformationFromDB.website,
+				avatar: {
+					uploadId: basicInformationFromDB.avatar.uploadId
+				},
+				socialMediaLinks: basicInformationFromDB.socialMediaLinks ? basicInformationFromDB.socialMediaLinks : {}
+			});
 			setUpdateBasicInformationStatus(STATUS.SUCCESS);
 		} catch (e) {
 
@@ -232,6 +266,7 @@ const BasicInformation = props => {
 						handleChange={handleChange}
 						value={basicInformation.tags}
 						placeholder={"Your tags"}
+						numberOfTagsAllowed={1}
 					/>
 					<InputText
 						id={"website"}
@@ -260,6 +295,12 @@ const BasicInformation = props => {
 							handleChange={handleChange}
 							iconName={"heart"}
 						/>
+
+						<div style={{color: 'red'}}>
+							{
+								JSON.stringify(basicInformation.socialMediaLinks)
+							}
+						</div>
 						{
 							Object.entries(basicInformation.socialMediaLinks)
 								.map(([socialMediaKey, socialMediaValue]) =>
