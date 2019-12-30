@@ -28,7 +28,13 @@ module.exports = {
 			GREY_LIGHT: "#999999"
 		},
 		BORDER_RADIUS: '3px',
-		BLACK_COLOR: '#8d8d8d'
+		BLACK_COLOR: '#8d8d8d',
+		TEMPLATE_CONSTANTS: {
+			SOLID_BLUE_TEMPLATE: {
+				PRIMARY: '#509edc',
+				PRIMARY_DARK: '#425a70'
+			}
+		}
 	},
 	EMAIL_REGEX: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 	PASSWORD_REGEX: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
@@ -48,12 +54,18 @@ module.exports = {
 		SUCCESS: "SUCCESS",
 		FAILURE: "FAILURE"
 	},
-	SWEET_ALERT_TYPES:{
+	SWEET_ALERT_TYPES: {
 		SUCCESS: "success",
 		ERROR: "error",
 		WARNING: "warning",
 		INFO: "info",
 		QUESTION: "question"
 	},
-	COPYRIGHT_TEXT: "&copy; Copyright 2019"
-}
+	COPYRIGHT_TEXT: "&copy; Copyright 2019",
+	MONTHS: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+	CLOUDINARY: {
+		RES_LINK: {
+			USER_AVATAR: 'https://res.cloudinary.com/harshdeep-singh/image/upload/v1569133686/resumeCreator/User%20Avatar/'
+		}
+	}
+};
