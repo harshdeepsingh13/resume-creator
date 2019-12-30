@@ -1,4 +1,4 @@
-import {ERROR_MESSAGES} from "../config/config";
+import {CLOUDINARY, ERROR_MESSAGES} from "../config/config";
 
 export const getQueryObject = (query) => {
 	const queryObject = {};
@@ -17,3 +17,9 @@ export const checkWebsiteLink = websiteLink =>
 	websiteLink.match(/^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(\/\S*)?$/) ?
 		[false, ''] :
 		[true, ERROR_MESSAGES.WEBSITE_NOT_VALID];
+
+export const getCloudinaryImageLink = (uploadId) => {
+	return `${CLOUDINARY.RES_LINK.USER_AVATAR}${uploadId}`
+};
+
+export const convertCamelToSpace = camel => camel.replace(/([A-Z])/g, " $1").toLowerCase();
