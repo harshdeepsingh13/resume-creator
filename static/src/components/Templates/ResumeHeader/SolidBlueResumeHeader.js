@@ -212,4 +212,4 @@ SolidBlueResumeHeader.propTypes = {
 	basicInformation: PropTypes.object.isRequired
 };
 
-module.exports = SolidBlueResumeHeader;
+export default SolidBlueResumeHeader;
