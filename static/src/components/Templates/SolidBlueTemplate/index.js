@@ -1,21 +1,19 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import './styles.scss';
+import PropTypes from "prop-types";
 import PDFExport from "@progress/kendo-react-pdf/dist/es/PDFExport";
 import {getItem} from "../../../services/localStorage.service";
 import {InputFields, InputSubmit} from "../../InputFields";
-import {STATUS} from "../../../config/config"
-import {getCompleteResumeInformation} from "../../../services/axios.service";
-import Loader from "../../Loader";
 import ResumeHeader from "../ResumeHeader";
 import EducationInformationView from "../EducationInformationView";
 
-const SolidBlueTemplate = props => {
+const SolidBlueTemplate = ({completeInformation: information}) => {
 	const resumeRef = useRef(undefined);
 	const exportPdf = () => resumeRef.current.save();
-	const [information, setInformation] = useState({});
-	const [informationFetchStatus, setInformationFetchStatus] = useState(STATUS.DEFAULT);
+	/*const [information, setInformation] = useState({});
+	const [informationFetchStatus, setInformationFetchStatus] = useState(STATUS.DEFAULT);*/
 
-	useEffect(
+	/*useEffect(
 		() => {
 			(async () => {
 				setInformationFetchStatus(STATUS.STARTED);
@@ -30,53 +28,55 @@ const SolidBlueTemplate = props => {
 			})();
 		},
 		[]
-	);
+	);*/
 
 	return (
 		<div className="solidBlueTemplate-container template-container">
-			{
+			{/*{
 				informationFetchStatus === STATUS.STARTED &&
 				<Loader/>
 			}
 			{
-				informationFetchStatus === STATUS.SUCCESS &&
-				<>
-					<PDFExport
-						paperSize={'Letter'}
-						fileName={`${getItem().name.split(' ').join('_')}.pdf`}
-						ref={resumeRef}
-						// margin={20}
-					>
-						<table className="template-table">
-							<tbody>
-							<tr className="resumeHeader-container">
-								<ResumeHeader
-									basicInformation={information.basicInformation}
-									theme={'solid-blue'}
-								/>
-							</tr>
-							<tr>
-								<EducationInformationView
-									theme={'solid-blue'}
-									educations={information.educationInformation.educationInformation.educations}
-								/>
-							</tr>
-							</tbody>
-						</table>
-					</PDFExport>
-					<InputFields>
-						<InputSubmit
-							text={"Download PDF"}
-							handleClick={exportPdf}
-						/>
-					</InputFields>
-				</>
-			}
+				informationFetchStatus === STATUS.SUCCESS &&*/}
+			<>
+				<PDFExport
+					paperSize={'Letter'}
+					fileName={`${getItem().name.split(' ').join('_')}.pdf`}
+					ref={resumeRef}
+					// margin={20}
+				>
+					<table className="template-table">
+						<tbody>
+						<tr className="resumeHeader-container">
+							<ResumeHeader
+								basicInformation={information.basicInformation}
+								theme={'solid-blue'}
+							/>
+						</tr>
+						<tr>
+							<EducationInformationView
+								theme={'solid-blue'}
+								educations={information.educationInformation.educationInformation.educations}
+							/>
+						</tr>
+						</tbody>
+					</table>
+				</PDFExport>
+				<InputFields>
+					<InputSubmit
+						text={"Download PDF"}
+						handleClick={exportPdf}
+					/>
+				</InputFields>
+			</>
+			{/*}*/}
 		</div>
 	)
 };
 
-SolidBlueTemplate.propTypes = {};
+SolidBlueTemplate.propTypes = {
+	completeInformation: PropTypes.object.isRequired
+};
 
 export default SolidBlueTemplate
 
