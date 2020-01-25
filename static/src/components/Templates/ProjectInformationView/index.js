@@ -15,7 +15,6 @@ const ProjectInformationView = ({
 				</h4>
 			</tr>
 			<tr className="section">
-				<span className="spacer small"/>
 				{
 					projects.map((project, index) => (
 						<ProjectView
@@ -47,10 +46,7 @@ const ProjectView = ({
                      }) => {
 	return (
 		<tr className="project-container">
-			{
-				index !== 0 &&
 				<span className="spacer small"/>
-			}
 			<tr className="nameDuration-container">
 				<td className="name">
 					{
@@ -81,7 +77,7 @@ const ProjectView = ({
 				>{link}</a>
 				</td>
 			</tr>
-			{<span className="spacer small"/>}
+			<span className="spacer small"/>
 		</tr>
 	)
 };
