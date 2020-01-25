@@ -16,10 +16,9 @@ const ProjectInformationView = ({
 			</tr>
 			<tr className="section">
 				{
-					projects.map((project, index) => (
+					projects.map(project => (
 						<ProjectView
 							project={project}
-							index={index}
 						/>
 					))
 				}
@@ -41,12 +40,11 @@ const ProjectView = ({
 		                     isPresent,
 		                     summary,
 		                     link
-	                     },
-	                     index
+	                     }
                      }) => {
 	return (
 		<tr className="project-container">
-				<span className="spacer small"/>
+			<span className="spacer small"/>
 			<tr className="nameDuration-container">
 				<td className="name">
 					{
@@ -90,7 +88,6 @@ ProjectView.propTypes = {
 		summary: PropTypes.string,
 		link: PropTypes.string,
 	}).isRequired,
-	index: PropTypes.number.isRequired
-}
+};
 
 export default ProjectInformationView
