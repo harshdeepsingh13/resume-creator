@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
+import {MONTHS} from '../../../config/config';
 
 const ProjectInformationView = ({
 	                                projects,
@@ -55,7 +56,7 @@ const ProjectView = ({
 					{
 						isPresent ?
 							'Still in development' :
-							`${new Date(startDate).toLocaleDateString().slice(3)} - ${new Date(endDate).toLocaleDateString().slice(3)}`
+							`${MONTHS[new Date(startDate).getMonth()]} ${new Date(startDate).getFullYear()} - ${MONTHS[new Date(endDate).getMonth()]} ${new Date(endDate).getFullYear()}`
 					}
 				</td>
 			</tr>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
+import {MONTHS} from '../../../config/config'
 
 const WorkExperienceInformationView = ({
 	                                       workExperiences,
@@ -55,7 +56,7 @@ const WorkExperienceView = ({
 					{
 						isPresent ?
 							'Sill in development' :
-							`${new Date(startDate).toLocaleDateString()} - ${new Date(endDate).toLocaleDateString()}`
+							`${new Date(startDate).getDate()} ${MONTHS[new Date(startDate).getMonth()]} ${new Date(startDate).getFullYear()} - ${new Date(endDate).getDate()} ${MONTHS[new Date(endDate).getMonth()]} ${new Date(endDate).getFullYear()}`
 					}
 				</td>
 			</tr>
