@@ -4,14 +4,8 @@
 .educationInformationView-container {
   //width: 100%;
 
-  table{
-    margin: 0;
-    padding: 0;
-  }
-
   .education-container {
     line-height: 23px;
-    margin: 7px 2px;
     font-size: 1.5em;
     border-bottom: thin solid $grey-dark-bb;
 
@@ -22,13 +16,13 @@
     }
 
     .durationScore-container {
-     /* display: flex;
-      justify-content: space-between;
-      align-items: center;*/
 
       .duration, .score {
         font-style: italic;
-        font-size: 0.9em;
+        font-size: 0.85em;
+      }
+
+      .score {
         text-align: right;
       }
     }
@@ -48,6 +42,14 @@
   }
 }
 
-.educationInformationView-container.solid-blue{
+.educationInformationView-container.solid-blue {
+
+  .education-container {
+    .durationScore-container {
+      .duration, .score {
+        text-align: right;
+      }
+    }
+  }
 
 }

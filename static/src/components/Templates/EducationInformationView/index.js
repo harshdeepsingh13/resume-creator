@@ -2,16 +2,19 @@ import React from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types'
 import {convertCamelToSpace} from "../../../services/utils";
+import {MONTHS} from '../../../config/config';
 
 const EducationInformationView = ({educations, theme}) => {
 	return (
-		<tr className={`educationInformationView-container ${theme}`}>
+		<td className={`educationInformationView-container ${theme}`}>
+			<span className="spacer medium"/>
 			<tr className="section-header-container">
 				<h4 className="section-header">
 					Education
 				</h4>
 			</tr>
 			<tr className="section">
+				<span className="spacer small"/>
 				{
 					educations.map(education => (
 						<tr className="education-container">
@@ -28,7 +31,10 @@ const EducationInformationView = ({educations, theme}) => {
 							<tr className="durationScore-container">
 								<td className="duration">
 									{
-										`${new Date(education.startDate).toLocaleDateString().slice(3)} - ${new Date(education.endDate).toLocaleDateString().slice(3)}`
+										`${new Date(education.startDate).getDate()} ${MONTHS[new Date(education.startDate).getMonth()]} ${new Date(education.startDate).getFullYear()} - ${
+											education.isPresent ?
+												'Present' :
+												`${new Date(education.endDate).getDate()} ${MONTHS[new Date(education.endDate).getMonth()]} ${new Date(education.endDate).getFullYear()}`}`
 									}
 								</td>
 								<td className="score">
@@ -52,7 +58,8 @@ const EducationInformationView = ({educations, theme}) => {
 					))
 				}
 			</tr>
-		</tr>
+			<span className="spacer large"/>
+		</td>
 	)
 };
 
