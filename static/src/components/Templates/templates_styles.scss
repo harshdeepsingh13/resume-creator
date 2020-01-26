@@ -2,7 +2,6 @@
 
 %left-pannel-bookmark {
   width: auto !important;
-  background-color: red;
 
   div {
     width: 40px;
@@ -14,4 +13,9 @@
 $solid-blue: (
         primary:#509edc,
         primary-dark: #425a70
-)
+);
+
+$default-blue: (
+        primary: #0a96c3,
+        primary-dark: #425a70
+);
