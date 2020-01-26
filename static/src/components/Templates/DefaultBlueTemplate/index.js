@@ -73,7 +73,14 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 						</tbody>
 					</table>
 				</PDFExport>
-				<InputFields>
+				<InputFields
+					styles={
+						{
+							position: "sticky",
+							bottom: "10px"
+						}
+					}
+				>
 					<InputSubmit
 						text={"Download PDF"}
 						handleClick={exportPdf}
