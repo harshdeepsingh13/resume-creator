@@ -13,6 +13,10 @@ const SkillsInformationView = ({skills, theme}) => {
 					setColor(STYLE_CONSTANTS.TEMPLATE_CONSTANTS.SOLID_BLUE_TEMPLATE.PRIMARY);
 					break;
 				}
+				case 'default-blue': {
+					setColor(STYLE_CONSTANTS.TEMPLATE_CONSTANTS.DEFAULT_BLUE_TEMPLATE.PRIMARY_DARK);
+					break;
+				}
 				default: {
 					setColor(STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_REDDISH);
 					break;
@@ -23,7 +27,7 @@ const SkillsInformationView = ({skills, theme}) => {
 	);
 	return (
 		<td className="skillsInformationView-container">
-			<tr>
+			<tr className='section-header-container'>
 				<h4 className="section-header">
 					Skills
 				</h4>
