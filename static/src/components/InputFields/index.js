@@ -1702,14 +1702,16 @@ InputSubmit.defaultProps = {
 //Input Fields Component
 export const InputFields = (props) => {
 	return (
-		<div className="inputFields-container">
+		<div className="inputFields-container" style={{...props.styles}}>
 			{
 				props.children
 			}
 		</div>
 	)
 };
-InputFields.propTypes = {};
+InputFields.propTypes = {
+	styles: PropTypes.object
+};
 
 /*
 *
