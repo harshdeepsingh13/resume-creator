@@ -33,6 +33,10 @@ module.exports = {
 			SOLID_BLUE_TEMPLATE: {
 				PRIMARY: '#509edc',
 				PRIMARY_DARK: '#425a70'
+			},
+			DEFAULT_BLUE_TEMPLATE: {
+				PRIMARY: '#0a96c3',
+				PRIMARY_DARK: '#425a70'
 			}
 		}
 	},
