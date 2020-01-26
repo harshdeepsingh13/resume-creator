@@ -4,7 +4,7 @@
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
 
-  table{
+  table {
     border-collapse: collapse;
     border-spacing: 0;
   }
@@ -16,20 +16,22 @@
       //border: thin solid red;
 
       tr {
-        width: 100%;
+        //width: 100%;
+        width: 608px;
         //border: thin solid red;
       }
 
       td, th {
         vertical-align: top;
-        width: 100%;
+        //width: 100%;
+        width: 608px;
         //border: thin solid red;
-        tr{
-          width: 100%;
+        tr {
+          //width: 100%;
         }
       }
 
-      div{
+      div {
         //display: inline-block;
       }
 
@@ -42,5 +44,27 @@
         text-transform: uppercase;
       }
     }
+  }
+
+  .spacer {
+    display: inline-block;
+  }
+
+  .spacer.small {
+    height: 2px !important;
+  }
+
+  .spacer.medium {
+    height: 5px !important;
+  }
+
+  .spacer.large {
+    height: 7.5px !important;
+  }
+
+  .link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
