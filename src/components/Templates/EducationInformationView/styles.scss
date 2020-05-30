@@ -1,0 +1,55 @@
+@import "../../../App";
+@import "../templates_styles";
+
+.educationInformationView-container {
+  //width: 100%;
+
+  .education-container {
+    line-height: 23px;
+    font-size: 1.5em;
+    border-bottom: thin solid $grey-dark-bb;
+
+    .type {
+      text-transform: capitalize;
+      font-size: 1.05em;
+      font-weight: bold;
+    }
+
+    .durationScore-container {
+
+      .duration, .score {
+        font-style: italic;
+        font-size: 0.85em;
+      }
+
+      .score {
+        text-align: right;
+      }
+    }
+
+    .course-container {
+      .course-header {
+        font-style: italic;
+      }
+
+      .course {
+        ul {
+          margin: 10px 0;
+          list-style: none;
+        }
+      }
+    }
+  }
+}
+
+.educationInformationView-container.solid-blue {
+
+  .education-container {
+    .durationScore-container {
+      .duration, .score {
+        text-align: right;
+      }
+    }
+  }
+
+}

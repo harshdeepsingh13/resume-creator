@@ -1,0 +1,5 @@
+@import '../../App';
+
+.educationInformation-container {
+  @extend %formFields-container;
+}

@@ -1,0 +1,464 @@
+[32minfo[39m [2020-05-26T14:16:07.140Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:16:07.144Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:16:29.579Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:16:29.581Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:16:48.489Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:16:48.493Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:16:52.409Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:16:52.412Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:17:05.103Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:17:05.105Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:17:06.091Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:17:06.095Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:17:09.710Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:17:09.714Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:17:18.471Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:17:18.475Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:17:53.031Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:17:53.033Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:17:53.998Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:17:54.001Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:18:36.130Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:18:36.132Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:18:37.100Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:18:37.103Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:18:40.335Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:18:40.338Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:18:47.465Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:18:47.467Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:19:01.386Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:19:01.388Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:19:01.698Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:19:01.700Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:19:08.796Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:19:08.799Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:19:09.419Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:19:09.421Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:19:18.912Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:19:18.913Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:19:38.431Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:19:38.433Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:19:39.262Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:19:39.265Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:20:21.264Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:20:21.268Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:20:22.234Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:20:22.236Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:20:25.530Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:20:25.532Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:20:32.495Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:20:32.498Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:22:47.293Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:22:47.295Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:22:53.449Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:22:53.453Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:23:11.148Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:23:11.150Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:23:54.651Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:23:54.653Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:24:07.716Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:24:07.717Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:24:33.147Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:24:33.148Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:24:33.550Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:24:33.552Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:24:45.998Z] Server is running on port - 8081
+[31merror[39m [2020-05-26T14:24:45.999Z] Error in connecting with DB - MongoParseError: Invalid connection string
+[32minfo[39m [2020-05-26T14:25:53.734Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T14:25:53.808Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T14:25:54.758Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T14:25:54.793Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T14:25:58.224Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T14:25:58.246Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T14:26:04.790Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T14:26:04.809Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T14:26:19.813Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T14:26:19.857Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T14:26:20.314Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T14:26:20.331Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:26:07.955Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:26:07.977Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:26:08.728Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:26:08.748Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:30:31.851Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:30:31.879Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:30:32.788Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:30:32.815Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:43:01.313Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:43:01.329Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:43:02.020Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:43:02.036Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:43:12.640Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:43:12.656Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:43:17.224Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:43:17.239Z] Connection with DB is successful.
+[31merror[39m [2020-05-26T18:44:55.747Z] [ errorMiddleware.js ] Error occured --- Error: error:0909006C:PEM routines:get_name:no start line
+[31merror[39m [2020-05-26T18:45:06.255Z] [ errorMiddleware.js ] Error occured --- Error
+[31merror[39m [2020-05-26T18:45:10.293Z] [ errorMiddleware.js ] Error occured --- Error: error:0909006C:PEM routines:get_name:no start line
+[31merror[39m [2020-05-26T18:46:26.863Z] [ errorMiddleware.js ] Error occured --- Error: error:0909006C:PEM routines:get_name:no start line
+[32minfo[39m [2020-05-26T18:46:35.866Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:46:35.881Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:46:36.714Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:46:36.727Z] Connection with DB is successful.
+[31merror[39m [2020-05-26T18:46:39.090Z] [ errorMiddleware.js ] Error occured --- Error: error:0909006C:PEM routines:get_name:no start line
+[32minfo[39m [2020-05-26T18:46:47.208Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:46:47.223Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:47:27.977Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:47:27.993Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:47:28.819Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:47:28.838Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:47:40.533Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:47:40.555Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:47:45.177Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:47:45.191Z] Connection with DB is successful.
+[31merror[39m [2020-05-26T18:47:56.167Z] [ errorMiddleware.js ] Error occured --- Error
+[31merror[39m [2020-05-26T18:48:06.515Z] [ errorMiddleware.js ] Error occured --- Error
+[31merror[39m [2020-05-26T18:48:13.177Z] [ errorMiddleware.js ] Error occured --- Error
+[32minfo[39m [2020-05-26T18:48:18.229Z] [ user.controller.js ]User with email as harshdeepsingh13@gmail.com has been logged in 
+[32minfo[39m [2020-05-26T18:48:24.434Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-26T18:50:13.108Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:50:13.124Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T18:56:43.868Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T18:56:43.881Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:07:18.376Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:07:18.391Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:07:19.247Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:07:19.264Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:07:34.981Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:07:34.998Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:08:32.116Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:08:32.131Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:09:48.141Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:09:48.154Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:12:03.367Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:12:03.381Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:12:04.189Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:12:04.202Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:12:14.530Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:12:14.549Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:12:19.792Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:12:19.811Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:14:02.799Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:14:02.812Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:15:28.117Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:15:28.145Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:16:12.084Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:16:12.097Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:16:41.141Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:16:41.154Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:17:22.986Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:17:22.998Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:17:49.644Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:17:49.657Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:17:50.428Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:17:50.441Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:20:56.756Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:20:56.771Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:21:10.569Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:21:10.582Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:21:11.169Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:21:11.182Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:21:20.754Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:21:20.768Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:21:25.208Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:21:25.224Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:21:56.390Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:21:56.418Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:21:57.061Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:21:57.073Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:22:10.118Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:22:10.130Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:22:25.093Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:22:25.105Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:24:06.895Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:24:06.908Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:24:26.132Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:24:26.147Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:25:38.823Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:25:38.836Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:25:44.812Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:25:44.826Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:25:45.614Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:25:45.628Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:25:56.142Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:25:56.160Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:26:00.420Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:26:00.436Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:26:24.975Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:26:24.994Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:26:25.467Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:26:25.479Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:27:31.953Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:27:31.970Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:28:01.480Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:28:01.496Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:45:16.773Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:45:16.786Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:49:34.596Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:49:34.611Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:49:35.399Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:49:35.411Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:49:52.838Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:49:52.851Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:50:03.359Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:50:03.374Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:50:47.373Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:50:47.386Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:52:17.154Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:52:17.178Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:52:17.685Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:52:17.699Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:53:21.170Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:53:21.185Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:53:22.016Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:53:22.033Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:53:31.919Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:53:31.934Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:53:37.668Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:53:37.686Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:53:56.802Z] [ user.controller.js ]User with email as harshdeepsingh13@gmail.com has been logged in 
+[32minfo[39m [2020-05-26T19:54:01.166Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[31merror[39m [2020-05-26T19:54:03.931Z] [ errorMiddleware.js ] Error occured --- TypeError: Cannot read property 'getBasicInformation' of undefined
+[32minfo[39m [2020-05-26T19:55:03.729Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:55:03.744Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:55:16.032Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:55:16.046Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:55:19.833Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:55:19.857Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T19:55:38.428Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T19:55:38.444Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:04:07.144Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:04:07.157Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:04:07.937Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:04:07.954Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:04:18.597Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:04:18.613Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:04:23.158Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:04:23.182Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:05:24.556Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:05:24.596Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:05:25.189Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:05:25.201Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:05:34.930Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:05:34.943Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:06:06.668Z] [ user.controller.js ]User with email as harshdeepsingh13@gmail.com has been logged in 
+[32minfo[39m [2020-05-26T20:06:09.395Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-26T20:06:51.483Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-26T20:07:08.628Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:07:09.098Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:07:09.110Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:07:10.722Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:07:10.735Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:07:17.161Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-26T20:07:26.087Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-26T20:07:31.401Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:07:31.414Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:07:32.228Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:07:32.242Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:07:45.129Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:07:45.143Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:07:47.776Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:07:47.789Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:10:19.605Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:10:19.619Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:10:20.149Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:10:20.161Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:10:27.153Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-26T20:11:34.704Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:11:34.719Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:11:35.180Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:11:35.192Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:11:57.930Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:11:57.943Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:14:44.923Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:14:44.939Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:15:10.011Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:15:10.023Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:15:22.164Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:15:22.178Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:15:23.052Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:15:23.069Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:15:33.187Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:15:33.204Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:15:35.101Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:15:35.116Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:15:39.176Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:15:39.197Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:15:40.559Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:15:40.586Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:16:02.857Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:16:02.873Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:17:22.723Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:17:22.752Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:17:39.499Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:17:39.511Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:18:29.562Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:18:29.575Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:19:12.412Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:19:12.429Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:19:13.441Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:19:13.457Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:19:26.183Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:19:26.200Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:22:40.147Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:22:40.169Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:22:41.126Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:22:41.143Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:22:52.072Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:22:52.088Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:22:56.892Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:22:56.907Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:23:54.580Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:23:54.595Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:23:55.069Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:23:55.082Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:24:54.587Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:24:54.601Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:25:31.385Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:25:31.397Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:30:22.180Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:30:22.194Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:31:49.548Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:31:49.560Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:32:21.147Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:32:21.171Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:33:38.276Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:33:38.304Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:34:52.310Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:34:52.344Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:34:53.083Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:34:53.096Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:35:08.454Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:35:08.470Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:35:14.255Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:35:14.268Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:37:24.659Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:37:24.681Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:49:26.633Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:49:26.650Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:49:27.107Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:49:27.119Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:50:12.250Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:50:12.771Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:50:12.784Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:50:20.013Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:50:20.025Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:50:22.469Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:50:22.494Z] Connection with DB is successful.
+[32minfo[39m [2020-05-26T20:51:32.547Z] Server is running on port - 8081
+[32minfo[39m [2020-05-26T20:51:32.561Z] Connection with DB is successful.
+[32minfo[39m [2020-05-27T04:42:59.443Z] Server is running on port - 8081
+[32minfo[39m [2020-05-27T04:42:59.457Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:04:38.723Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:04:38.740Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:04:39.638Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:04:39.655Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:04:51.744Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:04:51.760Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:04:56.583Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:04:56.602Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:13:18.224Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:13:18.239Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:13:18.754Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:13:18.767Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:13:34.286Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:13:34.302Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:13:35.355Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:13:35.373Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:13:49.179Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:13:49.198Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:13:54.410Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:13:54.431Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:14:12.472Z] [ user.controller.js ]User with email as harshdeepsingh13@gmail.com has been logged in 
+[32minfo[39m [2020-05-30T11:18:59.215Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:18:59.231Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:18:59.945Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:18:59.959Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:19:48.651Z] [ user.controller.js ]User with email as harshdeepsingh13@gmail.com has been logged in 
+[32minfo[39m [2020-05-30T11:53:31.025Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:53:31.045Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:53:32.093Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:53:32.114Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:53:47.865Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:53:47.883Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:53:51.285Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:53:51.302Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:54:26.929Z] [ user.controller.js ]User with email as harshdeepsingh13@gmail.com has been logged in 
+[32minfo[39m [2020-05-30T11:56:33.677Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:56:33.702Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:56:34.645Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:56:34.664Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:56:45.734Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:56:45.750Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:56:50.859Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T11:56:50.874Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T11:57:48.246Z] [ user.controller.js ]User with email as harshdeepsingh13@gmail.com has been logged in 
+[32minfo[39m [2020-05-30T12:00:38.061Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:00:38.559Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:00:38.573Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:00:46.569Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:00:46.586Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:00:47.777Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:00:47.809Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:01:01.133Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:01:01.151Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:01:05.568Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:01:05.592Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:24:02.473Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:24:02.488Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:24:05.608Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:24:05.625Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:24:06.578Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:24:06.598Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:24:19.513Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:24:19.528Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:24:23.081Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:24:23.096Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:25:27.214Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:25:27.230Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:25:27.809Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:25:27.823Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:25:38.129Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:25:38.146Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:25:39.273Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:25:39.295Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:25:52.534Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:25:52.550Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:25:55.683Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:25:55.698Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:27:11.767Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:27:11.782Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:27:12.321Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:27:12.335Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:27:15.289Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:27:15.311Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:27:16.361Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:27:16.382Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:27:28.945Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:27:28.963Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:27:32.337Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:27:32.352Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:28:59.596Z] [ user.controller.js ]User with email as harshdeepsingh13@gmail.com has been logged in 
+[32minfo[39m [2020-05-30T12:30:12.018Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:30:12.033Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:30:12.562Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:30:12.576Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:31:02.693Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:31:02.710Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:31:03.736Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:31:03.754Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:31:16.534Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:31:16.548Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:31:20.106Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:31:20.121Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:31:32.950Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-30T12:31:39.856Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-30T12:34:47.235Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[31merror[39m [2020-05-30T12:34:50.406Z] [ errorMiddleware.js ] Error occured --- TypeError: Cannot read property 'getBasicInformation' of undefined
+[32minfo[39m [2020-05-30T12:42:57.928Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:42:57.944Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:42:58.533Z] Server is running on port - 8081
+[32minfo[39m [2020-05-30T12:42:58.545Z] Connection with DB is successful.
+[32minfo[39m [2020-05-30T12:43:05.735Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-30T12:43:11.322Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.
+[32minfo[39m [2020-05-30T12:43:24.996Z] [ user.controller.js ] Basic information for the user having email as harshdeepsingh13@gmail.com has been sent.

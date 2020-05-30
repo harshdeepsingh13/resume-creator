@@ -1,0 +1,22 @@
+@import "../../App";
+
+.tag-container {
+  .tag {
+    color: white;
+    font-weight: bold;
+    line-height: 33px;
+    //width: fit-content;
+    padding: 0 13px;
+    border-radius: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: capitalize;
+    margin:  5px 7px;
+    font-size: 12px;
+  }
+
+  .close-container {
+    padding: 0 0 0 10px;
+  }
+}

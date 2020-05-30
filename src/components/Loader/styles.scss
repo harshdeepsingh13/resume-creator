@@ -1,0 +1,26 @@
+@import "../../App";
+
+.loader-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loader {
+    stroke-dasharray: 1330;
+    stroke-dashoffset: 0;
+    animation: dash 0.5s linear forwards infinite;
+  }
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1330;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

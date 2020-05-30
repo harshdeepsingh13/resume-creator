@@ -1,0 +1,58 @@
+@import "../../../App";
+@import "../templates_styles";
+
+.personalInformationView-container {
+  .personalInformation-container {
+    font-size: 1.2em;
+
+    .key {
+      font-weight: bold;
+    }
+
+    .value {
+    }
+
+    .dob {
+
+    }
+
+    .location {
+    }
+
+    .contact {
+    }
+
+    .website {
+    }
+
+    .socialMediaLinks {
+    }
+  }
+}
+
+.personalInformationView-container.default-blue {
+  .personalInformation-container {
+
+    .key {
+    }
+
+    .value {
+    }
+
+    .dob {
+
+    }
+
+    .location {
+    }
+
+    .contact {
+    }
+
+    .website {
+    }
+
+    .socialMediaLinks {
+    }
+  }
+}

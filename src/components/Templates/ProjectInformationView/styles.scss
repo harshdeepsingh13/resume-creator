@@ -1,0 +1,55 @@
+@import "../../../App";
+@import "../templates_styles";
+
+.projectInformationView-container {
+  .project-container {
+    border-bottom: thin solid $grey-dark-bb;
+
+    .nameDuration-container {
+      font-size: 1.5em;
+
+      .name {
+        font-weight: bold;
+      }
+
+      .duration {
+        text-align: right;
+        font-style: italic;
+        font-size: 0.85em;
+      }
+
+    }
+
+    .summary {
+      text-align: left;
+      font-size: 1.2em;
+    }
+
+    .link {
+
+    }
+  }
+}
+
+.projectInformationView-container.default-blue {
+  .project-container {
+    .nameDuration-container {
+      .name {
+
+      }
+
+      .duration {
+
+      }
+
+    }
+
+    .summary {
+
+    }
+
+    .link {
+
+    }
+  }
+}

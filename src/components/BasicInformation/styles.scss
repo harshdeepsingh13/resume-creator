@@ -1,0 +1,12 @@
+@import "../../App";
+
+.basicInformation-container {
+  @extend %formFields-container;
+
+  .currentLocation-container {
+    .currentLocation {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

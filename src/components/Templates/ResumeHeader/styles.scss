@@ -1,0 +1,108 @@
+@import "../../../App";
+@import "../templates_styles";
+@import "../SolidBlueTemplate/styles";
+
+.resumeHeader {
+
+  .name {
+    text-transform: capitalize;
+    font-size: 2.2em;
+    width: 100%;
+  }
+
+  .tags.tag {
+    font-style: italic;
+    line-height: 20px;
+  }
+
+  .objective {
+    font-size: 1.05em;
+    line-height: 17px;
+  }
+
+  .useravatar-container {
+    width: auto !important;
+
+    img {
+      width: 100px;
+    }
+  }
+
+  .contactInformation-container {
+    .email, .phone, .location, .dob, .website, .socialMedia {
+      display: flex;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      .value {
+        width: 100%;
+      }
+
+      .icon {
+        margin: 0 0 0 2px;
+        //flex-basis: 5%;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
+  /* .left-pannel-bookmark {
+     @extend %left-pannel-bookmark;
+   }*/
+}
+
+.resumeHeader.solid-blue {
+  border-bottom: 3px solid map_get($solid-blue, primary);
+
+  .name {
+    color: map-get($solid-blue, primary-dark)
+  }
+
+  .useravatar-container {
+    img {
+      border: 5px solid map_get($solid-blue, primary);
+      border-radius: 500%;
+    }
+  }
+
+  .contactInformation-container {
+    .email, .phone, .location, .dob, .website, .socialMedia {
+      line-height: 18px;
+
+      .value {
+        font-style: italic;
+        font-size: 0.9em;
+        text-align: right;
+      }
+
+      .icon {
+        color: map_get($solid-blue, primary-dark)
+      }
+    }
+  }
+
+  .left-pannel-bookmark {
+    div {
+      background-color: map_get($solid-blue, primary-dark);
+    }
+  }
+}
+
+.resumeHeader.default-blue {
+  .name {
+    font-size: 3em;
+    color: map_get($default-blue, primary);
+    font-weight: bold;
+  }
+
+  .useravatar-container {
+    img {
+      margin: 3px 7px;
+    }
+  }
+}

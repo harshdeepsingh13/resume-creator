@@ -1,0 +1,54 @@
+@import "../../../App";
+@import "../templates_styles";
+
+.workExperienceInformationView {
+  .workExperience-container {
+    border-bottom: thin solid $grey-dark-bb;
+
+    .companyNamePositionDuration-container {
+      font-size: 1.5em;
+
+      .companyNamePosition {
+        font-weight: bold;
+      }
+
+      .duration {
+        text-align: right;
+        font-style: italic;
+        font-size: 0.85em;
+      }
+    }
+
+    .responsibilities {
+      text-align: left;
+      font-size: 1.2em;
+    }
+
+    .location {
+      text-align: right;
+      font-style: italic;
+    }
+  }
+}
+
+.workExperienceInformationView.default-blue {
+  .workExperience-container {
+    .companyNamePositionDuration-container {
+      .companyNamePosition {
+
+      }
+
+      .duration {
+
+      }
+    }
+
+    .responsibilities {
+
+    }
+
+    .location {
+
+    }
+  }
+}

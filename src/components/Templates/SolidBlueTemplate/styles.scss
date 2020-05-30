@@ -1,0 +1,15 @@
+@import "../../../App";
+@import "../templates_styles";
+
+.solidBlueTemplate-container {
+  .template-table {
+    .left-pannel-bookmark {
+      @extend %left-pannel-bookmark;
+
+      div {
+        background-color: map_get($solid-blue, primary);
+      }
+    }
+  }
+
+}
