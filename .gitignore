@@ -210,5 +210,6 @@ keys/
 server-build/
 .idea/
 .vscode/
+build/
 
 # End of https://www.gitignore.io/api/node,react,webstorm,visualstudiocode
