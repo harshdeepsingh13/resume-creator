@@ -10,19 +10,21 @@ const WorkExperienceInformationView = ({
 	return (
 		<td className={`workExperienceInformationView ${theme}`}>
 			<span className="spacer medium"/>
-			<tr className="section-header-container">
-				<h4 className="section-header">
-					Work Experiences
-				</h4>
-			</tr>
-			<tr className="section">
-				{
-					workExperiences.map(workExperience =>
-						<WorkExperienceView
-							workExperience={workExperience}
-						/>)
-				}
-			</tr>
+			<table className="inner-table">
+				<tr className="section-header-container">
+					<h4 className="section-header">
+						Work Experiences
+					</h4>
+				</tr>
+				<tr className="section">
+					{
+						workExperiences.map(workExperience =>
+							<WorkExperienceView
+								workExperience={workExperience}
+							/>)
+					}
+				</tr>
+			</table>
 		</td>
 	)
 };

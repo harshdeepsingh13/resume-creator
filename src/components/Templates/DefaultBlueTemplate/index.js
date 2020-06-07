@@ -22,9 +22,10 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 		<div className="defaultBlueTemplate-container template-container">
 			<>
 				<PDFExport
-					paperSize={'Letter'}
+					paperSize={'A4'}
 					fileName={`${getItem().name.split(' ').join('_')}.pdf`}
 					ref={resumeRef}
+					// scale={0.6}
 				>
 					<table className="template-table">
 						<tbody>

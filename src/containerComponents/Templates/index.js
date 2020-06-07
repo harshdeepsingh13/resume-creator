@@ -15,7 +15,6 @@ const Templates = props => {
 			(async () => {
 				setInformationFetchStatus(STATUS.STARTED);
 				const {data: {data: completeInformation}} = await getCompleteResumeInformation();
-				console.log('complete information ', completeInformation);
 				delete (completeInformation.basicInformation.socialMediaLinks._id);
 				delete (completeInformation.basicInformation.socialMediaLinks.updatedAt);
 				delete (completeInformation.basicInformation.socialMediaLinks.createdAt);

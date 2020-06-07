@@ -10,20 +10,22 @@ const ProjectInformationView = ({
 	return (
 		<td className={`projectInformationView-container ${theme}`}>
 			<span className="spacer medium"/>
-			<tr className="section-header-container">
-				<h4 className="section-header">
-					Projects
-				</h4>
-			</tr>
-			<tr className="section">
-				{
-					projects.map(project => (
-						<ProjectView
-							project={project}
-						/>
-					))
-				}
-			</tr>
+			<table className="inner-table">
+				<tr className="section-header-container">
+					<h4 className="section-header">
+						Projects
+					</h4>
+				</tr>
+				<tr className="section">
+					{
+						projects.map(project => (
+							<ProjectView
+								project={project}
+							/>
+						))
+					}
+				</tr>
+			</table>
 		</td>
 	)
 };

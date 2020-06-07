@@ -27,13 +27,13 @@ const SkillsInformationView = ({skills, theme}) => {
 	);
 	return (
 		<td className="skillsInformationView-container">
-			<tr className='section-header-container'>
-				<h4 className="section-header">
-					Skills
-				</h4>
-			</tr>
-			<tr className="section">
-				<tr className="tags-container">
+			<table className="inner-table">
+				<tr className='section-header-container'>
+					<h4 className="section-header">
+						Skills
+					</h4>
+				</tr>
+				<tr className="section tags-container">
 					{
 						skills.map((skill, index) => (
 							<Tag
@@ -49,7 +49,7 @@ const SkillsInformationView = ({skills, theme}) => {
 						))
 					}
 				</tr>
-			</tr>
+			</table>
 		</td>
 	)
 };
