@@ -5,8 +5,8 @@
   //width: 100%;
 
   .education-container {
-    line-height: 23px;
-    font-size: 1.5em;
+    line-height: 20px;
+    font-size: 1.2em;
     border-bottom: thin solid $grey-dark-bb;
 
     .type {
@@ -52,4 +52,18 @@
     }
   }
 
+}
+
+.educationInformationView.default-blue {
+
+  .education-container {
+    .type {
+      .course-container {
+        .course {
+          color: red !important;
+          font-style: italic!important;
+        }
+      }
+    }
+  }
 }

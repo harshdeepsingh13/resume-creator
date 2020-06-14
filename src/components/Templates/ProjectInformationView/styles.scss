@@ -3,10 +3,37 @@
 
 .projectInformationView-container {
   .project-container {
-    border-bottom: thin solid $grey-dark-bb;
 
     .nameDuration-container {
-      font-size: 1.5em;
+      .name {
+
+      }
+
+      .duration {
+
+      }
+
+    }
+
+    .summary {
+
+    }
+
+    .link {
+
+    }
+
+  }
+}
+
+.projectInformationView-container.default-blue {
+  .project-container {
+
+    border-bottom: thin solid $grey-dark-bb;
+    font-size: 1.2em;
+
+    .nameDuration-container {
+      font-size: 1.05em;
 
       .name {
         font-weight: bold;
@@ -22,34 +49,11 @@
 
     .summary {
       text-align: left;
-      font-size: 1.2em;
     }
 
     .link {
 
     }
-  }
-}
 
-.projectInformationView-container.default-blue {
-  .project-container {
-    .nameDuration-container {
-      .name {
-
-      }
-
-      .duration {
-
-      }
-
-    }
-
-    .summary {
-
-    }
-
-    .link {
-
-    }
   }
 }

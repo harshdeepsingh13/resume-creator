@@ -20,19 +20,20 @@ const DefaultBlueResumeHeader = ({theme, basicInformation}) => {
 				/>
 			</td>
 			<td>
-				<tr>
+				<table className="inner-table">
+					<tr>
 					<span className="name">
 						{
 							basicInformation.name
 						}
 					</span>
-				</tr>
-				<tr className="tags tag">
-					{
-						basicInformation.tags[0]
-					}
-				</tr>
-				<tr>
+					</tr>
+					<tr className="tags tag">
+						{
+							basicInformation.tags[0]
+						}
+					</tr>
+					<tr>
 					<span className="email">
 						<a
 							href={`mailto:${basicInformation.email}`}
@@ -44,14 +45,15 @@ const DefaultBlueResumeHeader = ({theme, basicInformation}) => {
 							}
 						</a>
 					</span>
-				</tr>
-				<tr>
+					</tr>
+					<tr>
 					<span className="location">
 						{
 							`${basicInformation.currentLocation.state}, ${basicInformation.currentLocation.country}`
 						}
 					</span>
-				</tr>
+					</tr>
+				</table>
 			</td>
 		</>
 	)

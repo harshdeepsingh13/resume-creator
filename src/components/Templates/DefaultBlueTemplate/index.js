@@ -12,11 +12,8 @@ import ProjectInformationView from "../ProjectInformationView";
 import WorkExperienceInformationView from "../WorkExperienceInformationView";
 import PersonalInformationView from "../PersonalInformationView";
 
-const DefaultBlueTemplate = ({completeInformation: information}) => {
+const DefaultBlueTemplate = React.forwardRef(({completeInformation: information}, ref) => {
 	const theme = 'default-blue';
-
-	const resumeRef = useRef(undefined);
-	const exportPdf = () => resumeRef.current.save();
 
 	return (
 		<div className="defaultBlueTemplate-container template-container">
@@ -24,8 +21,9 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 				<PDFExport
 					paperSize={'A4'}
 					fileName={`${getItem().name.split(' ').join('_')}.pdf`}
-					ref={resumeRef}
-					// scale={0.6}
+					ref={ref}
+					scale={0.6}
+					margin={"4mm"}
 				>
 					<table className="template-table">
 						<tbody>
@@ -53,12 +51,16 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 								theme={theme}
 							/>
 						</tr>
-						<tr>
-							<ProjectInformationView
-								projects={information.projects.projectsInformation.projects}
-								theme={theme}
-							/>
-						</tr>
+						{
+							information.projects.projectsInformation.projects.length ?
+								<tr>
+									<ProjectInformationView
+										projects={information.projects.projectsInformation.projects}
+										theme={theme}
+									/>
+								</tr> :
+								undefined
+						}
 						<tr>
 							<WorkExperienceInformationView
 								workExperiences={information.workExperienceInformation.workExperienceInformation.workExperiences}
@@ -74,23 +76,10 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 						</tbody>
 					</table>
 				</PDFExport>
-				<InputFields
-					styles={
-						{
-							position: "sticky",
-							bottom: "10px"
-						}
-					}
-				>
-					<InputSubmit
-						text={"Download PDF"}
-						handleClick={exportPdf}
-					/>
-				</InputFields>
 			</>
 		</div>
 	)
-};
+});
 
 DefaultBlueTemplate.propTypes = {
 	completeInformation: PropTypes.object.isRequired

@@ -3,10 +3,8 @@
 
 .personalInformationView-container {
   .personalInformation-container {
-    font-size: 1.2em;
 
     .key {
-      font-weight: bold;
     }
 
     .value {
@@ -32,8 +30,10 @@
 
 .personalInformationView-container.default-blue {
   .personalInformation-container {
+    font-size: 1.2em;
 
     .key {
+      font-weight: bold;
     }
 
     .value {

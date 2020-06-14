@@ -293,11 +293,11 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 							},
 							{
 								text: "Secondary School",
-								value: "secondary"
+								value: "secondarySchoolCertificate"
 							},
 							{
 								text: "Senior Secondary School",
-								value: "seniorSecondary"
+								value: "seniorSecondarySchoolCertificate"
 							},
 							{
 								text: "Graduation",

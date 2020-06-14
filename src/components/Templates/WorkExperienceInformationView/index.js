@@ -48,34 +48,36 @@ const WorkExperienceView = ({
 	return (
 		<tr className="workExperience-container">
 			<span className="spacer small"/>
-			<tr className="companyNamePositionDuration-container">
-				<td className="companyNamePosition">
-					{
-						`${position} at ${company}`
-					}
-				</td>
-				<td className="duration">
-					{
-						isPresent ?
-							'Sill in development' :
-							`${new Date(startDate).getDate()} ${MONTHS[new Date(startDate).getMonth()]} ${new Date(startDate).getFullYear()} - ${new Date(endDate).getDate()} ${MONTHS[new Date(endDate).getMonth()]} ${new Date(endDate).getFullYear()}`
-					}
-				</td>
-			</tr>
-			<tr className="responsibilities">
-				<td colSpan={2}>
-					{
-						responsibilities
-					}
-				</td>
-			</tr>
-			<tr className="location">
-				<td colSpan={2}>
-					{
-						location
-					}
-				</td>
-			</tr>
+			<table className="inner-table">
+				<tr className="companyNamePositionDuration-container">
+					<td className="companyNamePosition">
+						{
+							`${position} at ${company}`
+						}
+					</td>
+					<td className="duration">
+						{
+							isPresent ?
+								'Sill working' :
+								`${new Date(startDate).getDate()} ${MONTHS[new Date(startDate).getMonth()]} ${new Date(startDate).getFullYear()} - ${new Date(endDate).getDate()} ${MONTHS[new Date(endDate).getMonth()]} ${new Date(endDate).getFullYear()}`
+						}
+					</td>
+				</tr>
+				<tr className="responsibilities">
+					<td colSpan={2}>
+						{
+							responsibilities
+						}
+					</td>
+				</tr>
+				<tr className="location">
+					<td colSpan={2}>
+						{
+							location
+						}
+					</td>
+				</tr>
+			</table>
 			<span className="spacer small"/>
 		</tr>
 	)

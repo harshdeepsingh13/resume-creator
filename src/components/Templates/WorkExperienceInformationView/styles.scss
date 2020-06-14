@@ -3,13 +3,38 @@
 
 .workExperienceInformationView {
   .workExperience-container {
+    .companyNamePositionDuration-container {
+      .companyNamePosition {
+
+      }
+
+      .duration {
+
+      }
+    }
+
+    .responsibilities {
+
+    }
+
+    .location {
+
+    }
+  }
+}
+
+.workExperienceInformationView.default-blue {
+
+  .workExperience-container {
     border-bottom: thin solid $grey-dark-bb;
+    font-size: 1.2em;
 
     .companyNamePositionDuration-container {
-      font-size: 1.5em;
+      font-size: 1.05em;
 
       .companyNamePosition {
         font-weight: bold;
+        width: 80%;
       }
 
       .duration {
@@ -21,7 +46,6 @@
 
     .responsibilities {
       text-align: left;
-      font-size: 1.2em;
     }
 
     .location {
@@ -29,26 +53,5 @@
       font-style: italic;
     }
   }
-}
 
-.workExperienceInformationView.default-blue {
-  .workExperience-container {
-    .companyNamePositionDuration-container {
-      .companyNamePosition {
-
-      }
-
-      .duration {
-
-      }
-    }
-
-    .responsibilities {
-
-    }
-
-    .location {
-
-    }
-  }
 }

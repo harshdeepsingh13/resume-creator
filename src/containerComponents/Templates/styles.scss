@@ -1,74 +1,110 @@
 @import "../../App";
 
-.resumeTemplates-container {
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
+.templates-container {
+  position: relative;
 
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
+  .resumeTemplates-container {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    width: 612px;
+    margin: auto;
+    height: 100vh;
+    overflow: hidden;
+    zoom: 0.8;
 
-  .template-container {
-    .template-table {
-      width: 612px;
-      margin: 15px auto;
-      //border: thin solid red;
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
 
-      .inner-table{
+    .template-container {
+      .template-table {
+        //width: 612px;
+        margin: 15px 0;
         width: 100%;
-      }
-
-      tr {
-        //width: 100%;
-        width: 608px;
         //border: thin solid red;
-      }
 
-      td, th {
-        vertical-align: top;
-        //width: 100%;
-        width: 608px;
-        //border: thin solid red;
+        .inner-table {
+          width: 100%;
+        }
+
         tr {
+          width: 100%;
+          //width: 608px;
+          //border: thin solid red;
+        }
+
+        td, th {
+          vertical-align: top;
           //width: 100%;
+          //width: 608px;
+          //border: thin solid red;
+          tr {
+            //width: 100%;
+          }
+        }
+
+        div {
+          //display: inline-block;
+        }
+
+        .section-header {
+          color: black;
+          font-size: 1.6em;
+          font-weight: bold;
+          padding: 2px 5px;
+          margin: 0;
+          text-align: left;
+          text-transform: uppercase;
         }
       }
+    }
 
-      div {
-        //display: inline-block;
-      }
+    .spacer {
+      display: inline-block;
+    }
 
-      .section-header {
-        color: black;
-        font-size: 2em;
-        padding: 0;
-        margin: 0;
-        text-align: left;
-        text-transform: uppercase;
-      }
+    .spacer.small {
+      height: 2px !important;
+    }
+
+    .spacer.medium {
+      height: 5px !important;
+    }
+
+    .spacer.large {
+      height: 7.5px !important;
+    }
+
+    .link {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
 
-  .spacer {
-    display: inline-block;
-  }
+  .selected-template-name {
+    color: $primary-reddish;
+    font-weight: bold;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    background: rgba(255,255,255,0);
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(248,248,248,1) 61%, rgba(243,243,243,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(248,248,248,1) 61%, rgba(243,243,243,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(248,248,248,1) 61%, rgba(243,243,243,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(248,248,248,1) 61%, rgba(243,243,243,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(248,248,248,1) 61%, rgba(243,243,243,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3', GradientType=0 );
 
-  .spacer.small {
-    height: 2px !important;
-  }
-
-  .spacer.medium {
-    height: 5px !important;
-  }
-
-  .spacer.large {
-    height: 7.5px !important;
-  }
-
-  .link {
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
+    h5 {
+      color: $primary-reddish;
+      font-size: 28px;
+      letter-spacing: 0.7px;
+      margin: 30px 0;
+    }
   }
 }

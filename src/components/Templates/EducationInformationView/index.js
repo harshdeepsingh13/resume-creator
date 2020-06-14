@@ -18,44 +18,52 @@ const EducationInformationView = ({educations, theme}) => {
 					<span className="spacer small"/>
 					{
 						educations.map(education => (
-							<tr className="education-container">
-								<tr className="type">
-									{
-										convertCamelToSpace(education.type)
-									}
-								</tr>
-								<tr className="instituteNameUniversityBoard">
-									{
-										`${education.instituteName} (${education.university})`
-									}
-								</tr>
-								<tr className="durationScore-container">
-									<td className="duration">
-										{
-											`${new Date(education.startDate).getDate()} ${MONTHS[new Date(education.startDate).getMonth()]} ${new Date(education.startDate).getFullYear()} - ${
-												education.isPresent ?
-													'Present' :
-													`${new Date(education.endDate).getDate()} ${MONTHS[new Date(education.endDate).getMonth()]} ${new Date(education.endDate).getFullYear()}`}`
-										}
-									</td>
-									<td className="score">
-										{`${education.score} ${education.isPercentage ? '%' : '/ 10 CGPA'}`}
-									</td>
-								</tr>
-								{
-									education.course &&
-									<tr className="course-container">
-										<span className="course-header">
-											Course
-										</span>
-										<span className="course">
-											<ul>
-												<li>{education.course}</li>
-											</ul>
-										</span>
-									</tr>
-								}
-							</tr>
+							<table className="inner-table">
+								<td className="education-container">
+									<table className="inner-table">
+										<tr className="type">
+											{
+												convertCamelToSpace(education.type)
+											}
+											{
+												education.course &&
+												<>
+													{" "}
+													-
+													{" "}
+													<span className="course-container">
+													<span className="course">
+														{education.course}
+													</span>
+												</span>
+												</>
+
+											}
+										</tr>
+										<tr className="instituteNameUniversityBoard">
+											{
+												`${education.instituteName} (${education.university})`
+											}
+										</tr>
+										<tr className="durationScore-container">
+											<td className="duration">
+												{
+													`${new Date(education.startDate).getDate()} ${MONTHS[new Date(education.startDate).getMonth()]} ${new Date(education.startDate).getFullYear()} - ${
+														education.isPresent ?
+															'Present' :
+															`${new Date(education.endDate).getDate()} ${MONTHS[new Date(education.endDate).getMonth()]} ${new Date(education.endDate).getFullYear()}`}`
+												}
+											</td>
+											{
+												education.score &&
+												<td className="score">
+													{`${education.score} ${education.isPercentage ? '%' : '/ 10 CGPA'}`}
+												</td>
+											}
+										</tr>
+									</table>
+								</td>
+							</table>
 						))
 					}
 				</tr>
