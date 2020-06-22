@@ -6,6 +6,7 @@ import CoreSkillsInformation from '../../components/CoreSkillsInformation'
 import UniversalTabsView from "../UniversalTabsView";
 import WorkExperienceInformation from "../../components/WorkExperienceInformation";
 import ProjectsInformation from '../../components/ProjectsInformation';
+import TrainingsCertifications from "../../components/TrainingsCertifications"
 
 const AllDetails = props => {
 	return (
@@ -32,12 +33,16 @@ const AllDetails = props => {
 						{
 							tabHeader: 'Projects',
 							componentToRender: <ProjectsInformation/>
+						},
+						{
+							tabHeader: "Trainings & Certifications",
+							componentToRender: <TrainingsCertifications/>
 						}
 					]
 				}
 				styles={
 					{
-						width: '50%'
+						width: '80%'
 					}
 				}
 			/>

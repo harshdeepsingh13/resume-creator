@@ -211,5 +211,6 @@ server-build/
 .idea/
 .vscode/
 build/
+build/*
 
 # End of https://www.gitignore.io/api/node,react,webstorm,visualstudiocode

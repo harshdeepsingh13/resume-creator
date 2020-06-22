@@ -127,6 +127,16 @@ export const getProjectsInformation = () =>
 		}
 	);
 
+export const getTrainingsInformation = () =>
+	axiosInstance()(
+		{
+			method: "GET",
+			url: '/api/v1/user/trainingInformation'
+		}
+	);
+
+
+
 export const updatedProjectInformation = projects =>
 	axiosInstance()(
 		{
@@ -138,6 +148,19 @@ export const updatedProjectInformation = projects =>
 		}
 	);
 
+export const updatedTrainingInformation = trainings =>
+	axiosInstance()(
+		{
+			method: "POST",
+			url: '/api/v1/user/trainingInformation',
+			data: {
+				trainings
+			}
+		}
+	);
+
+
+
 export const deleteProject = projectId =>
 	axiosInstance()(
 		{
@@ -148,6 +171,18 @@ export const deleteProject = projectId =>
 			}
 		}
 	);
+
+export const deleteTraining = trainingId =>
+	axiosInstance()(
+		{
+			method: 'DELETE',
+			url: '/api/v1/user/trainingInformation',
+			data: {
+				trainingId
+			}
+		}
+	);
+
 
 export const deleteEducation = educationId =>
 	axiosInstance()(

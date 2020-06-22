@@ -16,7 +16,7 @@ import {
 	deleteProject,
 	deleteWorkExperience,
 	deleteEducationInformation,
-	getCompleteInformation
+	getCompleteInformation, updateTrainingInformation, deleteTraining, getTrainingInformation
 } from "./user.model";
 import config from '../../../config/config';
 import {getAvatarLink} from '../../../services/cloudinary.service';
@@ -394,6 +394,66 @@ export const getCompleteInformationController = async (req, res, next) => {
 				message: "complete information retrieval successful",
 				data: {
 					...information
+				}
+			}
+		)
+	} catch (e) {
+		next(e);
+	}
+};
+
+export const updatedTrainingInformationController = async (req, res, next) => {
+	try {
+		const {trainings} = req.body;
+		const updated = await updateTrainingInformation(trainings, req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "Trainings information successfully updated.",
+				data: [
+					...updated
+				]
+			}
+		);
+	} catch (e) {
+		next(e);
+	}
+};
+
+export const deleteTrainingInformationController = async (req, res, next) => {
+	try {
+		const {trainingId} = req.body;
+		if (!trainingId) {
+			req.error = {
+				status: 400,
+				message: 'Training Id is missing from the body.'
+			};
+			next(new Error());
+		}
+		const {trainingInformation} = await deleteTraining(trainingId, req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "delete successful",
+				data: [
+					...trainingInformation.trainings
+				]
+			}
+		);
+	} catch (e) {
+		next(e);
+	}
+};
+
+export const getTrainingInformationController = async (req, res, next) => {
+	try {
+		const {trainingInformation} = await getTrainingInformation(req.user.email);
+		res.status(200).json(
+			{
+				status: 200,
+				message: "data successfully retrieved",
+				data: {
+					trainings: trainingInformation ? trainingInformation.trainings : [] // correct this before commenting.
 				}
 			}
 		)

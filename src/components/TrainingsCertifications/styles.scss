@@ -1,0 +1,5 @@
+@import "../../App";
+
+.trainingsInformation-container {
+  @extend %formFields-container;
+}

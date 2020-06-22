@@ -1,0 +1,47 @@
+@import "../../../App";
+@import "../templates_styles";
+
+.trainingInformationView {
+  .training-container {
+
+    .trainingName-container {
+      .trainingName {
+      }
+      .duration{
+
+      }
+    }
+
+    .certificationLink-container {
+      .certificationLink {
+      }
+    }
+  }
+}
+
+.trainingInformationView.default-blue {
+  .training-container {
+    border-bottom: thin solid $grey-dark-bb;
+    font-size: 1.2em;
+
+    .trainingName-container {
+      font-size: 1.05em;
+      .trainingName {
+        font-weight: bold;
+        width: 70%;
+      }
+      .duration{
+        text-align: right;
+        font-size: 0.85em;
+        font-style: italic;
+      }
+    }
+
+    .certificationLink-container {
+      .certificationLink {
+        font-style: italic;
+        font-size: 0.85em;
+      }
+    }
+  }
+}

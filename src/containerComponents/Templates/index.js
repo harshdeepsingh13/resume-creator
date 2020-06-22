@@ -54,9 +54,9 @@ const Templates = props => {
 						/>
 
 					</div>
-					<div className="selected-template-name">
+					{/*<div className="selected-template-name">
 						<h5>Default Blue</h5>
-					</div>
+					</div>*/}
 					<InputFields
 						styles={
 							{
