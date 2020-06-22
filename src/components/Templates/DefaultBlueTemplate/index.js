@@ -11,6 +11,7 @@ import EducationInformationView from "../EducationInformationView";
 import ProjectInformationView from "../ProjectInformationView";
 import WorkExperienceInformationView from "../WorkExperienceInformationView";
 import PersonalInformationView from "../PersonalInformationView";
+import TrainingInformationView from "../TrainingInformationView";
 
 const DefaultBlueTemplate = React.forwardRef(({completeInformation: information}, ref) => {
 	const theme = 'default-blue';
@@ -39,18 +40,26 @@ const DefaultBlueTemplate = React.forwardRef(({completeInformation: information}
 								theme={theme}
 							/>
 						</tr>
-						<tr>
-							<SkillsInformationView
-								skills={information.skillsInformation.skills}
-								theme={theme}
-							/>
-						</tr>
-						<tr>
-							<EducationInformationView
-								educations={information.educationInformation.educationInformation.educations}
-								theme={theme}
-							/>
-						</tr>
+						{
+							information.skillsInformation.skills.length ?
+								<tr>
+									<SkillsInformationView
+										skills={information.skillsInformation.skills}
+										theme={theme}
+									/>
+								</tr> :
+								undefined
+						}
+						{
+							information.educationInformation.educationInformation.educations.length ?
+								<tr>
+									<EducationInformationView
+										educations={information.educationInformation.educationInformation.educations}
+										theme={theme}
+									/>
+								</tr> :
+								undefined
+						}
 						{
 							information.projects.projectsInformation.projects.length ?
 								<tr>
@@ -62,10 +71,24 @@ const DefaultBlueTemplate = React.forwardRef(({completeInformation: information}
 								undefined
 						}
 						<tr>
-							<WorkExperienceInformationView
-								workExperiences={information.workExperienceInformation.workExperienceInformation.workExperiences}
-								theme={theme}
-							/>
+							{
+								information.workExperienceInformation.workExperienceInformation.workExperiences.length ?
+									<WorkExperienceInformationView
+										workExperiences={information.workExperienceInformation.workExperienceInformation.workExperiences}
+										theme={theme}
+									/> :
+									undefined
+							}
+						</tr>
+						<tr>
+							{
+								information.trainingInformation.trainingInformation.trainings.length ?
+									<TrainingInformationView
+										trainingsCertifications={information.trainingInformation.trainingInformation.trainings}
+										theme={theme}
+									/> :
+									undefined
+							}
 						</tr>
 						<tr>
 							<PersonalInformationView

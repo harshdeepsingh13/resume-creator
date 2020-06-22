@@ -1,11 +1,6 @@
 import mongoose from "mongoose";
 
-import ImageSchema from '../../../schemas/image.schema';
-import LocationSchema from '../../../schemas/location.schema';
-import SocialMediaLinksSchema from '../../../schemas/socialMediaLinks.schema';
-import EducationsSchema from '../../../schemas/educations.schema';
-import WorkExperienceSchema from '../../../schemas/workExperience.schema';
-import ProjectSchema from '../../../schemas/project.schema';
+import UserSchema from '../../../schemas/user.schema';
 
 const basicInformationProjection = {
 	_id: 0,
@@ -42,74 +37,10 @@ const projectsProjection = {
 	_id: 0,
 	projectsInformation: 1
 };
-
-const UserSchema = new mongoose.Schema(
-	{
-		name: {
-			type: String,
-			required: true
-		},
-		email: {
-			type: String,
-			required: true,
-			index: true,
-			unique: true
-		},
-		password: {
-			type: String,
-			required: true
-		},
-		avatar: {
-			type: ImageSchema,
-			default: new mongoose.model("image", ImageSchema)
-		},
-		tags: {
-			type: Array
-		},
-		objective: {
-			type: String
-		},
-		contactNumber: {
-			type: Number
-		},
-		currentLocation: {
-			type: LocationSchema
-		},
-		dob: {
-			type: Date
-		},
-		website: {
-			type: String
-		},
-		socialMediaLinks: {
-			type: SocialMediaLinksSchema
-		},
-		educationInformation: {
-			educations: {
-				type: [EducationsSchema]
-			}
-		},
-		skills: {
-			type: Array
-		},
-		workExperienceInformation: {
-			workExperiences: {
-				type: [WorkExperienceSchema]
-			}
-		},
-		projectsInformation: {
-			projects: {
-				type: [ProjectSchema]
-			}
-		}
-	},
-	{
-		timestamps: {
-			createdAt: 'createdAt',
-			updatedAt: 'updatedAt'
-		}
-	}
-);
+const trainingsProjection = {
+	_id: 0,
+	trainingInformation: 1
+};
 
 const User = mongoose.model("User", UserSchema);
 
@@ -420,6 +351,91 @@ export const updateProjectInformation = async (projects, email) => {
 	return Object.entries(updated).map(([, value]) => value);
 };
 
+export const getTrainingInformation = email =>
+	User.findOne(
+		{
+			email
+		},
+		{
+			...trainingsProjection
+		}
+	);
+
+export const updateTrainingInformation = async (trainings, email) => {
+	const updated = {};
+	const toPush = trainings.filter(project => !project._id);
+	const toUpdate = trainings.filter(project => project._id);
+
+	for (let training of toPush) {
+		const updatedRecord = await User.findOneAndUpdate(
+			{
+				email
+			},
+			{
+				$push: {
+					'trainingInformation.trainings': {
+						...training
+					}
+				}
+			},
+			{
+				new: true,
+				useFindAndModify: false,
+				runValidators: true,
+				fields: {...trainingsProjection}
+			}
+		);
+		updatedRecord && updatedRecord.trainingInformation.trainings.forEach(record => updated[record._id] = record)
+	}
+	for (let training of toUpdate) {
+		const updatedRecord = await User.findOneAndUpdate(
+			{
+				email,
+				'trainingInformation.trainings._id': training._id
+			},
+			{
+				$set: {
+					'trainingInformation.trainings.$.name': training.name,
+					'trainingInformation.trainings.$.startDate': training.startDate,
+					'trainingInformation.trainings.$.endDate': training.endDate,
+					'trainingInformation.trainings.$.isPresent': training.isPresent,
+					'trainingInformation.trainings.$.summary': training.summary,
+					'trainingInformation.trainings.$.link': training.link
+				}
+			},
+			{
+				new: true,
+				useFindAndModify: false,
+				fields: {
+					...trainingsProjection
+				}
+			}
+		);
+		updatedRecord && updatedRecord.trainingInformation.trainings.forEach(record => updated[record._id] = record)
+	}
+	return Object.entries(updated).map(([, value]) => value);
+};
+
+export const deleteTraining = (trainingId, email) =>
+	User.findOneAndUpdate(
+		{
+			email
+		},
+		{
+			$pull: {
+				'trainingInformation.trainings': {
+					_id: trainingId
+				}
+			}
+		},
+		{
+			new: true,
+			useFindAndModify: false,
+			fields: {...trainingsProjection}
+		}
+	);
+
+
 export const deleteProject = (projectId, email) =>
 	User.findOneAndUpdate(
 		{
@@ -482,5 +498,6 @@ export const getCompleteInformation = async email => ({
 	educationInformation: await getEducationInformation(email),
 	skillsInformation: await getSkillInformation(email),
 	workExperienceInformation: await getWorkExperiences(email),
+	trainingInformation: await getTrainingInformation(email),
 	projects: await getProjectInformation(email)
 });

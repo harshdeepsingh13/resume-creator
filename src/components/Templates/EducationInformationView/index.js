@@ -48,10 +48,10 @@ const EducationInformationView = ({educations, theme}) => {
 										<tr className="durationScore-container">
 											<td className="duration">
 												{
-													`${new Date(education.startDate).getDate()} ${MONTHS[new Date(education.startDate).getMonth()]} ${new Date(education.startDate).getFullYear()} - ${
+													`${MONTHS[new Date(education.startDate).getMonth()]} ${new Date(education.startDate).getFullYear()} - ${
 														education.isPresent ?
 															'Present' :
-															`${new Date(education.endDate).getDate()} ${MONTHS[new Date(education.endDate).getMonth()]} ${new Date(education.endDate).getFullYear()}`}`
+															`${MONTHS[new Date(education.endDate).getMonth()]} ${new Date(education.endDate).getFullYear()}`}`
 												}
 											</td>
 											{

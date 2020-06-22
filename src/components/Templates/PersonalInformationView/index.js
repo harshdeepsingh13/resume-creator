@@ -72,14 +72,10 @@ const PersonalInformationView = ({
 								</td>
 								<td className="value">
 									<a
-										href={website}
+										href={website.trim()}
 										className="link"
 										target="_blank"
-									>
-										{
-											website
-										}
-									</a>
+									>{website.trim()}</a>
 								</td>
 							</tr>
 						}
@@ -96,14 +92,10 @@ const PersonalInformationView = ({
 									</td>
 									<td className="value">
 										<a
-											href={socialMediaValue}
+											href={socialMediaValue.trim()}
 											className="link"
 											target="_blank"
-										>
-											{
-												socialMediaValue
-											}
-										</a>
+										>{socialMediaValue.trim()}</a>
 									</td>
 								</tr>
 							))

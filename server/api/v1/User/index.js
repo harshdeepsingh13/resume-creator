@@ -16,7 +16,10 @@ import {
 	deleteProjectInformationController,
 	deleteWorkExperienceController,
 	deleteEducationInformationController,
-	getCompleteInformationController
+	getCompleteInformationController,
+	updatedTrainingInformationController,
+	deleteTrainingInformationController,
+	getTrainingInformationController
 } from './user.controller';
 import authenticationMiddleware from "../../../middlewares/authenticationMiddleware";
 
@@ -47,6 +50,12 @@ app.post('/workExperienceInformation', authenticationMiddleware, updateWorkExper
 app.delete('/workExperienceInformation', authenticationMiddleware, deleteWorkExperienceController);
 
 app.get('/projectInformation', authenticationMiddleware, getProjectInformationController);
+
+app.post('/trainingInformation', authenticationMiddleware, updatedTrainingInformationController);
+
+app.delete('/trainingInformation', authenticationMiddleware, deleteTrainingInformationController);
+
+app.get('/trainingInformation', authenticationMiddleware, getTrainingInformationController);
 
 app.post('/projectInformation', authenticationMiddleware, updatedProjectInformationController);
 
