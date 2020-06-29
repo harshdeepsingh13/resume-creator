@@ -28,14 +28,12 @@ const EducationInformationView = ({educations, theme}) => {
 											{
 												education.course &&
 												<>
-													{" "}
-													-
-													{" "}
+													<span style={{padding: "0 5px"}}> - </span>
 													<span className="course-container">
-													<span className="course">
-														{education.course}
+														<span className="course">
+															{education.course}
+														</span>
 													</span>
-												</span>
 												</>
 
 											}

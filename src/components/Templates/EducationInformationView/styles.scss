@@ -5,6 +5,46 @@
   //width: 100%;
 
   .education-container {
+
+    .type {
+    }
+
+    .durationScore-container {
+
+      .duration, .score {
+      }
+
+      .score {
+      }
+    }
+
+    .course-container {
+      .course-header {
+      }
+
+      .course {
+        ul {
+        }
+      }
+    }
+  }
+}
+
+.educationInformationView-container.solid-blue {
+
+  .education-container {
+    .durationScore-container {
+      .duration, .score {
+        text-align: right;
+      }
+    }
+  }
+
+}
+
+.educationInformationView-container.default-blue {
+
+  .education-container {
     line-height: 20px;
     font-size: 1.2em;
     border-bottom: thin solid $grey-dark-bb;
@@ -36,32 +76,6 @@
         ul {
           margin: 10px 0;
           list-style: none;
-        }
-      }
-    }
-  }
-}
-
-.educationInformationView-container.solid-blue {
-
-  .education-container {
-    .durationScore-container {
-      .duration, .score {
-        text-align: right;
-      }
-    }
-  }
-
-}
-
-.educationInformationView.default-blue {
-
-  .education-container {
-    .type {
-      .course-container {
-        .course {
-          color: red !important;
-          font-style: italic!important;
         }
       }
     }
