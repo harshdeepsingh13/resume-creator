@@ -27,7 +27,7 @@ const Loader = (props) => {
 				icon={"circle-notch"}
 				spin
 				size={size}
-				color={STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_REDDISH}
+				color={STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_ORANGE}
 				style={styles}
 			/>
 		</div>

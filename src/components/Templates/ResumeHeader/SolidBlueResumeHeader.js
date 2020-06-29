@@ -48,7 +48,7 @@ const SolidBlueResumeHeader = ({theme, basicInformation}) => {
 				fwIconColor = STYLE_CONSTANTS.TEMPLATE_CONSTANTS.SOLID_BLUE_TEMPLATE.PRIMARY_DARK;
 				break;
 			default:
-				fwIconColor = STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_REDDISH;
+				fwIconColor = STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_ORANGE;
 				break;
 		}
 		for (let property of Object.keys(iconsInThePage)) {

@@ -213,4 +213,6 @@ server-build/
 build/
 build/*
 
+dev_api.log
+
 # End of https://www.gitignore.io/api/node,react,webstorm,visualstudiocode

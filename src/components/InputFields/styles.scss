@@ -43,24 +43,31 @@
       position: relative;
       text-transform: capitalize;
       outline: none;
-    }
 
-    .inputSubmit.main-button {
-      background-color: $primary-yellowish;
-    }
+      &.submit-loader{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .inputSubmit.secondary-button {
-      background-color: transparent;
-      border: 3px solid $primary-reddish;
-      border-radius: $border-radius + 7px;
-    }
-    .inputSubmit.secondary-button:hover{
-      background-color: $primary-reddish;
-      text-decoration-color: white;
-    }
+      &.main-button {
+        background-color: $primary-yellowish;
+      }
 
-    .inputSubmit:hover {
-      background-color: $primary-yellowish-dark;
+      &.secondary-button {
+        background-color: transparent;
+        border: 3px solid $primary-orange;
+        border-radius: $border-radius + 7px;
+
+        &:hover {
+          background-color: $primary-orange;
+          text-decoration-color: white;
+        }
+      }
+
+      &:hover {
+        background-color: $primary-yellowish-dark;
+      }
     }
 
     .inputText:focus, .inputEmail:focus, .inputPassword:focus, .inputSelect:focus, .inputTextArea:focus, .inputNumber:focus, .inputDate:focus {
@@ -163,11 +170,11 @@
         }
 
         input:checked + .slider {
-          background-color: $primary-reddish;
+          background-color: $primary-orange;
         }
 
         input:focus + .slider {
-          box-shadow: 0 0 1px $primary-reddish;
+          box-shadow: 0 0 1px $primary-orange;
         }
 
         input:checked + .slider:before {

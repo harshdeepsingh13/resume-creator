@@ -6,14 +6,16 @@ const Home = props => {
 	return (
 		<div className="home-container">
 			<Link
+				className="home-button"
 				to={'/allDetails'}
 			>
 				Edit your Details
 			</Link>
 			<Link
+				className="home-button"
 				to={'/resume'}
 			>
-				Resume
+				Resume Templates
 			</Link>
 		</div>
 	)

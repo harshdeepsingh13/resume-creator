@@ -8,6 +8,8 @@ const Register = props => {
 	return (
 		<div className="register-container">
 			<UniversalTabsView
+				styles={{width: "40%"}}
+				initialTabIndex={1}
 				tabs={
 					[
 						{

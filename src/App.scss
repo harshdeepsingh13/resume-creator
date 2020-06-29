@@ -12,19 +12,23 @@ $primary-teal-brightest: #17c0c3;
 $primary-teal-medium: #45ceca;
 $primary-teal-greyed-out: #d7f3f3;
 $primary-reddish: #fc5a5c;
-$primary-yellowish: #ffb400;
-$primary-yellowish-dark: #cb8c00;
+$primary-yellowish: #FFC60B;
+$primary-yellowish-dark: #d7a80b;
+$primary-orange: #F15A22;
+$primary-orange-dark: #c4481b;
 
 
 //backgrounds and borders
 $grey-dark-bb: #dbdbdb;
 $grey-medium-bb: #ebebeb;
-$grey-light-bb: #f3f3f3;
+$grey-light-bb: #f0f1f5;
 
 //text
 $grey-dark-text: #565555;
 $grey-medium-text: #6c6e6e;
 $grey-light-text: #999999;
+
+$box-shadow: 0 0 32px -21px rgba(0, 0, 0, .8);
 
 //other properties
 $transition-time: 0.3s;
@@ -41,10 +45,6 @@ $border-radius: 3px;
 %formFields-container {
   border: thin solid whitesmoke;
   padding: 20px;
-  border-radius: $border-radius;
-  -webkit-box-shadow: 2px 2px 12px -9px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 2px 12px -9px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 2px 12px -9px rgba(0, 0, 0, 0.75);
 
   input, textarea {
     margin: 10px 0;

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import {STYLE_CONSTANTS} from "../../config/config";
 
 const UniversalTabsView = (props) => {
-	const {tabs, styles} = props;
-	const [currentTab, setCurrentTab] = useState(0);
+	const {tabs, styles, initialTabIndex} = props;
+	const [currentTab, setCurrentTab] = useState(initialTabIndex);
 
 	return (
 		<div
@@ -51,7 +51,11 @@ UniversalTabsView.propTypes = {
 		tabHeader: PropTypes.string.isRequired,
 		componentToRender: PropTypes.object.isRequired
 	})).isRequired,
-	styles: PropTypes.object
+	styles: PropTypes.object,
+	initialTabIndex: PropTypes.number
 };
+UniversalTabsView.defaultProps = {
+	initialTabIndex: 0
+}
 
 export default UniversalTabsView

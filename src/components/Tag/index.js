@@ -30,7 +30,7 @@ const Tag = props => {
 				className="tag"
 				style={
 					{
-						'background-color': STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_REDDISH,
+						'background-color': STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_ORANGE,
 						...styles
 					}
 				}

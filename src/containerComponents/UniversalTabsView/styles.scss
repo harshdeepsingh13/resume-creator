@@ -3,19 +3,24 @@
 .universalTabs-container {
   width: 80%;
   margin: 15px auto;
+  background-color: white;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  overflow: hidden;
 
   .tabs {
 
     .tabsHeader-container {
       display: flex;
       justify-content: space-around;
+      background-color: $grey-light-bb;
 
       .tabHeader {
         line-height: 40px;
         cursor: pointer;
         width: 100%;
         border-radius: $border-radius;
-        transition: $transition-time;
+        transition: background-color $transition-time;
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;

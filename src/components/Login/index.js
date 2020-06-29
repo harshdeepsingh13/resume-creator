@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import './styles.scss';
 import {InputEmail, InputFields, InputPassword, InputSubmit} from "../InputFields";
 import verifyFormFields from '../../services/verifyFormFields.service';
@@ -27,6 +27,8 @@ const Login = props => {
 			message: ''
 		}
 	});
+
+	const submitButtonRef=useRef(undefined);
 
 	/*useEffect( () => {
 		if(loginStatus.status === STATUS.SUCCESS) {
@@ -79,6 +81,11 @@ const Login = props => {
 			}
 		}
 	}
+	const handleKeyPress = ({keyCode}) => {
+		if(keyCode === 13){
+			submitButtonRef.current.click()
+		}
+	}
 
 	return (
 		<div className="login-container">
@@ -126,6 +133,7 @@ const Login = props => {
 					required={true}
 					handleChange={handleChange}
 					handleError={handleError}
+					handleKeyPress={handleKeyPress}
 				/>
 				<InputPassword
 					id={"password"}
@@ -136,9 +144,11 @@ const Login = props => {
 					value={password.value}
 					handleChange={handleChange}
 					handleError={handleError}
+					handleKeyPress={handleKeyPress}
 				/>
 				<InputSubmit
 					text={"Login"}
+					ref={submitButtonRef}
 					handleClick={handleSubmit}
 					isDisabled={email.isError || password.isError}
 					loader={loginStatus.status === STATUS.STARTED}

@@ -744,7 +744,8 @@ export const InputEmail = (props) => {
 		emailAvailability,
 		isEmpty,
 		disabled,
-		iconName
+		iconName,
+		handleKeyPress: handleKeyPressFromProps
 	} = props;
 	const [isError, setIsError] = useState(false);
 	const [errorMessage, setErrorMessage] = useState('');
@@ -790,6 +791,9 @@ export const InputEmail = (props) => {
 		}
 		handleChangeFromProps(event);
 	};
+	const handleKeyPress = (event) => {
+		handleKeyPressFromProps(event);
+	}
 	return (
 		<div className="field-container">
 			<div className="field">
@@ -826,6 +830,7 @@ export const InputEmail = (props) => {
 					onChange={handleChange}
 					onBlur={handleBlur}
 					disabled={disabled}
+					onKeyDown={handleKeyPress}
 					style={
 						{
 							...styles,
@@ -904,7 +909,8 @@ InputEmail.propTypes = {
 	iconName: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.array
-	])
+	]),
+	handleKeyPress: PropTypes.func
 };
 InputEmail.defaultProps = {
 	name: 'inputEmail',
@@ -920,7 +926,9 @@ InputEmail.defaultProps = {
 	checkValue: () => [false, ''],
 	isEmpty: false,
 	disabled: false,
-	iconName: "at"
+	iconName: "at",
+	handleKeyPress: () => {
+	}
 };
 
 //Input type Password
@@ -937,7 +945,8 @@ export const InputPassword = (props) => {
 		isEmpty,
 		checkValue,
 		iconName,
-		disabled
+		disabled,
+		handleKeyPress: handleKeyPressFromProps
 	} = props;
 	const [isError, setIsError] = useState(false);
 	const [errorMessage, setErrorMessage] = useState('');
@@ -981,6 +990,9 @@ export const InputPassword = (props) => {
 
 		handleChangeFromProps(event);
 	};
+	const handleKeyPress = (event) => {
+		handleKeyPressFromProps(event);
+	}
 	return (
 		<div className="field-container">
 			<div className="field">
@@ -1033,6 +1045,7 @@ export const InputPassword = (props) => {
 						}
 					}
 					onChange={handleChange}
+					onKeyDown={handleKeyPress}
 				/>
 			</div>
 			{
@@ -1064,7 +1077,8 @@ InputPassword.propTypes = {
 		PropTypes.string,
 		PropTypes.array
 	]),
-	disabled: PropTypes.bool
+	disabled: PropTypes.bool,
+	handleKeyPress: PropTypes.func
 };
 InputPassword.defaultProps = {
 	name: 'inputPassword',
@@ -1078,7 +1092,9 @@ InputPassword.defaultProps = {
 	isEmpty: false,
 	checkValue: () => [false, ''],
 	iconName: "key",
-	disabled: false
+	disabled: false,
+	handleKeyPress: () => {
+	}
 };
 
 //Input Type Select
@@ -1634,7 +1650,7 @@ InputToggle.defaultProps = {
 };
 
 //Input type Submit
-export const InputSubmit = (props) => {
+export const InputSubmit = React.forwardRef((props, ref) => {
 	const {
 		text,
 		handleClick,
@@ -1647,8 +1663,9 @@ export const InputSubmit = (props) => {
 		<div className="field-container">
 			<button
 				type="submit"
-				className={'inputSubmit body-copy ' + theme}
+				className={`inputSubmit body-copy ${theme} ${loader && "submit-loader"}`}
 				onClick={handleClick}
+				ref={ref}
 				style={
 					{
 						...styles,
@@ -1667,21 +1684,23 @@ export const InputSubmit = (props) => {
 						text
 					}
 				</span>
-				{
-					loader &&
-					<Loader
-						styles={
-							{
-								margin: '0 10px'
+				<span>
+					{
+						loader &&
+						<Loader
+							styles={
+								{
+									margin: '0 10px'
+								}
 							}
-						}
-					/>
-				}
+						/>
+					}
+				</span>
 			</button>
 		</div>
 
 	)
-};
+});
 InputSubmit.propTypes = {
 	text: PropTypes.string.isRequired,
 	handleClick: PropTypes.func,

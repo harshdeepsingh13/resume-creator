@@ -18,7 +18,7 @@ const SkillsInformationView = ({skills, theme}) => {
 					break;
 				}
 				default: {
-					setColor(STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_REDDISH);
+					setColor(STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_ORANGE);
 					break;
 				}
 			}

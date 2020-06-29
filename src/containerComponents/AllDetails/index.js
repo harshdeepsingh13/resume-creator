@@ -7,10 +7,23 @@ import UniversalTabsView from "../UniversalTabsView";
 import WorkExperienceInformation from "../../components/WorkExperienceInformation";
 import ProjectsInformation from '../../components/ProjectsInformation';
 import TrainingsCertifications from "../../components/TrainingsCertifications"
+import {InputFields, InputSubmit} from "../../components/InputFields";
 
 const AllDetails = props => {
 	return (
 		<div className="allDetails-container">
+			<div className="resume-template-button-container">
+				<InputFields>
+					<InputSubmit
+						theme={"secondary-button"}
+						text={"Resume Templates"}
+						handleClick={() => props.history.push("/resume")}
+						styles={{
+							padding: "0 30px"
+						}}
+					/>
+				</InputFields>
+			</div>
 			<UniversalTabsView
 				tabs={
 					[

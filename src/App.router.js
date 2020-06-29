@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Redirect, Route, Switch} from "react-router-dom";
-import {getToken, removeItem} from './services/localStorage.service';
-import Register from "./containerComponents/Register";
-import AllDetails from "./containerComponents/AllDetails";
-import Home from "./containerComponents/Home";
-import Templates from "./containerComponents/Templates";
 import routes from "./config/routes";
+import Header from "./components/Header";
 
 const AppRouter = props => {
 	return (
-		<Switch>
-			{
-				routes.map(route =>
-					<CustomRoute
-						{...route}
-					/>)
+		<>
+			<Header/>
+			<Switch>
+				{
+					routes.map((route, index) =>
+						<CustomRoute
+							key={index}
+							{...route}
+						/>)
 
-			}
-		</Switch>
+				}
+			</Switch>
+		</>
 	)
 };
 
