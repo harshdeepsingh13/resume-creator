@@ -91,3 +91,7 @@ $border-radius: 3px;
   }
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}

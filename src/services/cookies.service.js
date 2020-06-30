@@ -8,7 +8,6 @@ export const setItem = data => cookies.set(LOCAL_STORAGE_KEY, data, {path});
 
 export const getToken = () => {
 	const cookieData = cookies.get(LOCAL_STORAGE_KEY, {path});
-	console.log('getToken', cookieData);
 	// const data = cookieData ? JSON.parse(cookieData) : {};
 	return (cookieData && cookieData.token) ? cookieData.token : undefined;
 };

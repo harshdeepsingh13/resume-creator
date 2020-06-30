@@ -6,12 +6,11 @@ import {getCompleteResumeInformation} from "../../services/axios.service";
 import Loader from "../../components/Loader";
 import DefaultBlueTemplate from "../../components/Templates/DefaultBlueTemplate";
 import {InputFields, InputSubmit} from "../../components/InputFields";
+import MultipleTemplatesCarousel from "../../components/MultipleTemplatesCarousel";
 
 const Templates = props => {
 	const [information, setInformation] = useState({});
 	const [informationFetchStatus, setInformationFetchStatus] = useState(STATUS.DEFAULT);
-	const resumeRef = useRef(undefined);
-
 
 	useEffect(
 		() => {
@@ -32,46 +31,25 @@ const Templates = props => {
 		[]
 	);
 
-	const exportPdf = () => resumeRef.current.save();
 
 	return (
 		<div className="templates-container">
 			{
 				informationFetchStatus === STATUS.STARTED &&
-				<Loader/>
+				<Loader
+					containerStyles={{
+						height: "calc(100vh - 70px)"
+					}}
+				/>
 			}
 			{
 				informationFetchStatus === STATUS.SUCCESS &&
 				<>
-					<div className="resumeTemplates-container">
-
-						{/*<SolidBlueTemplate
-							completeInformation={information}
-						/>*/}
+					<MultipleTemplatesCarousel>
 						<DefaultBlueTemplate
 							completeInformation={information}
-							ref={resumeRef}
 						/>
-
-					</div>
-					<div className="selected-template-name">
-						<h5>Default Blue</h5>
-					</div>
-					<InputFields
-						styles={
-							{
-								position: "sticky",
-								bottom: "10px",
-								width: "60%",
-								margin: "auto"
-							}
-						}
-					>
-						<InputSubmit
-							text={"Download PDF"}
-							handleClick={exportPdf}
-						/>
-					</InputFields>
+					</MultipleTemplatesCarousel>
 				</>
 			}
 		</div>

@@ -1,0 +1,32 @@
+@import "../../App";
+
+.multiple-templates-carousel-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  .carousel-navigation-button {
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    transition: all $transition-time;
+    color: $grey-light-text;
+    cursor: pointer;
+
+    &:hover {
+      font-size: 70px;
+      color: $primary-orange-dark;
+    }
+
+    &.next {
+    }
+
+    &.previous {
+    }
+
+    .carousel-navigation-icon {
+    }
+  }
+}

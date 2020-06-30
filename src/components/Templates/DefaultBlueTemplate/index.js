@@ -13,96 +13,121 @@ import WorkExperienceInformationView from "../WorkExperienceInformationView";
 import PersonalInformationView from "../PersonalInformationView";
 import TrainingInformationView from "../TrainingInformationView";
 
-const DefaultBlueTemplate = React.forwardRef(({completeInformation: information}, ref) => {
+const DefaultBlueTemplate = ({completeInformation: information}) => {
 	const theme = 'default-blue';
+	const resumeRef = useRef(undefined)
+
+	const exportPdf = () => resumeRef.current.save();
 
 	return (
-		<div className="defaultBlueTemplate-container template-container">
-			<>
-				<PDFExport
-					paperSize={'A4'}
-					fileName={`${getItem().name.split(' ').join('_')}.pdf`}
-					ref={ref}
-					scale={0.6}
-					margin={"4mm"}
-				>
-					<table className="template-table">
-						<tbody>
-						<tr className="resumeHeader-container">
-							<ResumeHeader
-								basicInformation={information.basicInformation}
-								theme={theme}
-							/>
-						</tr>
-						<tr>
-							<SummaryView
-								summaryInformation={information.basicInformation.objective}
-								theme={theme}
-							/>
-						</tr>
-						{
-							information.skillsInformation.skills.length ?
-								<tr>
-									<SkillsInformationView
-										skills={information.skillsInformation.skills}
+		<>
+			<div className="resumeTemplates-container">
+				<div className="defaultBlueTemplate-container template-container">
+					<>
+						<PDFExport
+							paperSize={'A4'}
+							fileName={`${getItem().name.split(' ').join('_')}.pdf`}
+							ref={resumeRef}
+							scale={0.6}
+							margin={"4mm"}
+						>
+							<table className="template-table">
+								<tbody>
+								<tr className="resumeHeader-container">
+									<ResumeHeader
+										basicInformation={information.basicInformation}
 										theme={theme}
 									/>
-								</tr> :
-								undefined
-						}
-						{
-							information.educationInformation.educationInformation.educations.length ?
+								</tr>
 								<tr>
-									<EducationInformationView
-										educations={information.educationInformation.educationInformation.educations}
+									<SummaryView
+										summaryInformation={information.basicInformation.objective}
 										theme={theme}
 									/>
-								</tr> :
-								undefined
-						}
-						{
-							information.projects.projectsInformation.projects.length ?
+								</tr>
+								{
+									information.skillsInformation.skills.length ?
+										<tr>
+											<SkillsInformationView
+												skills={information.skillsInformation.skills}
+												theme={theme}
+											/>
+										</tr> :
+										undefined
+								}
+								{
+									information.educationInformation.educationInformation.educations.length ?
+										<tr>
+											<EducationInformationView
+												educations={information.educationInformation.educationInformation.educations}
+												theme={theme}
+											/>
+										</tr> :
+										undefined
+								}
+								{
+									information.projects.projectsInformation.projects.length ?
+										<tr>
+											<ProjectInformationView
+												projects={information.projects.projectsInformation.projects}
+												theme={theme}
+											/>
+										</tr> :
+										undefined
+								}
 								<tr>
-									<ProjectInformationView
-										projects={information.projects.projectsInformation.projects}
+									{
+										information.workExperienceInformation.workExperienceInformation.workExperiences.length ?
+											<WorkExperienceInformationView
+												workExperiences={information.workExperienceInformation.workExperienceInformation.workExperiences}
+												theme={theme}
+											/> :
+											undefined
+									}
+								</tr>
+								<tr>
+									{
+										information.trainingInformation.trainingInformation.trainings.length ?
+											<TrainingInformationView
+												trainingsCertifications={information.trainingInformation.trainingInformation.trainings}
+												theme={theme}
+											/> :
+											undefined
+									}
+								</tr>
+								<tr>
+									<PersonalInformationView
+										information={information.basicInformation}
 										theme={theme}
 									/>
-								</tr> :
-								undefined
-						}
-						<tr>
-							{
-								information.workExperienceInformation.workExperienceInformation.workExperiences.length ?
-									<WorkExperienceInformationView
-										workExperiences={information.workExperienceInformation.workExperienceInformation.workExperiences}
-										theme={theme}
-									/> :
-									undefined
-							}
-						</tr>
-						<tr>
-							{
-								information.trainingInformation.trainingInformation.trainings.length ?
-									<TrainingInformationView
-										trainingsCertifications={information.trainingInformation.trainingInformation.trainings}
-										theme={theme}
-									/> :
-									undefined
-							}
-						</tr>
-						<tr>
-							<PersonalInformationView
-								information={information.basicInformation}
-								theme={theme}
-							/>
-						</tr>
-						</tbody>
-					</table>
-				</PDFExport>
-			</>
-		</div>
+								</tr>
+								</tbody>
+							</table>
+						</PDFExport>
+					</>
+				</div>
+			</div>
+			<div className="selected-template-name">
+				<h5>Default Blue</h5>
+			</div>
+			<InputFields
+				styles={
+					{
+						position: "sticky",
+						bottom: "10px",
+						width: "60%",
+						margin: "auto"
+					}
+				}
+			>
+				<InputSubmit
+					text={"Download PDF"}
+					handleClick={exportPdf}
+				/>
+			</InputFields>
+		</>
 	)
-});
+};
 
 DefaultBlueTemplate.propTypes = {
 	completeInformation: PropTypes.object.isRequired
