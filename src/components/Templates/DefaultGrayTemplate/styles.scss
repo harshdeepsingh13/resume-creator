@@ -1,0 +1,23 @@
+@import "../../../App";
+@import "../templates_styles";
+
+.defaultGrayTemplate-container {
+
+  .section-header-container {
+    background-color: map_get($default-gray, primary);
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-spacing: 15px 9px !important;
+    //width: 100% !important;
+
+    .section-header {
+      color: white !important;
+    }
+
+  }
+
+  .section {
+    //width: 608px !important;
+
+  }
+}

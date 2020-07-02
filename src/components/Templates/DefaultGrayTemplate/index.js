@@ -13,8 +13,8 @@ import WorkExperienceInformationView from "../WorkExperienceInformationView";
 import PersonalInformationView from "../PersonalInformationView";
 import TrainingInformationView from "../TrainingInformationView";
 
-const DefaultBlueTemplate = ({completeInformation: information}) => {
-	const theme = 'default-blue';
+const DefaultGrayTemplate = ({completeInformation: information}) => {
+	const theme = 'default-gray';
 	const resumeRef = useRef(undefined)
 
 	const exportPdf = () => resumeRef.current.save();
@@ -22,7 +22,7 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 	return (
 		<>
 			<div className="resumeTemplates-container">
-				<div className="defaultBlueTemplate-container template-container">
+				<div className="defaultGrayTemplate-container template-container">
 					<>
 						<PDFExport
 							paperSize={'A4'}
@@ -107,7 +107,7 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 					</>
 				</div>
 				<div className="selected-template-name">
-					<h5>Default Blue</h5>
+					<h5>Default Gray</h5>
 				</div>
 			</div>
 			<InputFields
@@ -128,8 +128,8 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 	)
 };
 
-DefaultBlueTemplate.propTypes = {
+DefaultGrayTemplate.propTypes = {
 	completeInformation: PropTypes.object.isRequired
 };
 
-export default DefaultBlueTemplate
+export default DefaultGrayTemplate

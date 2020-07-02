@@ -24,36 +24,37 @@
     }
 
   }
-}
 
-.projectInformationView-container.default-blue {
-  .project-container {
+  &.default-blue, &.default-gray {
+    .project-container {
 
-    border-bottom: thin solid $grey-dark-bb;
-    font-size: 1.2em;
+      border-bottom: thin solid $grey-dark-bb;
+      font-size: 1.2em;
 
-    .nameDuration-container {
-      font-size: 1.05em;
+      .nameDuration-container {
+        font-size: 1.05em;
 
-      .name {
-        font-weight: bold;
+        .name {
+          font-weight: bold;
+        }
+
+        .duration {
+          text-align: right;
+          font-style: italic;
+          font-size: 0.85em;
+        }
+
       }
 
-      .duration {
-        text-align: right;
-        font-style: italic;
-        font-size: 0.85em;
+      .summary {
+        text-align: left;
+      }
+
+      .link {
+
       }
 
     }
-
-    .summary {
-      text-align: left;
-    }
-
-    .link {
-
-    }
-
   }
+
 }

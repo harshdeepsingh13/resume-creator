@@ -17,6 +17,10 @@ const SkillsInformationView = ({skills, theme}) => {
 					setColor(STYLE_CONSTANTS.TEMPLATE_CONSTANTS.DEFAULT_BLUE_TEMPLATE.PRIMARY_DARK);
 					break;
 				}
+				case "default-gray": {
+					setColor(STYLE_CONSTANTS.TEMPLATE_CONSTANTS.DEFAULT_GRAY_TEMPLATE.PRIMARY_DARK);
+					break;
+				}
 				default: {
 					setColor(STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_ORANGE);
 					break;

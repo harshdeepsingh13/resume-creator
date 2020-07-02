@@ -28,54 +28,54 @@
       }
     }
   }
-}
 
-.educationInformationView-container.solid-blue {
+  &.solid-blue {
 
-  .education-container {
-    .durationScore-container {
-      .duration, .score {
-        text-align: right;
+    .education-container {
+      .durationScore-container {
+        .duration, .score {
+          text-align: right;
+        }
       }
     }
+
   }
 
-}
+  &.default-blue, &.default-gray {
 
-.educationInformationView-container.default-blue {
+    .education-container {
+      line-height: 20px;
+      font-size: 1.2em;
+      border-bottom: thin solid $grey-dark-bb;
 
-  .education-container {
-    line-height: 20px;
-    font-size: 1.2em;
-    border-bottom: thin solid $grey-dark-bb;
-
-    .type {
-      text-transform: capitalize;
-      font-size: 1.05em;
-      font-weight: bold;
-    }
-
-    .durationScore-container {
-
-      .duration, .score {
-        font-style: italic;
-        font-size: 0.85em;
+      .type {
+        text-transform: capitalize;
+        font-size: 1.05em;
+        font-weight: bold;
       }
 
-      .score {
-        text-align: right;
-      }
-    }
+      .durationScore-container {
 
-    .course-container {
-      .course-header {
-        font-style: italic;
+        .duration, .score {
+          font-style: italic;
+          font-size: 0.85em;
+        }
+
+        .score {
+          text-align: right;
+        }
       }
 
-      .course {
-        ul {
-          margin: 10px 0;
-          list-style: none;
+      .course-container {
+        .course-header {
+          font-style: italic;
+        }
+
+        .course {
+          ul {
+            margin: 10px 0;
+            list-style: none;
+          }
         }
       }
     }

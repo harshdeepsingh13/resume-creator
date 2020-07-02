@@ -21,37 +21,37 @@
 
     }
   }
-}
 
-.workExperienceInformationView.default-blue {
+  &.default-blue, &.default-gray {
 
-  .workExperience-container {
-    border-bottom: thin solid $grey-dark-bb;
-    font-size: 1.2em;
+    .workExperience-container {
+      border-bottom: thin solid $grey-dark-bb;
+      font-size: 1.2em;
 
-    .companyNamePositionDuration-container {
-      font-size: 1.05em;
+      .companyNamePositionDuration-container {
+        font-size: 1.05em;
 
-      .companyNamePosition {
-        font-weight: bold;
-        width: 70%;
+        .companyNamePosition {
+          font-weight: bold;
+          width: 70%;
+        }
+
+        .duration {
+          text-align: right;
+          font-style: italic;
+          font-size: 0.85em;
+        }
       }
 
-      .duration {
+      .responsibilities {
+        text-align: left;
+      }
+
+      .location {
         text-align: right;
         font-style: italic;
-        font-size: 0.85em;
       }
     }
 
-    .responsibilities {
-      text-align: left;
-    }
-
-    .location {
-      text-align: right;
-      font-style: italic;
-    }
   }
-
 }

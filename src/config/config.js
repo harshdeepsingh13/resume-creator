@@ -38,6 +38,10 @@ module.exports = {
 			DEFAULT_BLUE_TEMPLATE: {
 				PRIMARY: '#0a96c3',
 				PRIMARY_DARK: '#425a70'
+			},
+			DEFAULT_GRAY_TEMPLATE: {
+				PRIMARY: "#34495e",
+				PRIMARY_DARK: "#2c3e50"
 			}
 		}
 	},

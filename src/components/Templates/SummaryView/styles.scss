@@ -3,13 +3,11 @@
 
 .summary-container {
 
-}
+  &.default-blue, &.default-gray {
 
-.summary-container.default-blue {
+    .summary {
+      font-size: 1.2em;
+    }
 
-
-  .summary {
-    font-size: 1.2em;
   }
-
 }

@@ -5,6 +5,7 @@ import DefaultBlueResumeHeader from "./DefaultBlueResumeHeader";
 import PropTypes from 'prop-types';
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faMobileAlt} from "@fortawesome/free-solid-svg-icons";
+import DefaultGrayResumeHeader from "./DefaultGrayResumeHeader";
 
 library.add(faMobileAlt);
 
@@ -33,6 +34,13 @@ const ResumeHeader = ({theme, basicInformation}) => {
 					basicInformation={basicInformation}
 					theme={theme}
 				/>
+			}
+			{
+				theme === "default-gray" &&
+					<DefaultGrayResumeHeader
+						basicInformation={basicInformation}
+						theme={theme}
+					/>
 			}
 		</tr>
 	)

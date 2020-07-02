@@ -7,6 +7,7 @@ import Loader from "../../components/Loader";
 import DefaultBlueTemplate from "../../components/Templates/DefaultBlueTemplate";
 import {InputFields, InputSubmit} from "../../components/InputFields";
 import MultipleTemplatesCarousel from "../../components/MultipleTemplatesCarousel";
+import DefaultGrayTemplate from "../../components/Templates/DefaultGrayTemplate";
 
 const Templates = props => {
 	const [information, setInformation] = useState({});
@@ -47,6 +48,9 @@ const Templates = props => {
 				<>
 					<MultipleTemplatesCarousel>
 						<DefaultBlueTemplate
+							completeInformation={information}
+						/>
+						<DefaultGrayTemplate
 							completeInformation={information}
 						/>
 					</MultipleTemplatesCarousel>

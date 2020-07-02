@@ -26,33 +26,33 @@
     .socialMediaLinks {
     }
   }
-}
 
-.personalInformationView-container.default-blue {
-  .personalInformation-container {
-    font-size: 1.2em;
+  &.default-blue, &.default-gray {
+    .personalInformation-container {
+      font-size: 1.2em;
 
-    .key {
-      font-weight: bold;
-    }
+      .key {
+        font-weight: bold;
+      }
 
-    .value {
-    }
+      .value {
+      }
 
-    .dob {
+      .dob {
 
-    }
+      }
 
-    .location {
-    }
+      .location {
+      }
 
-    .contact {
-    }
+      .contact {
+      }
 
-    .website {
-    }
+      .website {
+      }
 
-    .socialMediaLinks {
+      .socialMediaLinks {
+      }
     }
   }
 }
