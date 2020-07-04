@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faMobileAlt} from "@fortawesome/free-solid-svg-icons";
 import DefaultGrayResumeHeader from "./DefaultGrayResumeHeader";
+import ModernRedResumeHeader from "./ModernRedResumeHeader";
 
 library.add(faMobileAlt);
 
@@ -17,7 +18,7 @@ const ResumeHeader = ({theme, basicInformation}) => {
 			delete basicInformation.socialMediaLinks.createdAt;
 			delete basicInformation.socialMediaLinks.updatedAt;
 		},
-		[]
+		[basicInformation]
 	);
 	return (
 		<tr className={`resumeHeader ${theme}`}>
@@ -37,10 +38,17 @@ const ResumeHeader = ({theme, basicInformation}) => {
 			}
 			{
 				theme === "default-gray" &&
-					<DefaultGrayResumeHeader
-						basicInformation={basicInformation}
-						theme={theme}
-					/>
+				<DefaultGrayResumeHeader
+					basicInformation={basicInformation}
+					theme={theme}
+				/>
+			}
+			{
+				theme === "modern-red" &&
+				<ModernRedResumeHeader
+					basicInformation={basicInformation}
+					theme={theme}
+				/>
 			}
 		</tr>
 	)

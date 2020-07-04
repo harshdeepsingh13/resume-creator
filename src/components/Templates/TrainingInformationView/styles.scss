@@ -7,7 +7,8 @@
     .trainingName-container {
       .trainingName {
       }
-      .duration{
+
+      .duration {
 
       }
     }
@@ -18,18 +19,21 @@
     }
   }
 
-  &.default-blue, &.default-gray {
+  &.default-blue, &.default-gray, &.modern-red {
     .training-container {
       border-bottom: thin solid $grey-dark-bb;
       font-size: 1.2em;
 
       .trainingName-container {
         font-size: 1.05em;
+        padding: 3px 0;
+
         .trainingName {
           font-weight: bold;
           width: 70%;
         }
-        .duration{
+
+        .duration {
           text-align: right;
           font-size: 0.85em;
           font-style: italic;
@@ -40,6 +44,25 @@
         .certificationLink {
           font-style: italic;
           font-size: 0.85em;
+        }
+      }
+    }
+  }
+
+  &.modern-red {
+    .training-container {
+      .trainingName-container {
+        font-size: 1.03em;
+
+        .duration {
+          color: map_get($modern-red, primary);
+          font-size: 0.7em;
+        }
+      }
+
+      .summary-container {
+        .summary {
+          padding: 5px 0;
         }
       }
     }

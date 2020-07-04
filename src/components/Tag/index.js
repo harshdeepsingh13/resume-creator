@@ -37,7 +37,7 @@ const Tag = props => {
 			>
 				<span>
 					{
-						tagText
+						typeof tagText === "function" ? tagText() : tagText
 					}
 				</span>
 				{
@@ -59,7 +59,7 @@ const Tag = props => {
 
 Tag.propTypes = {
 	id: PropTypes.number.isRequired,
-	tagText: PropTypes.string.isRequired,
+	tagText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
 	onClose: PropTypes.func,
 	toClose: PropTypes.bool,
 	width: PropTypes.string,

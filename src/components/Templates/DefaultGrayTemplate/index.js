@@ -22,7 +22,7 @@ const DefaultGrayTemplate = ({completeInformation: information}) => {
 	return (
 		<>
 			<div className="resumeTemplates-container">
-				<div className="defaultGrayTemplate-container template-container">
+				<div className="template-container defaultGrayTemplate-container ">
 					<>
 						<PDFExport
 							paperSize={'A4'}

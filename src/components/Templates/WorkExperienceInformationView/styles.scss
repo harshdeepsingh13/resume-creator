@@ -14,7 +14,7 @@
     }
 
     .responsibilities {
-
+      text-align: justify;
     }
 
     .location {
@@ -22,7 +22,7 @@
     }
   }
 
-  &.default-blue, &.default-gray {
+  &.default-blue, &.default-gray, &.modern-red {
 
     .workExperience-container {
       border-bottom: thin solid $grey-dark-bb;
@@ -44,14 +44,28 @@
       }
 
       .responsibilities {
-        text-align: left;
       }
 
       .location {
         text-align: right;
         font-style: italic;
+        line-height: 20px;
       }
     }
 
+  }
+
+  &.modern-red {
+    .workExperience-container {
+      .companyNamePositionDuration-container {
+        font-size: 1.03em;
+        padding: 3px 0;
+
+        .duration {
+          color: map_get($modern-red, primary);
+          font-size: 0.7em;
+        }
+      }
+    }
   }
 }

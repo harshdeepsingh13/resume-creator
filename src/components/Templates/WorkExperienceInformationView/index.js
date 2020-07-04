@@ -1,30 +1,34 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
 import {MONTHS} from '../../../config/config'
+import WorkExperienceView from "./WorkExperienceView";
+import DefaultBlueWorkExperience from "./DefaultBlueWorkExperience";
+import ModernRedWorkExperience from "./ModernRedWorkExperience";
 
 const WorkExperienceInformationView = ({
 	                                       workExperiences,
 	                                       theme
                                        }) => {
+
+	const WorkExperienceComponent = useCallback(
+		() => {
+			switch(theme){
+				case "default-blue":
+				case "default-gray":
+					return <DefaultBlueWorkExperience workExperiences={workExperiences}/>
+				case "modern-red":
+					return <ModernRedWorkExperience workExperiences={workExperiences}/>
+				default:
+					return <></>
+			}
+		},
+		[theme]
+	)
+
 	return (
 		<td className={`workExperienceInformationView ${theme}`}>
-			<span className="spacer medium"/>
-			<table className="inner-table">
-				<tr className="section-header-container">
-					<h4 className="section-header">
-						Work Experiences
-					</h4>
-				</tr>
-				<tr className="section">
-					{
-						workExperiences.map(workExperience =>
-							<WorkExperienceView
-								workExperience={workExperience}
-							/>)
-					}
-				</tr>
-			</table>
+			{WorkExperienceComponent()}
 		</td>
 	)
 };
@@ -34,63 +38,4 @@ WorkExperienceInformationView.propTypes = {
 	theme: PropTypes.string.isRequired
 };
 
-const WorkExperienceView = ({
-	                            workExperience: {
-		                            company,
-		                            position,
-		                            startDate,
-		                            endDate,
-		                            isPresent,
-		                            responsibilities,
-		                            location
-	                            }
-                            }) => {
-	return (
-		<tr className="workExperience-container">
-			<span className="spacer small"/>
-			<table className="inner-table">
-				<tr className="companyNamePositionDuration-container">
-					<td className="companyNamePosition">
-						{
-							`${position} at ${company}`
-						}
-					</td>
-					<td className="duration">
-						{
-							isPresent ?
-								'Sill working' :
-								`${new Date(startDate).getDate()} ${MONTHS[new Date(startDate).getMonth()]} ${new Date(startDate).getFullYear()} - ${new Date(endDate).getDate()} ${MONTHS[new Date(endDate).getMonth()]} ${new Date(endDate).getFullYear()}`
-						}
-					</td>
-				</tr>
-				<tr className="responsibilities">
-					<td colSpan={2}>
-						{
-							responsibilities
-						}
-					</td>
-				</tr>
-				<tr className="location">
-					<td colSpan={2}>
-						{
-							location
-						}
-					</td>
-				</tr>
-			</table>
-			<span className="spacer small"/>
-		</tr>
-	)
-};
-WorkExperienceView.propTypes = {
-	workExperience: PropTypes.shape({
-		company: PropTypes.string,
-		position: PropTypes.string,
-		startDate: PropTypes.string,
-		endDate: PropTypes.string,
-		isPresent: PropTypes.bool,
-		responsibilities: PropTypes.string,
-		location: PropTypes.string
-	}).isRequired
-};
 export default WorkExperienceInformationView

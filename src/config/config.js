@@ -42,6 +42,10 @@ module.exports = {
 			DEFAULT_GRAY_TEMPLATE: {
 				PRIMARY: "#34495e",
 				PRIMARY_DARK: "#2c3e50"
+			},
+			MODERN_RED_TEMPLATE: {
+				PRIMARY: "#ff6b6b",
+				PRIMARY_DARK: "#ee5253"
 			}
 		}
 	},
@@ -76,5 +80,16 @@ module.exports = {
 		RES_LINK: {
 			USER_AVATAR: 'https://res.cloudinary.com/harshdeep-singh/image/upload/v1569133686/resumeCreator/User%20Avatar/'
 		}
+	},
+	ICONS_PNG: {
+		AT_ICON: "assets/icons/at-solid.svg",
+		CALENDAR_ICON: "assets/icons/calendar-alt-solid.svg",
+		FACEBOOK_ICON: "assets/icons/facebook-square-brands.svg",
+		GITHUB_ICON: "assets/icons/github-brands.svg",
+		WEBSITE_ICON: "assets/icons/globe-solid.svg",
+		INSTAGRAM_ICON: "assets/icons/instagram-brands.svg",
+		LINKEDIN_ICON: "assets/icons/linkedin-brands.svg",
+		LOCATION_ICON: "assets/icons/map-marker-alt-solid.svg",
+		CONTACT_ICON: "assets/icons/phone-alt-solid.svg"
 	}
 };

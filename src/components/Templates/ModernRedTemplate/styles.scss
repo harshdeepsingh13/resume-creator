@@ -1,0 +1,34 @@
+@import "../../../App";
+@import "../templates_styles";
+
+
+$left-side-width: 280px;
+
+.modernRedTemplate-container {
+  font-family: sans-serif;
+
+  a {
+    color: map_get($modern-red, primary);
+  }
+
+  table {
+
+    td {
+      &.left-side {
+        width: $left-side-width;
+      }
+
+      &.right-side {
+        width: 530px;
+      }
+    }
+  }
+
+  .section-header-container {
+    .section-header {
+      padding: 6px 0 !important;
+      color: map-get($modern-red, primary) !important;
+      font-size: 1.02em;
+    }
+  }
+}

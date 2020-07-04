@@ -1,4 +1,27 @@
 @import "../../../App";
+@import "../../Templates/templates_styles";
 
-.skillsInformationView-container{
+.skillsInformationView-container {
+
+  &.default-blue {
+    .tag {
+      background-color: map_get($default-blue, primary-dark) !important;
+    }
+  }
+
+  &.default-gray {
+    .tag {
+      background-color: map_get($default-gray, primary-dark) !important;
+    }
+  }
+
+  &.modern-red {
+    .tag {
+      background-color: unset !important;
+      padding: unset;
+      margin: 5px;
+      color: map_get($modern-red, primary);
+      text-transform: unset;
+    }
+  }
 }

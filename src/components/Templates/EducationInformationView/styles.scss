@@ -41,7 +41,7 @@
 
   }
 
-  &.default-blue, &.default-gray {
+  &.default-blue, &.default-gray, &.modern-red {
 
     .education-container {
       line-height: 20px;
@@ -77,6 +77,18 @@
             list-style: none;
           }
         }
+      }
+    }
+  }
+
+  &.modern-red {
+    .education-container {
+      .type {
+        font-size: 1.03em;
+      }
+
+      .durationScore-container {
+        color: map_get($modern-red, primary);
       }
     }
   }

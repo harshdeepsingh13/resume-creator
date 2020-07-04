@@ -3,11 +3,22 @@
 
 .summary-container {
 
+  .summary {
+    text-align: justify;
+  }
+
   &.default-blue, &.default-gray {
 
     .summary {
       font-size: 1.2em;
     }
 
+  }
+
+  &.modern-red {
+    .summary {
+      padding: 0 2px;
+      font-size: 1.2em;
+    }
   }
 }

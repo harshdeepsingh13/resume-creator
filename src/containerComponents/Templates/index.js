@@ -8,6 +8,7 @@ import DefaultBlueTemplate from "../../components/Templates/DefaultBlueTemplate"
 import {InputFields, InputSubmit} from "../../components/InputFields";
 import MultipleTemplatesCarousel from "../../components/MultipleTemplatesCarousel";
 import DefaultGrayTemplate from "../../components/Templates/DefaultGrayTemplate";
+import ModernRedTemplate from "../../components/Templates/ModernRedTemplate";
 
 const Templates = props => {
 	const [information, setInformation] = useState({});
@@ -28,6 +29,7 @@ const Templates = props => {
 				);
 				setInformationFetchStatus(STATUS.SUCCESS);
 			})();
+			return () => console.log("templates container unmount");
 		},
 		[]
 	);
@@ -47,6 +49,9 @@ const Templates = props => {
 				informationFetchStatus === STATUS.SUCCESS &&
 				<>
 					<MultipleTemplatesCarousel>
+						<ModernRedTemplate
+							completeInformation={information}
+						/>
 						<DefaultBlueTemplate
 							completeInformation={information}
 						/>

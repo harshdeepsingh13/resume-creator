@@ -74,5 +74,45 @@
     }
   }
 
+  &.modern-red {
+    .useravatar-container {
+      img {
+        width: 100px;
+        border: 2px solid map_get($modern-red, primary);
+        border-radius: 100px 100px 0 100px;
+        padding: 2px;
+        overflow: hidden;
+        background-color: opacify(map_get($modern-red, cream-yellow), 0.7);
+      }
+    }
+
+    .userDetails-container {
+      .name {
+        display: block;
+        font-size: 3.4em;
+        letter-spacing: 2px;
+        border-bottom: thin solid $grey-dark-bb;
+        color: map_get($modern-red, primary-dark);
+      }
+
+      .contactNumber, .email, .phone, .location, .tag {
+        text-align: right;
+      }
+
+      .tag {
+        font-size: 1.05em;
+        line-height: 20px;
+      }
+
+      .contactNumber {
+      }
+
+      .email {
+      }
+
+      .location {
+      }
+    }
+  }
 
 }

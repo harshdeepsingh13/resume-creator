@@ -22,7 +22,7 @@ const DefaultBlueTemplate = ({completeInformation: information}) => {
 	return (
 		<>
 			<div className="resumeTemplates-container">
-				<div className="defaultBlueTemplate-container template-container">
+				<div className="template-container defaultBlueTemplate-container">
 					<>
 						<PDFExport
 							paperSize={'A4'}

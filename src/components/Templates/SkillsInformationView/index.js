@@ -5,32 +5,9 @@ import Tag from "../../Tag";
 import {STYLE_CONSTANTS} from '../../../config/config';
 
 const SkillsInformationView = ({skills, theme}) => {
-	const [color, setColor] = useState(undefined);
-	useEffect(
-		() => {
-			switch (theme) {
-				case 'solid-blue': {
-					setColor(STYLE_CONSTANTS.TEMPLATE_CONSTANTS.SOLID_BLUE_TEMPLATE.PRIMARY);
-					break;
-				}
-				case 'default-blue': {
-					setColor(STYLE_CONSTANTS.TEMPLATE_CONSTANTS.DEFAULT_BLUE_TEMPLATE.PRIMARY_DARK);
-					break;
-				}
-				case "default-gray": {
-					setColor(STYLE_CONSTANTS.TEMPLATE_CONSTANTS.DEFAULT_GRAY_TEMPLATE.PRIMARY_DARK);
-					break;
-				}
-				default: {
-					setColor(STYLE_CONSTANTS.PRIMARY_COLORS.PRIMARY_ORANGE);
-					break;
-				}
-			}
-		},
-		[]
-	);
+
 	return (
-		<td className="skillsInformationView-container">
+		<td className={`skillsInformationView-container ${theme}`}>
 			<table className="inner-table">
 				<tr className='section-header-container'>
 					<h4 className="section-header">
@@ -42,13 +19,17 @@ const SkillsInformationView = ({skills, theme}) => {
 						skills.map((skill, index) => (
 							<Tag
 								key={index}
-								tagText={skill}
+								tagText={theme === "modern-red" ? () => <>
+									<span style={{
+										fontSize: "1.5em",
+										fontStyle: "italic",
+										fontWeight: "bold",
+										textTransform: "capitalize",
+										color: STYLE_CONSTANTS.TEMPLATE_CONSTANTS.MODERN_RED_TEMPLATE.PRIMARY_DARK
+									}}>{skill.charAt(0)}</span>
+									<span>{skill.slice(1)}</span>
+								</> : skill}
 								toClose={false}
-								styles={
-									{
-										'background-color': color
-									}
-								}
 							/>
 						))
 					}

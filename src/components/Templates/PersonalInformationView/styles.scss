@@ -27,7 +27,7 @@
     }
   }
 
-  &.default-blue, &.default-gray {
+  &.default-blue, &.default-gray, &.modern-red {
     .personalInformation-container {
       font-size: 1.2em;
 
@@ -52,6 +52,21 @@
       }
 
       .socialMediaLinks {
+      }
+    }
+  }
+
+  &.modern-red {
+    .personalInformation-container {
+      font-size: 0.9em;
+
+      .dob, .location, .contact, .website, .socialMediaLinks {
+        line-height: 20px;
+      }
+
+      .personalInformation-icon {
+        width: 15px;
+        padding-right: 5px;
       }
     }
   }

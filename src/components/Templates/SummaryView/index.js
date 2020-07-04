@@ -1,27 +1,35 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
+import DefaultBlueSummary from "./DefaultBlueSummary";
+import ModernRedSummary from "./ModernRedSummary";
+
 
 const SummaryView = ({summaryInformation, theme}) => {
+
+	const SummaryComponent = useCallback(
+		() => {
+			switch (theme) {
+				case "default-blue":
+				case "default-gray":
+					return <DefaultBlueSummary
+						summaryInformation={summaryInformation}
+					/>
+				case "modern-red":
+					return <ModernRedSummary
+						summaryInformation={summaryInformation}
+					/>
+				default:
+					return <></>
+			}
+		},
+		[theme]
+	)
 	return (
 		<td className={`summary-container ${theme}`}>
-			<span className="spacer medium"/>
-			<table className="inner-table">
-				<tr className="section-header-container">
-					<h4 className="section-header">
-						Summary/Objective
-					</h4>
-				</tr>
-				<span className="spacer small"/>
-				<tr className="section">
-					<div className="summary">
-						{
-							summaryInformation
-						}
-					</div>
-				</tr>
-			</table>
-			<span className="spacer large"/>
+			{
+				SummaryComponent()
+			}
 		</td>
 	)
 };
