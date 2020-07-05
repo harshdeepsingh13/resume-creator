@@ -75,7 +75,25 @@
   }
 
   &.modern-red {
+    position: relative;
+
+    .header-design {
+      position: absolute;
+      width: 860px;
+      height: 135px;
+      background-image: url("/assets/images/modern-red/modern-red-header-02.png");
+      background-repeat: no-repeat;
+      background-size: 860px;
+      z-index: -1;
+      top: 0;
+    }
+
+    .useravatar-container, .userDetails-container{
+      padding-top: 50px;
+    }
+
     .useravatar-container {
+
       img {
         width: 100px;
         border: 2px solid map_get($modern-red, primary);

@@ -36,7 +36,7 @@ const ModernRedTemplate = ({completeInformation: information}) => {
 						fileName={`${getItem().name.split(' ').join('_')}.pdf`}
 						ref={resumeRef}
 						scale={0.7}
-						margin={"4mm"}
+						margin={"1mm 4mm"}
 					>
 						<table className="template-table">
 							<tbody>

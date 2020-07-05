@@ -15,6 +15,7 @@ const ModernRedResumeHeader = ({
 
 	return <>
 		<td className="useravatar-container left-side">
+			<span className="header-design"/>
 			<img
 				src={getCloudinaryImageLink(basicInformation.avatar.uploadId)}
 				alt="User Avatar"
