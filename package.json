@@ -57,9 +57,9 @@
     "dev:build-server": "NODE_ENV=development webpack --config webpack.server.js --mode=development -w",
     "dev:start": "MODE=dev nodemon ./server-build/index.js",
     "dev": "npm-run-all --parallel build dev:*",
-    "prod:build-server": "NODE_ENV=production webpack --config webpack.server.js --mode=development -w",
+    "prod:build-server": "NODE_ENV=production webpack --config webpack.server.js --mode=production -w",
     "prod:start": "node ./server-build/index.js",
-    "start": "npm run build && npm run prod:build-server && npm run prod:start"
+    "start": "npm run prod:build-server && npm run prod:start"
   },
   "eslintConfig": {
     "extends": "react-app"
