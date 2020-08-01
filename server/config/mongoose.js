@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 const {logger, mongodbConnectionURL} = config;
 
 export default () => {
-	logger.info(`${mongodbConnectionURL}`);
 	mongoose.connect(mongodbConnectionURL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
 		.then(r => logger.info("Connection with DB is successful."))
 		.catch(err => logger.error(`Error in connecting with DB - ${err}`));
