@@ -4,7 +4,7 @@ const {combine, timestamp, printf, colorize} = format;
 const myFormat = printf(({level, message, label, timestamp}) => {
 	return `${level} [${timestamp}] ${message}`;
 });
-let mongodbConnectionURL = 'mongodb://localhost:27017/resume-creator';
+let mongodbConnectionURL = 'mongodb://database:27017/resume-creator';
 
 if (process.env.MODE === 'herokudev' || process.env.MODE === 'prod') {
 	mongodbConnectionURL = process.env.MONGODB_URI;
