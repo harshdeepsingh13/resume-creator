@@ -5,6 +5,7 @@ volumes:
 
 services:
   web:
+    command: npm run dev:start
     build: .
     depends_on:
       - database
@@ -17,6 +18,8 @@ services:
     restart: always
     environment:
       - MONGO_INITDB_DATABASE=resume-creator
+    #      - MONGO_INITDB_HOST=127.0.0.1
+    #      - MONGO_INITDB_PORT=27017
     volumes:
       - database_data:/data/db
     ports:

@@ -56,9 +56,12 @@
     "eject": "react-scripts eject",
     "dev:build-server": "NODE_ENV=development webpack --config webpack.server.js --mode=development -w",
     "dev:start": "MODE=dev nodemon ./server-build/index.js",
+    "dev:docker-build": "docker build -t react:app .",
+    "dev:docker-compose": "docker-compose up",
+    "dev:docker-compose-build": "docker-compose up --build",
     "dev": "npm run build && npm run dev:start",
     "prod:build-server": "webpack --config webpack.server.js --mode=production",
-    "prod:start": "node ./server-build/index.js",
+    "prod:start": "MODE=prod node ./server-build/index.js",
     "start": "npm run prod:start"
   },
   "eslintConfig": {
@@ -75,5 +78,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
