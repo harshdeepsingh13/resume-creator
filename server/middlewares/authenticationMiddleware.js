@@ -34,7 +34,7 @@ export default async (req, res, next) => {
 			next(new Error());
 		}
 		try {
-			const {email} = getPayload(req.headers.authentication.split('Bearer ')[0]);
+			const {email} = getPayload(req.headers.authentication.split('Bearer ')[1]);
 			const user = await getUser(email);
 			if (!user) {
 				req.error = {

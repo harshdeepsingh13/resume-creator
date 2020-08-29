@@ -5,7 +5,7 @@ import {getToken} from "./cookies.service";
 const axiosInstance = (token = getToken()) => {
 	const ai = axios.create();
 	ai.interceptors.request.use(config => {
-		config.headers.authentication = token;
+		config.headers.authentication = `Bearer ${token}`;
 		return config;
 	});
 	return ai;
