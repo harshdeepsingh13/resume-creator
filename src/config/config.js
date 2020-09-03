@@ -1,4 +1,4 @@
-console.log("process.env from config", process.env);
+console.log("process.env from config", process.env.REACT_APP_CLOUDINARY_USER_AVATAR);
 
 module.exports = {
 	STYLE_CONSTANTS: {

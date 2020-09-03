@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Redirect, Route, Switch} from "react-router-dom";
 import routes from "./config/routes";
 import Header from "./components/Header";
+import './config/config';
 
 const AppRouter = props => {
 	console.log("process.env", process.env);
