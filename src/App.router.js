@@ -5,6 +5,7 @@ import routes from "./config/routes";
 import Header from "./components/Header";
 
 const AppRouter = props => {
+	console.log("process.env", process.env);
 	return (
 		<>
 			<Header/>
