@@ -1,3 +1,5 @@
+console.log("process.env from config", process.env);
+
 module.exports = {
 	STYLE_CONSTANTS: {
 		BASIC_COLORS: {
