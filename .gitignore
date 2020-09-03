@@ -217,4 +217,6 @@ dbdump/
 
 dev_api.log
 
+dev.env
+
 # End of https://www.gitignore.io/api/node,react,webstorm,visualstudiocode

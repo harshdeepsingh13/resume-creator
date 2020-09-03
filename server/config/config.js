@@ -4,11 +4,8 @@ const {combine, timestamp, printf, colorize} = format;
 const myFormat = printf(({level, message, label, timestamp}) => {
 	return `${level} [${timestamp}] ${message}`;
 });
-let mongodbConnectionURL = 'mongodb://database:27017/resume-creator';
 
-if (process.env.MODE === 'herokudev' || process.env.MODE === 'prod') {
-	mongodbConnectionURL = process.env.MONGODB_URI;
-}
+let mongodbConnectionURL = process.env.MONGODB_URI;
 export default {
 	logger: winston.createLogger({
 		format: combine(
@@ -26,6 +23,6 @@ export default {
 	}),
 	mongodbConnectionURL,
 	cloudinary: {
-		defaultResponseURL: "https://res.cloudinary.com/harshdeep-singh/resumeCreator/"
+		defaultResponseURL: process.env.CLOUDINARY_DEFAULT_RESPONSE_URL
 	}
 }
