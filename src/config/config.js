@@ -60,7 +60,7 @@ module.exports = {
 		CONTACT_NUMBER_NOT_VALID: 'Contact number entered is not valid',
 		NUMBER_OUT_OF_RANGE: 'the number entered is out of given range'
 	},
-	LOCAL_STORAGE_KEY: 'user',
+	LOCAL_STORAGE_KEY: process.env.REACT_APP_LOCAL_STORAGE_KEY,
 	STATUS: {
 		DEFAULT: "DEFAULT",
 		STARTED: "STARTED",
@@ -78,7 +78,7 @@ module.exports = {
 	MONTHS: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 	CLOUDINARY: {
 		RES_LINK: {
-			USER_AVATAR: 'https://res.cloudinary.com/harshdeep-singh/image/upload/v1569133686/resumeCreator/User%20Avatar/'
+			USER_AVATAR: process.env.REACT_APP_CLOUDINARY_USER_AVATAR
 		}
 	},
 	ICONS_PNG: {

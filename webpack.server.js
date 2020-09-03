@@ -1,5 +1,7 @@
 const path = require('path');
-const Dotenv = require('dotenv-webpack')
+const Dotenv = require('dotenv-webpack');
+
+console.log("webpack process.env.NODE_ENV", process.env.NODE_ENV)
 
 module.exports = {
 	entry: './server/index.js',
@@ -51,7 +53,7 @@ module.exports = {
 	},
 	plugins: [
 		new Dotenv(
-			{path: "./.env"}
+			{path: process.env.NODE_ENV === "development" ? "./dev.env" : "./.env"}
 		)
 	]
 }

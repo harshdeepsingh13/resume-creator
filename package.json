@@ -51,7 +51,8 @@
   },
   "scripts": {
     "react-start": "react-scripts start",
-    "build": "react-scripts build && webpack --config webpack.server.js --mode=production",
+    "build": "react-scripts build && NODE_ENV=production webpack --config webpack.server.js --mode=production",
+    "dev:build": "react-scripts build && NODE_ENV=development webpack --config webpack.server.js --mode=development",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev:build-server": "NODE_ENV=development webpack --config webpack.server.js --mode=development -w",
@@ -59,7 +60,7 @@
     "dev:docker-build": "docker build -t react:app .",
     "dev:docker-compose": "docker-compose up",
     "dev:docker-compose-build": "docker-compose up --build",
-    "dev": "npm run build && npm run dev:start",
+    "dev": "npm run dev:build && npm run dev:start",
     "prod:build-server": "webpack --config webpack.server.js --mode=production",
     "prod:start": "MODE=prod node ./server-build/index.js",
     "start": "npm run prod:start"
