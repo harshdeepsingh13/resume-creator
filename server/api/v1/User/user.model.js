@@ -335,7 +335,9 @@ export const updateProjectInformation = async (projects, email) => {
 					'projectsInformation.projects.$.endDate': project.endDate,
 					'projectsInformation.projects.$.isPresent': project.isPresent,
 					'projectsInformation.projects.$.summary': project.summary,
-					'projectsInformation.projects.$.link': project.link
+					'projectsInformation.projects.$.link': project.link,
+					'projectsInformation.projects.$.website': project.website,
+					'projectsInformation.projects.$.technologyStack': project.technologyStack
 				}
 			},
 			{

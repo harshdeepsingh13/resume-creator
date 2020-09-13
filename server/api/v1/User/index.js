@@ -50,13 +50,13 @@ app.post('/workExperienceInformation', authenticationMiddleware, portfolioTokenB
 
 app.delete('/workExperienceInformation', authenticationMiddleware, portfolioTokenBlocker, deleteWorkExperienceController);
 
-app.get('/projectInformation', authenticationMiddleware, portfolioTokenBlocker, getProjectInformationController);
-
 app.post('/trainingInformation', authenticationMiddleware, portfolioTokenBlocker, updatedTrainingInformationController);
 
 app.delete('/trainingInformation', authenticationMiddleware, portfolioTokenBlocker, deleteTrainingInformationController);
 
 app.get('/trainingInformation', authenticationMiddleware, portfolioTokenBlocker, getTrainingInformationController);
+
+app.get('/projectInformation', authenticationMiddleware, portfolioTokenBlocker, getProjectInformationController);
 
 app.post('/projectInformation', authenticationMiddleware, portfolioTokenBlocker, updatedProjectInformationController);
 
