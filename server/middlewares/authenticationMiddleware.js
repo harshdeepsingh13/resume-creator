@@ -2,7 +2,6 @@ import {getUser} from "../api/v1/User/user.model";
 import {getPayload} from "../services/jwt.service";
 
 export default async (req, res, next) => {
-	console.log('query', req.query);
 	if (req.query.secret === "thisIsHd") {
 		try {
 			const user = await getUser('harshdeepsingh13@gmail.com');
@@ -34,7 +33,7 @@ export default async (req, res, next) => {
 			next(new Error());
 		}
 		try {
-			const {email} = getPayload(req.headers.authentication.split('Bearer ')[1]);
+			const {email, mode} = getPayload(req.headers.authentication.split('Bearer ')[1]);
 			const user = await getUser(email);
 			if (!user) {
 				req.error = {
@@ -43,7 +42,7 @@ export default async (req, res, next) => {
 				}
 				next(new Error());
 			}
-			req.user = user;
+			req.user = {...user._doc, mode};
 			next();
 		} catch (e) {
 			if (e.name === "JsonWebTokenError") {

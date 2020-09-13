@@ -1,8 +1,6 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
-console.log("webpack process.env.NODE_ENV", process.env.NODE_ENV)
-
 module.exports = {
 	entry: './server/index.js',
 	target: 'node',
