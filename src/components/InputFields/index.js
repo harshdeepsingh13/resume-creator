@@ -116,38 +116,41 @@ export const InputText = React.forwardRef((props, ref) => {
 						}
 					}
 				/>
-				<input
-					type="text"
-					className="inputText"
-					name={name}
-					id={id}
-					onChange={handleChange}
-					placeholder={`${placeholder}${
-						required ?
-							'*' :
-							''
-					}`}
-					value={value}
-					disabled={disabled}
-					style={
-						{
-							...styles,
-							borderBottomColor: isError ?
-								'red' :
-								'',
-							color: isError ?
-								'red' :
-								'',
-							opacity: disabled ?
-								0.4 :
-								1,
-							pointerEvents: disabled ?
-								'none' :
-								'',
+				<div className="input-container">
+					<input
+						type="text"
+						className="inputText"
+						name={name}
+						id={id}
+						onChange={handleChange}
+						placeholder={`${placeholder}${
+							required ?
+								'*' :
+								''
+						}`}
+						value={value}
+						disabled={disabled}
+						style={
+							{
+								...styles,
+								borderBottomColor: isError ?
+									'red' :
+									'',
+								color: isError ?
+									'red' :
+									'',
+								opacity: disabled ?
+									0.4 :
+									1,
+								pointerEvents: disabled ?
+									'none' :
+									'',
+							}
 						}
-					}
-					ref={ref}
-				/>
+						ref={ref}
+					/>
+					<label htmlFor={id} className="field-label">{placeholder}</label>
+				</div>
 				{
 					canBeCanceled &&
 					<FontAwesomeIcon
@@ -303,40 +306,43 @@ export const InputDate = props => {
 						}
 					}
 				/>
-				<input
-					type="text"
-					onFocus={() => dateRef.current.type = completeDate ? 'date' : 'month'}
-					onBlur={() => dateRef.current.type = 'text'}
-					className="inputDate"
-					name={name}
-					id={id}
-					onChange={handleChange}
-					placeholder={`${placeholder}${
-						required ?
-							'*' :
-							''
-					}`}
-					value={value}
-					disabled={disabled}
-					style={
-						{
-							...styles,
-							borderBottomColor: isError ?
-								'red' :
-								'',
-							color: isError ?
-								'red' :
-								'',
-							opacity: disabled ?
-								0.4 :
-								1,
-							pointerEvents: disabled ?
-								'none' :
-								'',
+				<div className="input-container">
+					<input
+						type="text"
+						onFocus={() => dateRef.current.type = completeDate ? 'date' : 'month'}
+						onBlur={() => dateRef.current.type = 'text'}
+						className="inputDate"
+						name={name}
+						id={id}
+						onChange={handleChange}
+						placeholder={`${placeholder}${
+							required ?
+								'*' :
+								''
+						}`}
+						value={value}
+						disabled={disabled}
+						style={
+							{
+								...styles,
+								borderBottomColor: isError ?
+									'red' :
+									'',
+								color: isError ?
+									'red' :
+									'',
+								opacity: disabled ?
+									0.4 :
+									1,
+								pointerEvents: disabled ?
+									'none' :
+									'',
+							}
 						}
-					}
-					ref={dateRef}
-				/>
+						ref={dateRef}
+					/>
+					<label htmlFor={id} className="field-label">{placeholder}</label>
+				</div>
 			</div>
 			{
 				isError &&
@@ -467,39 +473,42 @@ export const InputNumber = props => {
 						}
 					}
 				/>
-				<input
-					type="number"
-					className="inputNumber"
-					name={name}
-					id={id}
-					onChange={handleChange}
-					placeholder={`${placeholder}${
-						required ?
-							'*' :
-							''
-					}`}
-					value={value}
-					disabled={disabled}
-					style={
-						{
-							...styles,
-							borderBottomColor: isError ?
-								'red' :
-								'',
-							color: isError ?
-								'red' :
-								'',
-							opacity: disabled ?
-								0.4 :
-								1,
-							pointerEvents: disabled ?
-								'none' :
+				<div className="input-container">
+					<input
+						type="number"
+						className="inputNumber"
+						name={name}
+						id={id}
+						onChange={handleChange}
+						placeholder={`${placeholder}${
+							required ?
+								'*' :
 								''
+						}`}
+						value={value}
+						disabled={disabled}
+						style={
+							{
+								...styles,
+								borderBottomColor: isError ?
+									'red' :
+									'',
+								color: isError ?
+									'red' :
+									'',
+								opacity: disabled ?
+									0.4 :
+									1,
+								pointerEvents: disabled ?
+									'none' :
+									''
+							}
 						}
-					}
-					min={minCap}
-					max={maxCap}
-				/>
+						min={minCap}
+						max={maxCap}
+					/>
+					<label htmlFor={id} className="field-label">{placeholder}</label>
+				</div>
 			</div>
 			{
 				isError &&
@@ -642,38 +651,41 @@ export const InputTextArea = (props) => {
 						}
 					}
 				/>
-				<textarea
-					className="inputTextArea"
-					name={name}
-					id={id}
-					onChange={handleChange}
-					placeholder={`${placeholder}${
-						required ?
-							'*' :
-							''
-					}`}
-					value={value}
-					disabled={disabled}
-					style={
-						{
-							...styles,
-							borderBottomColor: isError ?
-								'red' :
-								'',
-							color: isError ?
-								'red' :
-								'',
-							opacity: disabled ?
-								0.4 :
-								1,
-							pointerEvents: disabled ?
-								'none' :
+				<div className="input-container">
+					<textarea
+						className="inputTextArea"
+						name={name}
+						id={id}
+						onChange={handleChange}
+						placeholder={`${placeholder}${
+							required ?
+								'*' :
 								''
+						}`}
+						value={value}
+						disabled={disabled}
+						style={
+							{
+								...styles,
+								borderBottomColor: isError ?
+									'red' :
+									'',
+								color: isError ?
+									'red' :
+									'',
+								opacity: disabled ?
+									0.4 :
+									1,
+								pointerEvents: disabled ?
+									'none' :
+									''
+							}
 						}
-					}
-					rows={rows}
-					cols={cols}
-				/>
+						rows={rows}
+						cols={cols}
+					/>
+					<label htmlFor={id} className="field-label">{placeholder}</label>
+				</div>
 				<div className="characterCount">
 					{value.length}/{characterLimit}
 				</div>
@@ -818,41 +830,44 @@ export const InputEmail = (props) => {
 						}
 					}
 				/>
-				<input
-					type="email"
-					className={"inputEmail"}
-					name={name}
-					id={id}
-					placeholder={`${placeholder}${
-						required ?
-							'*' :
-							''
-					}`}
-					value={value}
-					onChange={handleChange}
-					onBlur={handleBlur}
-					disabled={disabled}
-					onKeyDown={handleKeyPress}
-					style={
-						{
-							...styles,
-							borderBottomColor: (isError) || (emailAvailability !== "ignore" &&
-								emailAvailability === "not available") ?
-								'red' :
-								'',
-							color: (isError) || (emailAvailability !== "ignore" &&
-								emailAvailability === "not available") ?
-								'red' :
-								'',
-							opacity: disabled ?
-								0.4 :
-								1,
-							pointerEvents: disabled ?
-								'none' :
-								'',
+				<div className="input-container">
+					<input
+						type="email"
+						className={"inputEmail"}
+						name={name}
+						id={id}
+						placeholder={`${placeholder}${
+							required ?
+								'*' :
+								''
+						}`}
+						value={value}
+						onChange={handleChange}
+						onBlur={handleBlur}
+						disabled={disabled}
+						onKeyDown={handleKeyPress}
+						style={
+							{
+								...styles,
+								borderBottomColor: (isError) || (emailAvailability !== "ignore" &&
+									emailAvailability === "not available") ?
+									'red' :
+									'',
+								color: (isError) || (emailAvailability !== "ignore" &&
+									emailAvailability === "not available") ?
+									'red' :
+									'',
+								opacity: disabled ?
+									0.4 :
+									1,
+								pointerEvents: disabled ?
+									'none' :
+									'',
+							}
 						}
-					}
-				/>
+					/>
+					<label htmlFor={id} className="field-label">{placeholder}</label>
+				</div>
 			</div>
 
 			{
@@ -1017,38 +1032,41 @@ export const InputPassword = (props) => {
 						}
 					}
 				/>
-				<input
-					type="password"
-					className="inputPassword"
-					name={name}
-					id={id}
-					placeholder={`${placeholder}${
-						required ?
-							'*' :
-							''
-					}`}
-					value={value}
-					disabled={disabled}
-					style={
-						{
-							...styles,
-							borderBottomColor: isError ?
-								'red' :
-								'',
-							color: isError ?
-								'red' :
-								'',
-							opacity: disabled ?
-								0.4 :
-								1,
-							pointerEvents: disabled ?
-								'none' :
+				<div className="input-container">
+					<input
+						type="password"
+						className="inputPassword"
+						name={name}
+						id={id}
+						placeholder={`${placeholder}${
+							required ?
+								'*' :
 								''
+						}`}
+						value={value}
+						disabled={disabled}
+						style={
+							{
+								...styles,
+								borderBottomColor: isError ?
+									'red' :
+									'',
+								color: isError ?
+									'red' :
+									'',
+								opacity: disabled ?
+									0.4 :
+									1,
+								pointerEvents: disabled ?
+									'none' :
+									''
+							}
 						}
-					}
-					onChange={handleChange}
-					onKeyDown={handleKeyPress}
-				/>
+						onChange={handleChange}
+						onKeyDown={handleKeyPress}
+					/>
+					<label htmlFor={id} className="field-label">{placeholder}</label>
+				</div>
 			</div>
 			{
 				isError &&
