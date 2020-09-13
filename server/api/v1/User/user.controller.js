@@ -66,7 +66,7 @@ export const loginController = async (req, res, next) => {
 				}
 			}
 		);
-		logger.info(`[ user.controller.js ]User with email as ${response.email} has been logged in `)
+		logger.info(`[ user.controller.js ]User with email as ${response.email} has been logged in, with mode ${mode}`)
 	} catch (e) {
 		next(e);
 	}
