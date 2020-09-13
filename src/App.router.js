@@ -31,7 +31,6 @@ const CustomRoute = ({
 	                     condition,
 	                     ...restProps
                      }) => {
-	console.log('props', fallbackRoute);
 	return (
 		<Route
 			{
