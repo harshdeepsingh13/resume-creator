@@ -51,7 +51,7 @@
   },
   "scripts": {
     "react-start": "react-scripts start",
-    "build": "react-scripts build && NODE_ENV=production ANOTHER=another webpack --config webpack.server.js --mode=production",
+    "build": "react-scripts build && NODE_ENV=production webpack --config webpack.server.js --mode=production",
     "dev:build": "react-scripts build && NODE_ENV=development webpack --config webpack.server.js --mode=development",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
