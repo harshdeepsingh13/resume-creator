@@ -6,7 +6,6 @@ import Header from "./components/Header";
 import './config/config';
 
 const AppRouter = props => {
-	console.log("process.env", process.env);
 	return (
 		<>
 			<Header/>
