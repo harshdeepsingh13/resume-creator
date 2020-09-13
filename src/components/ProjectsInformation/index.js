@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './styles.scss';
-import {InputDate, InputFields, InputSubmit, InputText, InputTextArea, InputToggle} from "../InputFields";
+import {InputDate, InputFields, InputSubmit, InputTags, InputText, InputTextArea, InputToggle} from "../InputFields";
 import {STATUS, STYLE_CONSTANTS} from "../../config/config";
 import Loader from "../Loader";
 import PropTypes from 'prop-types';
@@ -62,7 +62,9 @@ const ProjectsInformation = props => {
 							endDate: undefined,
 							isPresent: "false",
 							summary: undefined,
-							link: undefined
+							link: undefined,
+							website: undefined,
+							technologyStack: []
 						}
 					]
 				}
@@ -81,7 +83,9 @@ const ProjectsInformation = props => {
 						endDate: undefined,
 						isPresent: "false",
 						summary: undefined,
-						link: undefined
+						link: undefined,
+						website: undefined,
+						technologyStack: []
 					}
 				]
 			}
@@ -148,7 +152,8 @@ const ProjectsInformation = props => {
 											...project,
 											isPresent: project.isPresent.toString(),
 											startDate: new Date(project.startDate).toISOString().slice(0, 7),
-											endDate: project.endDate ? new Date(project.endDate).toISOString().slice(0, 7) : undefined
+											endDate: project.endDate ? new Date(project.endDate).toISOString().slice(0, 7) : undefined,
+											technologyStack: project.technologyStack || []
 										}
 									))
 								] :
@@ -159,7 +164,9 @@ const ProjectsInformation = props => {
 										endDate: undefined,
 										isPresent: "false",
 										summary: undefined,
-										link: undefined
+										link: undefined,
+										website: undefined,
+										technologyStack: []
 									}
 								]
 						}
@@ -231,6 +238,7 @@ const ProjectInstance = ({project, handleChange, handleClose, index}) => {
 					id={"name"}
 					name={"name"}
 					handleChange={event => handleChange(event, index)}
+					iconName={"signature"}
 					placeholder={"Name of the Project"}
 					value={project.name}
 				/>
@@ -268,9 +276,27 @@ const ProjectInstance = ({project, handleChange, handleClose, index}) => {
 					id={"link"}
 					name={"link"}
 					handleChange={event => handleChange(event, index)}
-					placeholder={"Link to the project"}
+					placeholder={"Link to the project repository"}
 					value={project.link}
+					iconName={['fab', 'github']}
 					checkValue={checkWebsiteLink}
+				/>
+				<InputText
+					id={"website"}
+					name={"website"}
+					handleChange={event => handleChange(event, index)}
+					placeholder={"Link to the website"}
+					iconName={"link"}
+					value={project.website}
+					checkValue={checkWebsiteLink}
+				/>
+				<InputTags
+					id={'technologyStack'}
+					name={'technologyStack'}
+					placeholder={'Technology Stack of the Project'}
+					iconName={"layer-group"}
+					handleChange={event => handleChange(event, index)}
+					value={project.technologyStack}
 				/>
 			</div>
 			<div className="close-container multiple-instances-close-container">

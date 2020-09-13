@@ -19,6 +19,12 @@ export default mongoose.Schema(
 		},
 		link: {
 			type: String
+		},
+		technologyStack: {
+			type: Array
+		},
+		website: {
+			type: String
 		}
 	},
 	{
