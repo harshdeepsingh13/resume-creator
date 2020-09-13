@@ -6,7 +6,9 @@ volumes:
 services:
   web:
     command: npm run dev:start
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     depends_on:
       - database
     ports:
