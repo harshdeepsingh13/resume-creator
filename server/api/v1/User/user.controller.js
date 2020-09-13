@@ -1,22 +1,25 @@
-import {getPayload, getToken} from "../../../services/jwt.service";
+import {getToken} from "../../../services/jwt.service";
 import {comparePassword, encryptPassword} from "../../../services/password.service";
 import {
-	getUser,
-	registerUser,
+	deleteEducationInformation,
+	deleteProject,
+	deleteTraining,
+	deleteWorkExperience,
 	getBasicInformation,
+	getCompleteInformation,
+	getEducationInformation,
+	getProjectInformation,
+	getSkillInformation,
+	getTrainingInformation,
+	getUser,
+	getWorkExperiences,
+	registerUser,
 	updateBasicInformation,
 	updateEducationInformation,
-	getEducationInformation,
-	updateSkillInformation,
-	getSkillInformation,
-	updateWorkExperiences,
-	getWorkExperiences,
-	getProjectInformation,
 	updateProjectInformation,
-	deleteProject,
-	deleteWorkExperience,
-	deleteEducationInformation,
-	getCompleteInformation, updateTrainingInformation, deleteTraining, getTrainingInformation
+	updateSkillInformation,
+	updateTrainingInformation,
+	updateWorkExperiences
 } from "./user.model";
 import config from '../../../config/config';
 import {getAvatarLink} from '../../../services/cloudinary.service';
@@ -27,7 +30,8 @@ const {logger} = config;
 export const loginController = async (req, res, next) => {
 	const {
 		email,
-		password
+		password,
+		mode = config.tokenModes.normal
 	} = req.body;
 
 	if (!email || !password) {
@@ -56,7 +60,8 @@ export const loginController = async (req, res, next) => {
 					avatar: getAvatarLink(response.avatar.uploadId),
 					token: getToken({
 						userId: response._id,
-						email: response.email
+						email: response.email,
+						mode
 					})
 				}
 			}

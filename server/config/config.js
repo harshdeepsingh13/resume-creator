@@ -24,5 +24,9 @@ export default {
 	mongodbConnectionURL,
 	cloudinary: {
 		defaultResponseURL: process.env.CLOUDINARY_DEFAULT_RESPONSE_URL
+	},
+	tokenModes: {
+		normal: "normal",
+		portfolio: "portfolio"
 	}
 }
