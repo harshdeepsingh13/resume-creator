@@ -44,7 +44,7 @@
       text-transform: capitalize;
       outline: none;
 
-      &.submit-loader{
+      &.submit-loader {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -100,6 +100,49 @@
       .characterCount {
         color: $bluey-grey;
         font-size: 13px;
+      }
+    }
+
+    .input-container {
+      position: relative;
+      width: 100%;
+
+      /*.inputText, .inputEmail, .inputPassword, .inputSelect, .inputTextArea, .inputNumber, .inputDate {
+        position: relative;
+      }*/
+
+      .inputText:placeholder-shown, .inputEmail:placeholder-shown, .inputPassword:placeholder-shown, .inputSelect:placeholder-shown, .inputTextArea:placeholder-shown, .inputNumber:placeholder-shown, .inputDate:placeholder-shown {
+        //position: relative;
+        + {
+          .field-label {
+            visibility: hidden;
+            z-index: -1;
+          }
+        }
+      }
+
+      .inputText:not(:placeholder-shown), .inputEmail:not(:placeholder-shown), .inputPassword:not(:placeholder-shown), .inputSelect:not(:placeholder-shown), .inputTextArea:not(:placeholder-shown), .inputNumber:not(:placeholder-shown), .inputDate:not(:placeholder-shown) {
+        //position: relative;
+        + {
+          .field-label {
+            visibility: visible;
+            z-index: 1;
+            opacity: 1;
+            transform: translateY(-18px);
+          }
+        }
+      }
+
+      .field-label {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        top: 7px;
+        border: unset;
+        text-transform: unset;
+        color: $primary-orange;
+        transition: all 0.5s ease-out;
+        font-size: 12px;
       }
     }
 
