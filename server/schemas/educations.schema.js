@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 export default mongoose.Schema(
 	{
+		user:{
+			type: String,
+			required: true,
+			index: true
+		},
 		type: {
 			type: String,
 			enum: ['secondary', 'seniorSecondary', 'graduation', 'postGraduation'],
@@ -13,7 +18,8 @@ export default mongoose.Schema(
 			type: String
 		},
 		startDate: {
-			type: Date
+			type: Date,
+			default: Date.now()
 		},
 		endDate: {
 			type: Date

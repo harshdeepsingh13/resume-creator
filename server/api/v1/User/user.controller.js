@@ -264,13 +264,13 @@ export const updateWorkExperiencesController = async (req, res, next) => {
 
 export const getWorkExperiencesController = async (req, res, next) => {
 	try {
-		const {workExperienceInformation} = await getWorkExperiences(req.user.email);
+		const workExperiences = await getWorkExperiences(req.user.email);
 		res.status(200).json(
 			{
 				status: 200,
 				message: "data successfully retrieved",
 				data: {
-					workExperiences: workExperienceInformation.workExperiences
+					workExperiences
 				}
 			}
 		)
@@ -281,13 +281,13 @@ export const getWorkExperiencesController = async (req, res, next) => {
 
 export const getProjectInformationController = async (req, res, next) => {
 	try {
-		const {projectsInformation} = await getProjectInformation(req.user.email);
+		const projects = await getProjectInformation(req.user.email);
 		res.status(200).json(
 			{
 				status: 200,
 				message: "data successfully retrieved",
 				data: {
-					projects: projectsInformation ? projectsInformation.projects : [] // correct this before commenting.
+					projects
 				}
 			}
 		)
@@ -324,14 +324,12 @@ export const deleteProjectInformationController = async (req, res, next) => {
 			};
 			next(new Error());
 		}
-		const {projectsInformation} = await deleteProject(projectId, req.user.email);
+		const projects = await deleteProject(projectId, req.user.email);
 		res.status(200).json(
 			{
 				status: 200,
 				message: "delete successful",
-				data: [
-					...projectsInformation.projects
-				]
+				data: projects
 			}
 		);
 	} catch (e) {
@@ -349,14 +347,12 @@ export const deleteWorkExperienceController = async (req, res, next) => {
 			};
 			next(new Error());
 		}
-		const {workExperienceInformation} = await deleteWorkExperience(workExperienceId, req.user.email);
+		const workExperiences = await deleteWorkExperience(workExperienceId, req.user.email);
 		res.status(200).json(
 			{
 				status: 200,
 				message: "delete successful",
-				data: [
-					...workExperienceInformation.workExperiences
-				]
+				data: workExperiences
 			}
 		)
 	} catch (e) {
@@ -374,14 +370,12 @@ export const deleteEducationInformationController = async (req, res, next) => {
 			};
 			next(new Error());
 		}
-		const {educationInformation} = await deleteEducationInformation(educationId, req.user.email);
+		const educations = await deleteEducationInformation(educationId, req.user.email);
 		res.status(200).json(
 			{
 				status: 200,
 				message: 'delete successful',
-				data: [
-					...educationInformation.educations
-				]
+				data: educations
 
 			}
 		)
@@ -435,14 +429,12 @@ export const deleteTrainingInformationController = async (req, res, next) => {
 			};
 			next(new Error());
 		}
-		const {trainingInformation} = await deleteTraining(trainingId, req.user.email);
+		const trainings = await deleteTraining(trainingId, req.user.email);
 		res.status(200).json(
 			{
 				status: 200,
 				message: "delete successful",
-				data: [
-					...trainingInformation.trainings
-				]
+				data: trainings
 			}
 		);
 	} catch (e) {
@@ -452,13 +444,13 @@ export const deleteTrainingInformationController = async (req, res, next) => {
 
 export const getTrainingInformationController = async (req, res, next) => {
 	try {
-		const {trainingInformation} = await getTrainingInformation(req.user.email);
+		const trainings = await getTrainingInformation(req.user.email);
 		res.status(200).json(
 			{
 				status: 200,
 				message: "data successfully retrieved",
 				data: {
-					trainings: trainingInformation ? trainingInformation.trainings : [] // correct this before commenting.
+					trainings
 				}
 			}
 		)

@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 import UserSchema from '../../../schemas/user.schema';
+import EducationsSchema from "../../../schemas/educations.schema";
+import WorkExperienceSchema from "../../../schemas/workExperience.schema";
+import ProjectSchema from "../../../schemas/project.schema";
+import TrainingSchema from '../../../schemas/trainings.schema';
 
 const basicInformationProjection = {
 	_id: 0,
@@ -43,6 +47,10 @@ const trainingsProjection = {
 };
 
 const User = mongoose.model("User", UserSchema);
+const WorkExperience = mongoose.model("WorkExperience", WorkExperienceSchema);
+const EducationDetail = mongoose.model("EducationDetail", EducationsSchema);
+const Project = mongoose.model("Project", ProjectSchema);
+const Training = mongoose.model("Training", TrainingSchema);
 
 export const registerUser = user => {
 	const newUser = new User({...user});
@@ -113,87 +121,38 @@ export const updateBasicInformation = (userEmail, basicInformation) => {
 };
 
 export const updateEducationInformation = async (email, educationInformation) => {
-	/*const updateObject = {
-		educationInformation: {
-			educations:[...educationInformation]
-		}
-	}*/
-	const updated = {};
+	const updated = [];
 	educationInformation = educationInformation.map(education => {
 		if (education.type === 'postGraduation') education.priority = 0;
 		if (education.type === 'graduation') education.priority = 1;
 		if (education.type === 'seniorSecondary') education.priority = 2;
 		if (education.type === 'secondary') education.priority = 3;
-		console.log('education', education);
+		if (!education._id) education._id = new mongoose.Types.ObjectId();
 		return education
 	});
-	const toUpdate = educationInformation.filter(education => education._id);
-	const toPush = educationInformation.filter(education => !education._id);
 
-	for (let educationDetail of toUpdate) {
-		const updatedRecord = await User.findOneAndUpdate(
-			{
-				email,
-				'educationInformation.educations._id': educationDetail._id
-			},
-			{
-				$set: {
-					'educationInformation.educations.$.isPercentage': educationDetail.isPercentage,
-					'educationInformation.educations.$.isPresent': educationDetail.isPresent,
-					'educationInformation.educations.$.isCGPA': educationDetail.isCGPA,
-					'educationInformation.educations.$.type': educationDetail.type,
-					'educationInformation.educations.$.instituteName': educationDetail.instituteName,
-					'educationInformation.educations.$.university': educationDetail.university,
-					'educationInformation.educations.$.startDate': educationDetail.startDate,
-					'educationInformation.educations.$.endDate': educationDetail.endDate,
-					'educationInformation.educations.$.score': educationDetail.score
-				}
-			},
-			{
-				new: true,
-				fields: {...educationInformationProjection},
-				useFindAndModify: false
-			}
+	for (let education of educationInformation) {
+		const updatedRecord = await EducationDetail.findOneAndUpdate(
+			{user: email, _id: education._id},
+			{...education},
+			{upsert: true, new: true, useFindAndModify: false}
 		);
-		updatedRecord && updatedRecord.educationInformation.educations.forEach(record => updated[record._id] = record);
+		updated.push(updatedRecord);
 	}
-	for (let educationDetail of toPush) {
-		const updatedRecord = await User.findOneAndUpdate(
-			{
-				email
-			},
-			{
-				$push: {
-					'educationInformation.educations': {
-						...educationDetail
-					}
-				}
-			},
-			{
-				new: true,
-				fields: {...educationInformationProjection},
-				runValidators: true,
-				useFindAndModify: false
-			}
-		);
-		updatedRecord && updatedRecord.educationInformation.educations.forEach(record => updated[record._id] = record);
-	}
-	return Object.entries(updated).map(([, value]) => value);
+	return updated;
 };
 
 export const getEducationInformation = async email => {
-	const educationInformation = await User.findOne(
+	const educationInformation = await EducationDetail.find(
 		{
-			email
+			user: email
 		},
+		{},
 		{
-			...educationInformationProjection
+			sort: {priority: 1}
 		}
 	);
-	educationInformation.educationInformation.educations.sort((education_one, education_two) => {
-		return education_one.priority - education_two.priority
-	});
-	return educationInformation;
+	return {educationInformation: {educations: [...educationInformation]}};
 };
 
 export const updateSkillInformation = (skills, email) =>
@@ -222,276 +181,153 @@ export const getSkillInformation = email =>
 	);
 
 export const updateWorkExperiences = async (workExperiences, email) => {
-	const toUpdate = workExperiences.filter(workExperience => workExperience._id);
-	const toPush = workExperiences.filter(workExperience => !workExperience._id);
-	const updated = {};
+	const updated = [];
 
-	for (let workExperience of toUpdate) {
-		const updatedRecord = await User.findOneAndUpdate(
+	for (let workExperience of workExperiences) {
+		if (!workExperience._id) workExperience._id = new mongoose.Types.ObjectId();
+		const updatedRecord = await WorkExperience.findOneAndUpdate(
 			{
-				email,
-				'workExperienceInformation.workExperiences._id': workExperience._id
+				user: email,
+				_id: workExperience._id
 			},
 			{
-				$set: {
-					'workExperienceInformation.workExperiences.$.company': workExperience.company,
-					'workExperienceInformation.workExperiences.$.position': workExperience.position,
-					'workExperienceInformation.workExperiences.$.startDate': workExperience.startDate,
-					'workExperienceInformation.workExperiences.$.endDate': workExperience.endDate,
-					'workExperienceInformation.workExperiences.$.isPresent': workExperience.isPresent,
-					'workExperienceInformation.workExperiences.$.responsibilities': workExperience.responsibilities,
-					'workExperienceInformation.workExperiences.$.location': workExperience.location
-				}
+				...workExperience,
 			},
 			{
 				new: true,
-				fields: {...workExperienceProjection},
+				upsert: true,
 				useFindAndModify: false
 			}
 		);
-		updatedRecord && updatedRecord.workExperienceInformation.workExperiences.forEach(record => updated[record._id] = record);
+		updated.push(updatedRecord);
 	}
-	for (let workExperience of toPush) {
-		const updatedRecord = await User.findOneAndUpdate(
-			{
-				email
-			},
-			{
-				$push: {
-					'workExperienceInformation.workExperiences': {
-						...workExperience
-					}
-				}
-			},
-			{
-				new: true,
-				useFindAndModify: false,
-				fields: {...workExperienceProjection},
-				runValidators: true
-			}
-		);
-		updatedRecord && updatedRecord.workExperienceInformation.workExperiences.forEach(record => updated[record._id] = record);
-	}
-	return Object.entries(updated).map(([, value]) => value);
+	return updated;
 };
 
 export const getWorkExperiences = email =>
-	User.findOne(
+	WorkExperience.find(
 		{
-			email
+			user: email
 		},
+		{},
 		{
-			...workExperienceProjection
+			sort: {startDate: -1}
 		}
 	);
 
 
 export const getProjectInformation = email =>
-	User.findOne(
+	Project.find(
 		{
-			email
+			user: email
 		},
+		{},
 		{
-			...projectsProjection
+			sort: {startDate: -1}
 		}
 	);
 
 export const updateProjectInformation = async (projects, email) => {
-	const updated = {};
-	const toPush = projects.filter(project => !project._id);
-	const toUpdate = projects.filter(project => project._id);
+	const updated = [];
 
-	for (let project of toPush) {
-		const updatedRecord = await User.findOneAndUpdate(
+	for (let project of projects) {
+		if (!project._id) project._id = new mongoose.Types.ObjectId();
+		const updatedRecord = await Project.findOneAndUpdate(
 			{
-				email
+				user: email,
+				_id: project._id
 			},
 			{
-				$push: {
-					'projectsInformation.projects': {
-						...project
-					}
-				}
-			},
-			{
-				new: true,
-				useFindAndModify: false,
-				runValidators: true,
-				fields: {...projectsProjection}
-			}
-		);
-		updatedRecord && updatedRecord.projectsInformation.projects.forEach(record => updated[record._id] = record)
-	}
-	for (let project of toUpdate) {
-		const updatedRecord = await User.findOneAndUpdate(
-			{
-				email,
-				'projectsInformation.projects._id': project._id
-			},
-			{
-				$set: {
-					'projectsInformation.projects.$.name': project.name,
-					'projectsInformation.projects.$.startDate': project.startDate,
-					'projectsInformation.projects.$.endDate': project.endDate,
-					'projectsInformation.projects.$.isPresent': project.isPresent,
-					'projectsInformation.projects.$.summary': project.summary,
-					'projectsInformation.projects.$.link': project.link,
-					'projectsInformation.projects.$.website': project.website,
-					'projectsInformation.projects.$.technologyStack': project.technologyStack
-				}
+				...project
 			},
 			{
 				new: true,
 				useFindAndModify: false,
-				fields: {
-					...projectsProjection
-				}
+				upsert: true
 			}
 		);
-		updatedRecord && updatedRecord.projectsInformation.projects.forEach(record => updated[record._id] = record)
+		updated.push(updatedRecord);
 	}
-	return Object.entries(updated).map(([, value]) => value);
+	return updated;
 };
 
 export const getTrainingInformation = email =>
-	User.findOne(
+	Training.find(
 		{
-			email
+			user: email
 		},
+		{},
 		{
-			...trainingsProjection
+			sort: {startDate: -1}
 		}
 	);
 
 export const updateTrainingInformation = async (trainings, email) => {
-	const updated = {};
-	const toPush = trainings.filter(project => !project._id);
-	const toUpdate = trainings.filter(project => project._id);
+	const updated = [];
 
-	for (let training of toPush) {
-		const updatedRecord = await User.findOneAndUpdate(
+	for (let training of trainings) {
+		if (!training._id) training._id = new mongoose.Types.ObjectId();
+		const updatedRecord = await Training.findOneAndUpdate(
 			{
-				email
+				user: email,
+				_id: training._id
 			},
 			{
-				$push: {
-					'trainingInformation.trainings': {
-						...training
-					}
-				}
-			},
-			{
-				new: true,
-				useFindAndModify: false,
-				runValidators: true,
-				fields: {...trainingsProjection}
-			}
-		);
-		updatedRecord && updatedRecord.trainingInformation.trainings.forEach(record => updated[record._id] = record)
-	}
-	for (let training of toUpdate) {
-		const updatedRecord = await User.findOneAndUpdate(
-			{
-				email,
-				'trainingInformation.trainings._id': training._id
-			},
-			{
-				$set: {
-					'trainingInformation.trainings.$.name': training.name,
-					'trainingInformation.trainings.$.startDate': training.startDate,
-					'trainingInformation.trainings.$.endDate': training.endDate,
-					'trainingInformation.trainings.$.isPresent': training.isPresent,
-					'trainingInformation.trainings.$.summary': training.summary,
-					'trainingInformation.trainings.$.link': training.link
-				}
+				...training
 			},
 			{
 				new: true,
 				useFindAndModify: false,
-				fields: {
-					...trainingsProjection
-				}
+				upsert: true
 			}
 		);
-		updatedRecord && updatedRecord.trainingInformation.trainings.forEach(record => updated[record._id] = record)
+		updated.push(updatedRecord);
 	}
-	return Object.entries(updated).map(([, value]) => value);
+	return updated;
 };
 
 export const deleteTraining = (trainingId, email) =>
-	User.findOneAndUpdate(
+	Training.findOneAndDelete(
 		{
-			email
+			user: email,
+			_id: trainingId
 		},
 		{
-			$pull: {
-				'trainingInformation.trainings': {
-					_id: trainingId
-				}
-			}
-		},
-		{
-			new: true,
 			useFindAndModify: false,
-			fields: {...trainingsProjection}
 		}
 	);
 
 
 export const deleteProject = (projectId, email) =>
-	User.findOneAndUpdate(
+	Project.findOneAndDelete(
 		{
-			email
+			user: email,
+			_id: projectId
 		},
 		{
-			$pull: {
-				'projectsInformation.projects': {
-					_id: projectId
-				}
-			}
-		},
-		{
-			new: true,
 			useFindAndModify: false,
-			fields: {...projectsProjection}
 		}
 	);
 
 export const deleteWorkExperience = (workExperienceId, email) =>
-	User.findOneAndUpdate(
+	WorkExperience.findOneAndDelete(
 		{
-			email
+			user: email,
+			_id: workExperienceId
 		},
 		{
-			$pull: {
-				'workExperienceInformation.workExperiences': {
-					_id: workExperienceId
-				}
-			}
-		},
-		{
-			new: true,
-			useFindAndModify: false,
-			fields: {...workExperienceProjection}
+			useFindAndModify: false
 		}
 	);
 
 export const deleteEducationInformation = (educationId, email) =>
-	User.findOneAndUpdate(
+	EducationDetail.findOneAndDelete(
 		{
-			email
+			_id: educationId,
+			user: email
 		},
 		{
-			$pull: {
-				'educationInformation.educations': {
-					_id: educationId
-				}
-			}
-		},
-		{
-			new: true,
 			useFindAndModify: false,
-			fields: {...educationInformationProjection}
 		}
 	);
 
