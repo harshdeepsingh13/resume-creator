@@ -335,7 +335,7 @@ export const getCompleteInformation = async email => ({
 	basicInformation: await getBasicInformation(email),
 	educationInformation: await getEducationInformation(email),
 	skillsInformation: await getSkillInformation(email),
-	workExperienceInformation: await getWorkExperiences(email),
-	trainingInformation: await getTrainingInformation(email),
-	projects: await getProjectInformation(email)
+	workExperienceInformation: {workExperienceInformation: {workExperiences: await getWorkExperiences(email)}},
+	trainingInformation: {trainingInformation: {trainings: await getTrainingInformation(email)}},
+	projects: {projectsInformation: {projects: await getProjectInformation(email)}}
 });
