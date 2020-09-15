@@ -219,4 +219,6 @@ dev_api.log
 
 dev.env
 
+migration/
+
 # End of https://www.gitignore.io/api/node,react,webstorm,visualstudiocode
