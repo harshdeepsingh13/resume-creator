@@ -232,7 +232,7 @@ const WorkExperienceInstance = ({workExperience, index, handleClose, handleChang
 		<div className="workExperience multiple-instances">
 			<div className="workExperienceFields-container multiple-instances-fields">
 				<InputText
-					id={'company'}
+					id={`workExperienceInformation-${index}-company`}
 					name={'company'}
 					placeholder={"Company Name"}
 					value={workExperience.company}
@@ -240,7 +240,7 @@ const WorkExperienceInstance = ({workExperience, index, handleClose, handleChang
 					iconName={['far', 'building']}
 				/>
 				<InputText
-					id={"position"}
+					id={`workExperienceInformation-${index}-position`}
 					name={"position"}
 					placeholder={"Your position in the organization"}
 					value={workExperience.position}
@@ -248,7 +248,7 @@ const WorkExperienceInstance = ({workExperience, index, handleClose, handleChang
 					iconName={'crosshairs'}
 				/>
 				<InputDate
-					id={"startDate"}
+					id={`workExperienceInformation-${index}-startDate`}
 					name={"startDate"}
 					placeholder={"Start date of employment"}
 					value={workExperience.startDate}
@@ -256,7 +256,7 @@ const WorkExperienceInstance = ({workExperience, index, handleClose, handleChang
 					completeDate={true}
 				/>
 				<InputDate
-					id={"endDate"}
+					id={`workExperienceInformation-${index}-endDate`}
 					name={"endDate"}
 					placeholder={"End date of employment"}
 					value={workExperience.endDate}
@@ -265,14 +265,14 @@ const WorkExperienceInstance = ({workExperience, index, handleClose, handleChang
 					completeDate={true}
 				/>
 				<InputToggle
-					id={"isPresent"}
+					id={`workExperienceInformation-${index}-isPresent`}
 					name={"isPresent"}
 					placeholder={"still working here?"}
 					value={workExperience.isPresent === "true"}
 					handleChange={(event) => handleChange(event, index)}
 				/>
 				<InputTextArea
-					id={"responsibilities"}
+					id={`workExperienceInformation-${index}-responsibilities`}
 					name={"responsibilities"}
 					placeholder={"Describe your role/responsibilities in the organization"}
 					value={workExperience.responsibilities}
@@ -281,7 +281,7 @@ const WorkExperienceInstance = ({workExperience, index, handleClose, handleChang
 					iconName={['fab', 'superpowers']}
 				/>
 				<InputText
-					id={'location'}
+					id={`workExperienceInformation-${index}-location`}
 					name={'location'}
 					placeholder={'Working location (City, State, Country)'}
 					value={workExperience.location}

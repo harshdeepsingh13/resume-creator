@@ -1,4 +1,5 @@
 @import "../../App";
+@import "../../scorllBars";
 
 .universalTabs-container {
   width: 80%;
@@ -6,19 +7,23 @@
   background-color: white;
   box-shadow: $box-shadow;
   border-radius: $border-radius;
-  overflow: hidden;
 
   .tabs {
 
     .tabsHeader-container {
       display: flex;
-      justify-content: space-around;
+      //justify-content: space-around;
       background-color: $grey-light-bb;
+      overflow-x: auto;
+      @include scrollbars(7px, $grey-dark-bb, $grey-light-bb);
 
       .tabHeader {
+        white-space: nowrap;
         line-height: 40px;
         cursor: pointer;
-        width: 100%;
+        flex-basis: 100%;
+        padding: 0 30px;
+        //min-width: 150px;
         border-radius: $border-radius;
         transition: background-color $transition-time;
         -moz-user-select: none;

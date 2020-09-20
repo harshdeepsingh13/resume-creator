@@ -278,7 +278,7 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 		<div className="education-container multiple-instances">
 			<div className="educationFields-container multiple-instances-fields">
 				<InputSelect
-					id={'type'}
+					id={`educationInformation-${index}-${Math.random()}-type`}
 					name={'type'}
 					iconName={"book-open"}
 					value={education.type}
@@ -311,7 +311,7 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 					}
 				/>
 				<InputText
-					id={'instituteName'}
+					id={`educationInformation-${index}-${Math.random()}-instituteName`}
 					name={'instituteName'}
 					iconName={"school"}
 					handleChange={(event) => handleChange(event, index)}
@@ -319,7 +319,7 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 					value={education.instituteName}
 				/>
 				<InputText
-					id={"university"}
+					id={`educationInformation-${index}-${Math.random()}-university`}
 					name={"university"}
 					iconName={"university"}
 					handleChange={(event) => handleChange(event, index)}
@@ -327,7 +327,7 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 					value={education.university}
 				/>
 				<InputDate
-					id={"startDate"}
+					id={`educationInformation-${index}-${Math.random()}-startDate`}
 					name={"startDate"}
 					handleChange={(event) => handleChange(event, index)}
 					placeholder={"Start date of the course"}
@@ -335,7 +335,7 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 					completeDate={false}
 				/>
 				<InputDate
-					id={"endDate"}
+					id={`educationInformation-${index}-${Math.random()}-endDate`}
 					name={"endDate"}
 					handleChange={(event) => handleChange(event, index)}
 					placeholder={"End date of the course"}
@@ -344,14 +344,14 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 					completeDate={false}
 				/>
 				<InputToggle
-					id={'isPresent'}
+					id={`educationInformation-${index}-${Math.random()}-isPresent`}
 					name={'isPresent'}
 					handleChange={(event) => handleChange(event, index)}
 					placeholder={"Present?"}
 					value={education.isPresent === 'true'}
 				/>
 				<InputText
-					id={'course'}
+					id={`educationInformation-${index}-${Math.random()}-course`}
 					name={'course'}
 					iconName={"book"}
 					handleChange={(event) => handleChange(event, index)}
@@ -360,7 +360,7 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 					disabled={education.type === 'secondary'}
 				/>
 				<InputNumber
-					id={'score'}
+					id={`educationInformation-${index}-${Math.random()}-score`}
 					name={'score'}
 					iconName={"star-half-alt"}
 					handleChange={(event) => handleChange(event, index)}
@@ -382,14 +382,14 @@ const EducationInstance = ({education, index, handleChange, handleClose}) => {
 					}}
 				/>
 				<InputToggle
-					id={"isPercentage"}
+					id={`educationInformation-${index}-${Math.random()}-isPercentage`}
 					name={"isPercentage"}
 					handleChange={(event) => handleChange(event, index)}
 					value={education.isPercentage === "true"}
 					placeholder={'Percentage'}
 				/>
 				<InputToggle
-					id={"isCGPA"}
+					id={`educationInformation-${index}-${Math.random()}-isCGPA`}
 					name={"isCGPA"}
 					handleChange={(event) => handleChange(event, index)}
 					value={education.isCGPA === "true"}

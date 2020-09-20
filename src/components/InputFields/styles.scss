@@ -136,8 +136,10 @@
       .field-label {
         display: block;
         position: absolute;
+        padding: unset;
+        margin: unset;
         opacity: 0;
-        top: 7px;
+        top: 15px;
         border: unset;
         text-transform: unset;
         color: $primary-orange;

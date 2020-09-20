@@ -1,4 +1,5 @@
 @import "./App";
+@import "./scorllBars";
 
 body {
   margin: 0;
@@ -8,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $grey-light-bb;
-
+  @include scrollbars(7px, $grey-dark-bb, $grey-light-bb)
 }
 
 code {

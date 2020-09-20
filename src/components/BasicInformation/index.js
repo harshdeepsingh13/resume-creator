@@ -219,6 +219,7 @@ const BasicInformation = props => {
 						value={basicInformation.dob}
 						handleChange={handleChange}
 						placeholder={"Date of birth"}
+						completeDate={true}
 					/>
 					<InputTextArea
 						id={"objective"}

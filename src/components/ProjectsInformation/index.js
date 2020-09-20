@@ -235,7 +235,7 @@ const ProjectInstance = ({project, handleChange, handleClose, index}) => {
 		<div className="projectInstance-container multiple-instances">
 			<div className="projectInstanceFields-container multiple-instances-fields">
 				<InputText
-					id={"name"}
+					id={`projectsInformation-${index}-name`}
 					name={"name"}
 					handleChange={event => handleChange(event, index)}
 					iconName={"signature"}
@@ -243,14 +243,14 @@ const ProjectInstance = ({project, handleChange, handleClose, index}) => {
 					value={project.name}
 				/>
 				<InputDate
-					id={"startDate"}
+					id={`projectsInformation-${index}-startDate`}
 					name={"startDate"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"Start Date"}
 					value={project.startDate}
 				/>
 				<InputDate
-					id={"endDate"}
+					id={`projectsInformation-${index}-endDate`}
 					name={"endDate"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"End Date"}
@@ -258,14 +258,14 @@ const ProjectInstance = ({project, handleChange, handleClose, index}) => {
 					disabled={project.isPresent === "true"}
 				/>
 				<InputToggle
-					id={"isPresent"}
+					id={`projectsInformation-${index}-isPresent`}
 					name={"isPresent"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"Still in development?"}
 					value={project.isPresent === "true"}
 				/>
 				<InputTextArea
-					id={"summary"}
+					id={`projectsInformation-${index}-summary`}
 					name={"summary"}
 					characterLimit={2000}
 					handleChange={event => handleChange(event, index)}
@@ -273,7 +273,7 @@ const ProjectInstance = ({project, handleChange, handleClose, index}) => {
 					value={project.summary}
 				/>
 				<InputText
-					id={"link"}
+					id={`projectsInformation-${index}-link`}
 					name={"link"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"Link to the project repository"}
@@ -282,7 +282,7 @@ const ProjectInstance = ({project, handleChange, handleClose, index}) => {
 					checkValue={checkWebsiteLink}
 				/>
 				<InputText
-					id={"website"}
+					id={`projectsInformation-${index}-website`}
 					name={"website"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"Link to the website"}
@@ -291,7 +291,7 @@ const ProjectInstance = ({project, handleChange, handleClose, index}) => {
 					checkValue={checkWebsiteLink}
 				/>
 				<InputTags
-					id={'technologyStack'}
+					id={`projectsInformation-${index}-technologyStack`}
 					name={'technologyStack'}
 					placeholder={'Technology Stack of the Project'}
 					iconName={"layer-group"}

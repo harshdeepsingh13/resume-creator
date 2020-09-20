@@ -55,7 +55,7 @@ const AllDetails = props => {
 				}
 				styles={
 					{
-						width: '80%'
+						width: '70%'
 					}
 				}
 			/>

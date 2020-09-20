@@ -217,14 +217,14 @@ const TrainingInstance = ({training, handleChange, handleClose, index}) => {
 		<div className="trainingInstance-container multiple-instances">
 			<div className="projectInstanceFields-container multiple-instances-fields">
 				<InputText
-					id={"name"}
+					id={`trainingInformation-${index}-name`}
 					name={"name"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"Name of the Training/Certification"}
 					value={training.name}
 				/>
 				<InputDate
-					id={"startDate"}
+					id={`trainingInformation-${index}-startDate`}
 					name={"startDate"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"Start Date"}
@@ -232,7 +232,7 @@ const TrainingInstance = ({training, handleChange, handleClose, index}) => {
 					completeDate={true}
 				/>
 				<InputDate
-					id={"endDate"}
+					id={`trainingInformation-${index}-endDate`}
 					name={"endDate"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"End Date"}
@@ -240,7 +240,7 @@ const TrainingInstance = ({training, handleChange, handleClose, index}) => {
 					completeDate={true}
 				/>
 				<InputTextArea
-					id={"summary"}
+					id={`trainingInformation-${index}-summary`}
 					name={"summary"}
 					characterLimit={1000}
 					handleChange={event => handleChange(event, index)}
@@ -248,7 +248,7 @@ const TrainingInstance = ({training, handleChange, handleClose, index}) => {
 					value={training.summary}
 				/>
 				<InputText
-					id={"link"}
+					id={`trainingInformation-${index}-link`}
 					name={"link"}
 					handleChange={event => handleChange(event, index)}
 					placeholder={"Link to the certification"}
