@@ -14,7 +14,6 @@ import TrainingInformationView from "../TrainingInformationView";
 import PersonalInformationView from "../PersonalInformationView";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faCircleNotch} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 library.add(faCircleNotch)
 
@@ -94,6 +93,16 @@ const ModernRedTemplate = ({completeInformation: information}) => {
 												</tr> :
 												undefined
 										}
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td className="left-side">
+									<table className="inner-table">
+									</table>
+								</td>
+								<td className="right-side">
+									<table className="inner-table">
 										{
 											information.workExperienceInformation.workExperienceInformation.workExperiences.length ?
 												<tr>
@@ -104,6 +113,16 @@ const ModernRedTemplate = ({completeInformation: information}) => {
 												</tr> :
 												undefined
 										}
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td className="left-side">
+									<table className="inner-table">
+									</table>
+								</td>
+								<td className="right-side">
+									<table className="inner-table">
 										{
 											information.trainingInformation.trainingInformation.trainings.length ?
 												<tr>

@@ -1,9 +1,8 @@
 @import "../../../App";
 @import "../templates_styles";
 
-.projectInformationView-container {
+.projectInformationView {
   .project-container {
-
     .nameDuration-container {
       .name {
 
@@ -12,22 +11,20 @@
       .duration {
 
       }
-
     }
 
     .summary {
-
+      text-align: justify;
     }
 
-    .link {
+    .link-container {
 
     }
-
   }
 
   &.default-blue, &.default-gray, &.modern-red {
-    .project-container {
 
+    .project-container {
       border-bottom: thin solid $grey-dark-bb;
       font-size: 1.2em;
 
@@ -36,6 +33,7 @@
 
         .name {
           font-weight: bold;
+          width: 70%;
         }
 
         .duration {
@@ -43,18 +41,31 @@
           font-style: italic;
           font-size: 0.85em;
         }
-
       }
 
       .summary {
-        text-align: left;
       }
 
-      .link {
-
+      .link-container {
+        text-align: right;
+        font-style: italic;
+        line-height: 20px;
       }
-
     }
+
   }
 
+  &.modern-red {
+    .project-container {
+      .nameDuration-container {
+        font-size: 1.03em;
+        padding: 3px 0;
+
+        .duration {
+          color: map_get($modern-red, primary);
+          font-size: 0.7em;
+        }
+      }
+    }
+  }
 }
