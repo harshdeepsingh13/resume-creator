@@ -16,12 +16,12 @@ const ModernRedResumeHeader = ({
 	return <>
 		<td className="useravatar-container left-side">
 			<span className="header-design"/>
-			<img
+			<span className="userAvatarImage-container"><img
 				src={getCloudinaryImageLink(basicInformation.avatar.uploadId)}
 				alt="User Avatar"
 				onLoad={handleAvatarOnLoad}
 				style={{display: isAvatarReady ? "" : "none"}}
-			/>
+			/></span>
 		</td>
 		<td className="right-side userDetails-container">
 			<table className="inner-table">

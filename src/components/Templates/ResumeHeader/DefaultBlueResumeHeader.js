@@ -12,12 +12,12 @@ const DefaultBlueResumeHeader = ({theme, basicInformation}) => {
 	return (
 		<>
 			<td className="useravatar-container">
-				<img
+				<span className="userAvatarImage-container"><img
 					src={getCloudinaryImageLink(basicInformation.avatar.uploadId)}
 					alt="User Avatar"
 					onLoad={handleAvatarOnLoad}
 					style={{display: isAvatarReady ? "" : "none"}}
-				/>
+				/></span>
 			</td>
 			<td>
 				<table className="inner-table">

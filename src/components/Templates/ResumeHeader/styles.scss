@@ -50,9 +50,12 @@
     .useravatar-container {
       width: auto !important;
 
-      img {
-        width: 100px;
+      .userAvatarImage-container {
         margin: 3px 7px;
+
+        img {
+          width: 100%;
+        }
       }
     }
   }
@@ -67,9 +70,12 @@
     .useravatar-container {
       width: auto !important;
 
-      img {
-        width: 100px;
+      .userAvatarImage-container {
         margin: 3px 7px;
+
+        img {
+          width: 100%;
+        }
       }
     }
   }
@@ -88,19 +94,18 @@
       top: 0;
     }
 
-    .useravatar-container, .userDetails-container{
+    .useravatar-container, .userDetails-container {
       padding-top: 50px;
     }
 
     .useravatar-container {
-
-      img {
-        width: 100px;
-        border: 2px solid map_get($modern-red, primary);
+      .userAvatarImage-container {
+        border: 4px solid map_get($modern-red, primary);
         border-radius: 100px 100px 0 100px;
-        padding: 2px;
-        overflow: hidden;
-        background-color: opacify(map_get($modern-red, cream-yellow), 0.7);
+
+        img {
+          width: 100%;
+        }
       }
     }
 
@@ -131,6 +136,13 @@
       .location {
       }
     }
+  }
+
+  .userAvatarImage-container {
+    display: inline-block;
+    width: 100px;
+    height: 110px;
+    overflow: hidden;
   }
 
 }

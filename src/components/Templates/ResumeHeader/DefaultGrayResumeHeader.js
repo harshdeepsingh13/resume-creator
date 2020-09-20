@@ -16,12 +16,14 @@ const DefaultGrayResumeHeader = ({
 	return (
 		<>
 			<td className="useravatar-container">
+				<span className="userAvatarImage-container">
 				<img
 					src={getCloudinaryImageLink(basicInformation.avatar.uploadId)}
 					alt="User Avatar"
 					onLoad={handleAvatarOnLoad}
 					style={{display: isAvatarReady ? "" : "none"}}
 				/>
+				</span>
 			</td>
 			<td>
 				<table className="inner-table">
