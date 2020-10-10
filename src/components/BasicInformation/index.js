@@ -296,12 +296,6 @@ const BasicInformation = props => {
 							handleChange={handleChange}
 							iconName={"heart"}
 						/>
-
-						<div style={{color: 'red'}}>
-							{
-								JSON.stringify(basicInformation.socialMediaLinks)
-							}
-						</div>
 						{
 							Object.entries(basicInformation.socialMediaLinks)
 								.map(([socialMediaKey, socialMediaValue]) =>
